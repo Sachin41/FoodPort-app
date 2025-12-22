@@ -1,0 +1,20 @@
+/* restaurant menu css */
+
+.restaurant-menu {
+    /* display: flex;
+    justify-content: center;
+    width: 100%; */
+    /* max-width: 700px;
+    margin: 50px 20px;
+    padding: 40px; */
+    /* background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(96, 96, 96, 0.1); */
+}
+
+.restaurant-menu .restaurant-card a {
+    cursor: none;
+}
+.restaurant-menu .restaurant-card .restaurant-logo{
+        min-width: auto;
+}
