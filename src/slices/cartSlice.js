@@ -12,21 +12,34 @@ const cartSlice = createSlice({
             } else {
                 state.cartItems[id] = { item: action.payload, quantity: 1 }
             }
+            localStorage.setItem("cart", JSON.stringify(state.cartItems));
         },
         removeItemsToCart(state, action) {
             const { id } = action.payload;
-            state.totalItems>0? state.totalItems-= 1: state.totalItems= 0 ;
-            if (state.cartItems[id].quantity > 1) {                
+            state.totalItems > 0 ? state.totalItems -= 1 : state.totalItems = 0;
+            if (state.cartItems[id].quantity > 1) {
                 state.cartItems[id].quantity -= 1
+                localStorage.setItem("cart", JSON.stringify(state.cartItems));
             } else {
                 delete state.cartItems[id];
+                localStorage.removeItem("cart");
             }
         },
         clearCart(state) {
             state.totalItems = 0;
-            state.cartItems = {}
+            state.cartItems = {};
+            localStorage.removeItem("cart");
+        },
+        setCartFromStorage: (state, action) => {
+            const storedCart = action.payload || {};
+            state.cartItems = storedCart;
+            // ✅ Recalculate totalItems
+            state.totalItems = Object.values(storedCart).reduce(
+                (sum, item) => sum + item.quantity,
+                0
+            );
         }
     }
 })
-export const { addItemsToCart, removeItemsToCart, clearCart } = cartSlice.actions;
+export const { addItemsToCart, removeItemsToCart, clearCart, setCartFromStorage } = cartSlice.actions;
 export default cartSlice.reducer;

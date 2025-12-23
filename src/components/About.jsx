@@ -29,7 +29,7 @@ class About extends React.Component {
     render() {
         console.log("component render method called");
         return (
-            <div className='about-container w-[100%]'>
+            <div className='about-container w-[85%]'>
                 <div className="text-center py-8">
                     <button className='text-white !bg-[#d97919] !text-[1.2rem] font-semibold py-2.5 px-5 border-none outline-none rounded-[5px] cursor-pointer hover:!bg-[darkgreen] transition-all 0.3s ease-in-out' onClickCapture={this.toggleUser}>
                         {this.state.showUser ? 'Hide Profile' : 'Show Profile'}

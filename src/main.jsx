@@ -10,9 +10,10 @@ import RestaurantMenu from './components/RestaurantMenu.jsx'
 import Login from './components/login.jsx'
 import User from './components/User.jsx'
 import Shimmer from './components/shimmer.jsx'
-import Cart from './components/Cart.jsx'
+// import Cart from './components/Cart.jsx'
 const About = lazy(() => import("./components/About"));
 const Body = lazy(() => import("./components/Body"));
+const Cart = lazy(() => import("./components/Cart"));
 
 
 const appRouter = createBrowserRouter([
@@ -32,7 +33,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: (
-          <Suspense fallback={<h1 className="text-3xl font-bold">Loading...</h1>}>
+          <Suspense fallback={<div className='flex  h-[calc(100vh-250px)]  items-center'><h1 className="text-3xl font-bold">Loading...</h1></div>}>
             <About />
           </Suspense>
         ),
@@ -53,7 +54,10 @@ const appRouter = createBrowserRouter([
       },
             {
         path: "/cart",
-        element: <Cart />
+        element: (
+            <Suspense fallback={<div className='flex  h-[calc(100vh-250px)]  items-center'><h1 className="text-3xl font-bold">Loading...</h1></div>}>
+              <Cart />
+            </Suspense>)
       }
     ]
   },

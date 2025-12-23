@@ -34,7 +34,7 @@ function RestaurantMenu() {
           alt={name}
         />
 
-        <div className="flex flex-col justify-center gap-[5px">
+        <div className="flex flex-col justify-center gap-[5px]">
           <p className="text-[25px] font-bold">{name}</p>
           <h3 className="text-[#bcbcbc] font-semibold text-[17px]">
             {locality}
@@ -56,7 +56,7 @@ function RestaurantMenu() {
               </span>
             </div>
             <span>|</span>
-            <span className="time">{sla?.slaString}</span>
+            <span className="time">{sla?.deliveryTime-5}-{sla?.deliveryTime} Mins</span>
           </h4>
         </div>
       </div>

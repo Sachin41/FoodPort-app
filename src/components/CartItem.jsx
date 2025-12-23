@@ -16,7 +16,7 @@ const CartItem = ({ details }) => {
     }
 
     return (
-            <div className='flex justify-between items-center gap-[50px] py-[20px] border-b border-[#5b5b5b] last:border-b-0' >
+            <div className='flex justify-between items-center gap-[50px] py-[10px] border-b border-[#5b5b5b] last:border-b-0' >
                 <div className="flex gap-[30px] w-[75%]">
                     <img
                         className="w-[90px] h-[60px] object-cover rounded-[8px]"
@@ -29,7 +29,7 @@ const CartItem = ({ details }) => {
                         <p className="font-semibold text-gray-600">{price}</p>
                     </div>
                 </div>
-                <div className="flex">
+                <div className="flex items-center justify-between">
                     <div className="border text-sm border-[#5b5b5b] !bg-white text-green-600 font-semibold rounded-md flex items-center justify-between">
                         <button className="!rounded-r-none !bg-white !px-[8px] !py-[4px] cursor-pointer border-none hover:bg-gray-300 hover:text-green-800 transition-all 0.3s"
                             onClick={() => handleRemoveFromCart(details.item)}>
@@ -39,7 +39,7 @@ const CartItem = ({ details }) => {
                         <button className="!rounded-l-none !bg-white !px-[8px] !py-[4px] cursor-pointer border-none hover:bg-gray-300 hover:text-green-800 transition-all 0.3s"
                             onClick={() => handleAddToCart(details.item)}>+</button>
                     </div>
-
+                    <p className="font-semibold text-black ml-6">₹{Number(price.replace("₹", ""))*quantity}</p>
                 </div>
             </div>
     )
