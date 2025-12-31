@@ -1,15 +1,13 @@
-import React from 'react'
-class User extends React.Component{
-    render(){
-        return (
-            <div>Profile: {this.props.name} </div>
-        )
-    }
+import { useAuth } from '../utils/AuthContext';
+
+function User() {
+    const {user} = useAuth();
+    return (
+        <div>
+            <h2 className='!text-xl font-bold'>{user?.userName}</h2>
+            <h3 className='!text-xl font-bold'>{user?.email}</h3>
+        </div>
+    )
 }
-// function User({name}) {
-//   return (
-//     <div>Profile: {name} </div>
-//   )
-// }
 
 export default User

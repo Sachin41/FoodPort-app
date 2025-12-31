@@ -41,7 +41,7 @@ class About extends React.Component {
                     <div className="about-left">
                         <h1 className='!text-[60px] text-[#494949] font-bold'>
                             Welcome to <br /> The world of <br />
-                            <span className='text-white bg-[#d97919] rounded-[15px] 
+                            <span className='text-white bg-[#253772] rounded-[15px] 
                             px-[15px] py-[5px] !leading-[100px]'>Tasty & Fresh Food</span>
                         </h1>
                         <h4 className='!text-[22px] mt-[10px] italic font-semibold'>

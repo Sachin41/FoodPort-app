@@ -60,7 +60,7 @@ class UserClass extends React.Component {
                         <li>CSS</li>
                         <li>JavaScript</li>
                         <li>React</li>
-                        <li>Node</li>
+                        <li>Redux</li>
                         <li>MongoDB</li>
                     </ul>
                 </div>

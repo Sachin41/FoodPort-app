@@ -1,45 +1,50 @@
-import React, { useEffect } from 'react'
-import "../styles/login.css"
+import React from 'react'
 import { Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
-import { useAuth } from "../utils/AuthContext";
-// import { useDispatch, useSelector } from 'react-redux';
-
-
-const Login = () => {
-  const { login } = useAuth();
-  //  const users = useSelector((store) => store.user.usersData);
-  //  console.log("users", users);
+import { useDispatch } from 'react-redux';
+const Signup = () => {
   const navigate = useNavigate();
+  //   const dispatch = useDispatch();
+  
+  const checkUserExists = (userName) => {
+    const existVal = localStorage.getItem("users");
+    const dataArr = existVal ? JSON.parse(existVal) : [];
+    return dataArr.some(user => user.userName === userName);
+  };
+
   const handleNavigate = (values, { setSubmitting }) => {
     try {
-      console.log("login", values)
+      console.log(values);
+      const existVal = localStorage.getItem("users");
+      const dataArr = existVal ? JSON.parse(existVal) : [];
+      dataArr.push(values);
+      localStorage.setItem('users', JSON.stringify(dataArr));
+      console.log("saved user", dataArr);
       // console.log("storage", JSON.parse(localStorage.getItem("users")));
-      const savedUsers = JSON.parse(localStorage.getItem("users"));
-      if (savedUsers?.length > 0 && savedUsers.some((user) => user.email === values.email && user.password === values.password)) {
-        const loginUser = savedUsers.filter((user) => user.email === values.email && user.password === values.password);
-        console.log("login user", loginUser);
-        login(loginUser[0]);
-        alert(`Login Success: ${JSON.stringify(values, null, 2)}`);
-        navigate("/");
-      }
-      else {
-        alert("Login failed, retry with correct email/password:", values.email);
-        setTimeout(() => {
-          setSubmitting(false);
-        }, 10);
-      }
+      alert(`Signup Success: ${JSON.stringify(values, null, 2)}`);
+      // resetForm();
+        navigate("/login");  
     } catch (error) {
       console.error("Signup error:", error);
     } finally {
       setSubmitting(false);
     }
+  };
 
-
-  }
-  const loginSchema = Yup.object({
+  const signupSchema = Yup.object({
+    userName: Yup.string()
+      .required("User Name is required")
+      .min(3, "Username must be at least 3 characters")
+      .test(
+        "unique-username",
+        "Username already exists",
+        function (value) {
+          if (!value) return true; // required handles empty
+          return !checkUserExists(value);
+        }
+      ),
     email: Yup.string()
       .required("Email is required")
       .email("Invalid email format"),
@@ -53,9 +58,9 @@ const Login = () => {
       <div className="login-form flex items-center justify-center 
     bg-white shadow-lg rounded-2xl p-8 my-8 w-full max-w-md">
         <Formik
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ userName: '', email: '', password: '' }}
           onSubmit={handleNavigate}
-          validationSchema={loginSchema}
+          validationSchema={signupSchema}
         >
           {({
             isSubmitting,
@@ -67,8 +72,17 @@ const Login = () => {
             handleSubmit
           }) => (
             <form className='w-full' noValidate onSubmit={handleSubmit}>
-              <h2 className='text-4xl font-bold text-center text-gray-800 !mb-6'>LOGIN</h2>
+              <h2 className='text-4xl font-bold text-center text-gray-800 !mb-6'>Signup</h2>
               <div>
+                <label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
+                  User Name
+                </label>
+                <input type="text" name="userName" id="userName" value={values.userName}
+                  className='w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
+                  onChange={handleChange} onBlur={handleBlur} placeholder='Enter User name' />
+                <p style={{ color: "red" }}>{touched.userName && errors.userName}</p>
+              </div>
+              <div className='my-2'>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email
                 </label>
@@ -77,7 +91,7 @@ const Login = () => {
                   onChange={handleChange} onBlur={handleBlur} placeholder='Enter your email' />
                 <p style={{ color: "red" }}>{touched.email && errors.email}</p>
               </div>
-              <div className='my-4'>
+              <div className='my-2'>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
                   Password
                 </label>
@@ -87,13 +101,13 @@ const Login = () => {
                 />
                 <p style={{ color: "red" }}>{touched.password && errors.password}</p>
               </div>
-              <button className='w-full !bg-[#273a6e] hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition duration-200'
+              <button className='w-full !bg-[#273a6e] hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition duration-200 mt-2'
                 type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Logining..." : "Login"}
+                {isSubmitting ? "Registering..." : "Signup"}
               </button>
               <p className='text-md font-semibold mt-4'>
-                Don’t have an account?
-                <Link to="/signup"> Signup</Link>
+                Already have an account?
+                <Link to="/login"> Login</Link>
               </p>
             </form>
           )}
@@ -104,4 +118,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Signup

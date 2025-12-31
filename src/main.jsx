@@ -10,10 +10,13 @@ import RestaurantMenu from './components/RestaurantMenu.jsx'
 import Login from './components/login.jsx'
 import User from './components/User.jsx'
 import Shimmer from './components/shimmer.jsx'
-// import Cart from './components/Cart.jsx'
+import Signup from './components/Signup.jsx'
+import ProtectedRoute from './utils/ProtectedRoute.jsx';
+import { AuthProvider } from './utils/AuthContext.jsx';
+import Cart from './components/Cart.jsx'
 const About = lazy(() => import("./components/About"));
 const Body = lazy(() => import("./components/Body"));
-const Cart = lazy(() => import("./components/Cart"));
+// const Cart = lazy(() => import("./components/Cart"));
 
 
 const appRouter = createBrowserRouter([
@@ -36,28 +39,33 @@ const appRouter = createBrowserRouter([
           <Suspense fallback={<div className='flex  h-[calc(100vh-250px)]  items-center'><h1 className="text-3xl font-bold">Loading...</h1></div>}>
             <About />
           </Suspense>
-        ),
-        children: [
-          {
-            path: "user",
-            element: <User />
-          }
-        ]
+        )
       },
       {
         path: "/contact",
         element: <Contact />
       },
       {
+        path: "/user",
+        element: (
+          <ProtectedRoute>
+            <User />
+          </ProtectedRoute>
+        )
+      },
+      {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />
       },
-            {
+      {
         path: "/cart",
         element: (
-            <Suspense fallback={<div className='flex  h-[calc(100vh-250px)]  items-center'><h1 className="text-3xl font-bold">Loading...</h1></div>}>
-              <Cart />
-            </Suspense>)
+          <ProtectedRoute>
+            <Cart />
+          </ProtectedRoute>
+          // <Suspense fallback={<div className='flex  h-[calc(100vh-250px)]  items-center'><h1 className="text-3xl font-bold">Loading...</h1></div>}>
+          //  </Suspense>
+        )
       }
     ]
   },
@@ -65,12 +73,18 @@ const appRouter = createBrowserRouter([
     path: "/login",
     element: <Login />
   },
+  {
+    path: "/signup",
+    element: <Signup />
+  }
 
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={appRouter} />
+    <AuthProvider>
+      <RouterProvider router={appRouter} />
     {/* <App /> */}
+    </AuthProvider>
   </StrictMode>
 )
