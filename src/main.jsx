@@ -11,12 +11,13 @@ import Login from './components/login.jsx'
 import User from './components/User.jsx'
 import Shimmer from './components/shimmer.jsx'
 import Signup from './components/Signup.jsx'
-import ProtectedRoute from './utils/ProtectedRoute.jsx';
-import { AuthProvider } from './utils/AuthContext.jsx';
-import Cart from './components/Cart.jsx'
+import { Provider } from 'react-redux';
+import appStore from './store/appStore'
+// import Cart from './components/Cart.jsx'
+import { requireAuth } from './utils/authGuard.js'
 const About = lazy(() => import("./components/About"));
 const Body = lazy(() => import("./components/Body"));
-// const Cart = lazy(() => import("./components/Cart"));
+const Cart = lazy(() => import("./components/Cart"));
 
 
 const appRouter = createBrowserRouter([
@@ -45,27 +46,24 @@ const appRouter = createBrowserRouter([
         path: "/contact",
         element: <Contact />
       },
-      {
+           // 🔐 PROTECTED ROUTES GROUP
+       {
         path: "/user",
-        element: (
-          <ProtectedRoute>
-            <User />
-          </ProtectedRoute>
-        )
+        element: <User />,
+        loader: requireAuth,
+      },
+      {
+        path: "/cart",
+        element:(
+          <Suspense fallback={<div className='flex  h-[calc(100vh-250px)]  items-center'><h1 className="text-3xl font-bold">Loading...</h1></div>}>
+           <Cart />
+          </Suspense>
+          ),
+        loader: requireAuth,
       },
       {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />
-      },
-      {
-        path: "/cart",
-        element: (
-          <ProtectedRoute>
-            <Cart />
-          </ProtectedRoute>
-          // <Suspense fallback={<div className='flex  h-[calc(100vh-250px)]  items-center'><h1 className="text-3xl font-bold">Loading...</h1></div>}>
-          //  </Suspense>
-        )
       }
     ]
   },
@@ -82,9 +80,9 @@ const appRouter = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
+    <Provider store={appStore}>
       <RouterProvider router={appRouter} />
+    </Provider>
     {/* <App /> */}
-    </AuthProvider>
   </StrictMode>
 )

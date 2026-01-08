@@ -3,7 +3,7 @@ import RestaurantMenuItemList from './RestaurantMenuItemList'
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { RiArrowDownSLine } from "react-icons/ri";
 
-const RestaurantMenuCategory = ({data, showMenuItems, setShowIndex }) => {
+const RestaurantMenuCategory = ({restInfo, data, showMenuItems, setShowIndex }) => {
   return (
       <div className="w-full shadow-md px-[20px] bg-gray-50 rounded-md py-[10px] my-[30px]">
         {/* Category Header */}
@@ -20,7 +20,7 @@ const RestaurantMenuCategory = ({data, showMenuItems, setShowIndex }) => {
         </div>
 
         {/* Category Body */}
-        {showMenuItems && <RestaurantMenuItemList items={data?.itemCards} />}
+        {showMenuItems && <RestaurantMenuItemList restInfo= {restInfo} items={data?.itemCards} />}
       </div>
   )
 }

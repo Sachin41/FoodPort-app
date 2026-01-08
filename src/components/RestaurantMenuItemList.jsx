@@ -1,19 +1,61 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addItemsToCart, removeItemsToCart } from '../slices/cartSlice';
+import { addItemsToCart, removeItemsToCart, clearCart, setCartFromStorage } from '../slices/cartSlice';
 // import { IMAGE_CDN_URL } from '../config/constant';
 
-const RestaurantMenuItemList = ({ items }) => {
+const RestaurantMenuItemList = ({ restInfo, items }) => {
+    const user = useSelector((store) => store.auth.user);
+    const isAuthenticated = useSelector(
+        (store) => store.auth.isAuthenticated
+    );
+    useEffect(() => {
+        if (!user) {
+            dispatch(setCartFromStorage({}))
+        }
+    }, [isAuthenticated])
+    const { restId, restName } = restInfo;
+    console.log(restId, "Restaurant Id", restName);
     const dispatch = useDispatch();
     const cart = useSelector((store) => store.cart.cartItems);
     const cartItems = Object.values(cart);
+    const checkCart = (cartItems, restId, restName) => {
+        if (Object.keys(cartItems).length) {
+            const restaurantId = cartItems?.[0]?.item?.id?.split("_")?.[0];
+            console.log(restaurantId, "Restaurant Id");
+            if (restId !== restaurantId) {
+                if (confirm(`Your cart contain dishesh from another restaurant. Do you want to discard selection and add dishesh from ${restName} restaurant`)) {
+                    dispatch(clearCart(clearCart({ userKey: `cart_${user.email}` })));
+                    return true;
+                } else return false
+            }
+        }
+        return true;
+    }
+
     const handleRemoveFromCart = (item) => {
         console.log("remove to cart clicked");
-        dispatch(removeItemsToCart(item))
+
+        dispatch(removeItemsToCart({
+            ...item,
+            id: item.id,
+            userKey: `cart_${user.email}`,
+        }))
     }
     const handleAddToCart = (item) => {
         console.log("add to cart clicked");
-        dispatch(addItemsToCart(item))
+        if (!user) {
+            alert("Login required");
+            return;
+        }
+        const proceed = checkCart(cartItems, restId, restName);
+        return proceed ?
+            dispatch(
+                addItemsToCart({
+                    ...item,
+                    id: item.id,
+                    userKey: `cart_${user.email}`,
+                })
+            ) : false;
     }
 
     return (
@@ -21,7 +63,7 @@ const RestaurantMenuItemList = ({ items }) => {
             {items?.map((item, ind) => {
                 const { id, name, price, imageId, description } = item?.card?.info;
                 const cartItem = cartItems.find(cartItem => cartItem.item.id === id)
-                { console.log("id:", id) }
+                { console.log("id what:", id) }
                 // { console.log("cart Item:", cartItem.item) }
                 return (
                     <div key={id} className={`flex justify-between items-center gap-[50px] py-[20px] ${ind === items.length - 1 ? ' ' : 'border-b border-[#5b5b5b]'}`} >
@@ -49,7 +91,7 @@ const RestaurantMenuItemList = ({ items }) => {
                                             </button>
                                             <span className="px-2">{cartItem.quantity}</span>
                                             <button className="!rounded-l-none !bg-white px-[12px] py-[5px] cursor-pointer border-none hover:bg-gray-300 hover:text-green-800 transition-all 0.3s"
-                                             onClick={() => handleAddToCart(cartItem.item)}>+</button>
+                                                onClick={() => handleAddToCart(cartItem.item)}>+</button>
                                         </div>
                                     )
                                     : (

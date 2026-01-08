@@ -4,24 +4,23 @@ import { Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
-import { useAuth } from "../utils/AuthContext";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../slices/authSlice";
+// import { useAuth } from "../utils/AuthContext";
 // import { useDispatch, useSelector } from 'react-redux';
 
 
 const Login = () => {
-  const { login } = useAuth();
-  //  const users = useSelector((store) => store.user.usersData);
-  //  console.log("users", users);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleNavigate = (values, { setSubmitting }) => {
     try {
       console.log("login", values)
-      // console.log("storage", JSON.parse(localStorage.getItem("users")));
       const savedUsers = JSON.parse(localStorage.getItem("users"));
       if (savedUsers?.length > 0 && savedUsers.some((user) => user.email === values.email && user.password === values.password)) {
-        const loginUser = savedUsers.filter((user) => user.email === values.email && user.password === values.password);
-        console.log("login user", loginUser);
-        login(loginUser[0]);
+        const login_user = savedUsers.filter((user) => user.email === values.email && user.password === values.password);
+        console.log("login user", login_user);
+        dispatch(loginUser(login_user[0]));
         alert(`Login Success: ${JSON.stringify(values, null, 2)}`);
         navigate("/");
       }
@@ -32,7 +31,7 @@ const Login = () => {
         }, 10);
       }
     } catch (error) {
-      console.error("Signup error:", error);
+      console.error("Login error:", error);
     } finally {
       setSubmitting(false);
     }

@@ -65,41 +65,12 @@ function RestaurantMenu() {
         // Controlled Component
         <RestaurantMenuCategory
           key={category?.card?.card?.title}
+          restInfo = {{restId: id, restName: name}}
           data={category?.card?.card}
           showMenuItems={index === showIndex}
           setShowIndex={() => setShowIndex(index === showIndex ? null : index)}
         />
       ))}
-    {/* <div className='restaurant-menu flex justify-center-safe gap-2 max-w-xs md:max-w-2xl !p-8 !m-8
-     w-full bg-white rounded-lg shadow-sm shadow-gray-800'>
-
-      <div className="right-side w-3/5 sm:!pl-[60px] !pl-[10px]">
-        <h2 className='sm:text-4xl text-2xl font-bold text-[#273a6e]
-         underline !mb-[4px] indent-[5px] sm:tracking-[8px]'>FOOD MENU</h2>
-        <ul>
-          {console.log("cards", cards)}
-          {
-            cards.map((e, ind) => {
-              const title = e?.card?.card?.title;
-              const items = e?.card?.card?.itemCards;
-              if (!items) return null;
-              return (
-                <li key={ind}>
-                  <h2 className='text-2xl bg-[#273a6e] text-white text-center py-2 align-top leading-[33px]'>{title}</h2>
-                  <ul style={{marginBottom: 10}}>
-                    {items?.map((c) => {
-                      return (
-                        <li key={c?.card?.info?.id} className='font-medium'>
-                          <span>{c?.card?.info?.name}</span><span className='float-right'>{c?.card?.info?.price}</span></li>
-                      )
-                    })}
-                  </ul>
-                </li>
-              )
-            })}
-        </ul>
-      </div>
-    </div> */}
       </div>
   )
 }

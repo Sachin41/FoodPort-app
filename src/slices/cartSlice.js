@@ -5,30 +5,31 @@ const cartSlice = createSlice({
     initialState: { totalItems: 0, cartItems: {} },
     reducers: {
         addItemsToCart(state, action) {
-            const { id } = action.payload;
+            const { id, userKey  } = action.payload;
             state.totalItems += 1;
             if (state.cartItems[id]) {
                 state.cartItems[id].quantity += 1
             } else {
                 state.cartItems[id] = { item: action.payload, quantity: 1 }
             }
-            localStorage.setItem("cart", JSON.stringify(state.cartItems));
+            localStorage.setItem(userKey, JSON.stringify(state.cartItems));
         },
         removeItemsToCart(state, action) {
-            const { id } = action.payload;
+            const { id, userKey  } = action.payload;
             state.totalItems > 0 ? state.totalItems -= 1 : state.totalItems = 0;
             if (state.cartItems[id].quantity > 1) {
                 state.cartItems[id].quantity -= 1
-                localStorage.setItem("cart", JSON.stringify(state.cartItems));
+                localStorage.setItem(userKey, JSON.stringify(state.cartItems));
             } else {
                 delete state.cartItems[id];
-                localStorage.removeItem("cart");
+                localStorage.removeItem(userKey);
             }
         },
-        clearCart(state) {
+        clearCart(state, action) {
+            const { userKey  } = action.payload;
             state.totalItems = 0;
             state.cartItems = {};
-            localStorage.removeItem("cart");
+            localStorage.removeItem(userKey);
         },
         setCartFromStorage: (state, action) => {
             const storedCart = action.payload || {};

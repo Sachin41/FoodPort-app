@@ -1,7 +1,7 @@
-import { useAuth } from '../utils/AuthContext';
+import { useSelector } from 'react-redux';
 
 function User() {
-    const {user} = useAuth();
+        const { user } = useSelector((state) => state.auth);
     return (
         <div>
             <h2 className='!text-xl font-bold'>{user?.userName}</h2>

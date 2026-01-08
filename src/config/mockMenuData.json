@@ -301,11 +301,11 @@
                         {
                           "card": {
                             "info": {
-                              "id": "LPZ101",
+                              "id": "211192_Rec_1",
                               "name": "Margherita Pizza",
                               "category": "Pizzas",
                               "description": "Classic cheese pizza with tomato sauce and mozzarella.",
-                              "imageId": "margherita123",
+                              "imageId": "img_211192_Rec_1",
                               "price": "₹199"
                             }
                           }
@@ -313,11 +313,11 @@
                         {
                           "card": {
                             "info": {
-                              "id": "LPZ102",
+                              "id": "211192_Rec_2",
                               "name": "Veggie Paradise Pizza",
                               "category": "Pizzas",
                               "description": "Loaded with capsicum, onion, tomato, and olives.",
-                              "imageId": "veggieparadise456",
+                              "imageId": "img_211192_Rec_2",
                               "price": "₹249"
                             }
                           }
@@ -325,11 +325,11 @@
                         {
                           "card": {
                             "info": {
-                              "id": "LPZ103",
+                              "id": "211192_Rec_3",
                               "name": "Cheesy Garlic Bread",
                               "category": "Starters",
                               "description": "Freshly baked bread stuffed with melted cheese and garlic.",
-                              "imageId": "garlicbread789",
+                              "imageId": "img_211192_Rec_3",
                               "price": "₹149"
                             }
                           }
@@ -337,11 +337,11 @@
                         {
                           "card": {
                             "info": {
-                              "id": "LPZ104",
+                              "id": "211192_Rec_4",
                               "name": "White Sauce Pasta",
                               "category": "Pastas",
                               "description": "Creamy Alfredo pasta cooked with herbs and cheese.",
-                              "imageId": "whitesaucepasta321",
+                              "imageId": "img_211192_Rec_4",
                               "price": "₹229"
                             }
                           }
@@ -349,11 +349,11 @@
                         {
                           "card": {
                             "info": {
-                              "id": "LPZ105",
+                              "id": "211192_Rec_5",
                               "name": "Chocolate Lava Cake",
                               "category": "Desserts",
                               "description": "Warm chocolate cake with gooey molten center.",
-                              "imageId": "lava987",
+                              "imageId": "img_211192_Rec_5",
                               "price": "₹129"
                             }
                           }
@@ -370,11 +370,11 @@
                         {
                           "card": {
                             "info": {
-                              "id": "LPZ201",
+                              "id": "211192_Bev_1",
                               "name": "Pepsi (500ml)",
                               "category": "Beverages",
                               "description": "Chilled Pepsi bottle.",
-                              "imageId": "pepsi654",
+                              "imageId": "img_211192_Bev_1",
                               "price": "₹59"
                             }
                           }
@@ -382,11 +382,11 @@
                         {
                           "card": {
                             "info": {
-                              "id": "LPZ202",
+                              "id": "211192_Bev_2",
                               "name": "Cold Coffee",
                               "category": "Beverages",
                               "description": "Iced coffee served with cream.",
-                              "imageId": "coldcoffee777",
+                              "imageId": "img_211192_Bev_2",
                               "price": "₹99"
                             }
                           }
