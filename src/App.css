@@ -1,9 +1,13 @@
+/* @tailwind components; */
 #root {
   /* max-width: 1280px; */
   margin: 0 auto;
   padding-top: 86px;
   /* text-align: center; */
 }
+/* .input {
+  @apply w-full border rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400;
+} */
 
 
 

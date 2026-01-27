@@ -5,6 +5,8 @@ import { clearCart, setCartFromStorage } from '../slices/cartSlice';
 import Bill from './Bill';
 import { IoChevronBackSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
+import AddressList from './AddressList';
+import { FaArrowRight } from "react-icons/fa";
 
 const Cart = () => {
   const cart = useSelector((store) => store.cart.cartItems);
@@ -37,26 +39,50 @@ const Cart = () => {
 
 
   return (
-    <>
+    <div className='w-[90%]'>
       {cartItems.length > 0 ? (
-        <div className='w-[70%]'>
-          <div className='text-center mt-4'><p className="text-gray-600 text-[48px] font-semibold">Cart</p></div>
-          <div className="flex items-center  w-full justify-between mb-4">
-            <Link to={"/restaurant/" + resId} className='flex items-center text-[18px] font-bold !text-gray-600 mt-4 cursor-pointer !hover:bg-[gray]'>
-              <IoChevronBackSharp /> <span>Back to Menu </span>
-            </Link>
-            <button className='!bg-[orange] !border-none text-white
-             font-bold !py-2 !px-4 rounded-lg cursor-pointer !hover:bg-[green]' onClick={() => handleClearCart()}>Clear Cart</button>
+        <div className='flex gap-8'>
+          <div className='w-[70%] mt-4'>
+            <div className="address-sec bg-white rounded-md p-4">
+              <p className="text-gray-600 text-xl font-bold px-4">Choose a delivery Address </p>
+              <AddressList isCart={true} />
+              <div className="px-4 flex gap-4 mt-4 justify-end">
+                {/* <button
+                  onClick={() => {
+                    console.log("Add new Address from cart")
+                  }}
+                  className="w-full border-2 border-dashed border-orange-400 rounded-xl p-4 text-orange-500 font-semibold hover:bg-orange-50">
+                  + Add New Address
+                </button> */}
+                <button className='!bg-[orange] !border-none text-white
+             flex justify-center items-center gap-2 font-bold !py-2 !px-4 rounded-lg cursor-pointer !hover:bg-[green]'>
+                  Proceed to Pay <FaArrowRight />
+                </button>
+              </div>
+            </div>
+            <div className="payment-sec bg-white rounded-md mt-4 p-4">
+              <p className="text-gray-600 text-[48px] font-semibold">Payment sec</p>
+
+            </div>
+
           </div>
-          <div className="flex w-full gap-[20px]">
-            <div className="w-full h-full bg-white rounded-md p-4">
+
+          <div className="w-[30%] flex flex-col gap-[10px] mt-4">
+            <div className="flex items-center bg-white p-4 shadow-md rounded-md w-full justify-between">
+              <Link to={"/restaurant/" + resId} className='flex items-center text-[18px] font-bold !text-gray-600 cursor-pointer !hover:bg-[gray]'>
+                <IoChevronBackSharp /> <span>Back to Menu </span>
+              </Link>
+              <a className='!border-none !text-[orange]
+             font-bold rounded-lg cursor-pointer !hover:bg-[green]' onClick={() => handleClearCart()}>Clear Cart</a>
+            </div>
+            <div className="w-full h-full bg-white rounded-md px-4 py-2 max-h-[285px] overflow-auto">
               {/* Cart Section */}
               {cartItems.map((menu) => {
                 return (<CartItem key={menu.item.id} details={menu} />)
               })}
             </div>
 
-            <div className="w-full h-full bg-white rounded-md p-4">
+            <div className="w-full h-fit bg-white rounded-md px-4 py-2">
               {/* Bill Section */}
               <Bill total={total} />
             </div>
@@ -83,7 +109,7 @@ const Cart = () => {
           </div>
         )
       }
-    </>
+    </div>
   )
 }
 

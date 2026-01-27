@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { setCartFromStorage, clearCart } from "./cartSlice";
+import { setCartFromStorage } from "./cartSlice";
 
 /* =====================
    LOGIN THUNK
