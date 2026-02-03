@@ -7,6 +7,7 @@ import { IoChevronBackSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import AddressList from './AddressList';
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import Payment from './Payment';
 
 const Cart = () => {
   const [checkoutSection, setCheckoutSection] = useState("address")
@@ -41,7 +42,7 @@ const Cart = () => {
   const restaurantPackaging = 30;
   const platformFee = 15;
   const GST = total * 0.18;
-  const grandTotal = total + deliveryFee + restaurantPackaging + platformFee + GST;
+  const grandTotal = Math.round(total + deliveryFee + restaurantPackaging + platformFee + GST);
 
   return (
     <div className='w-[90%]'>
@@ -83,6 +84,8 @@ const Cart = () => {
             </div>
 
           </div>}
+          
+          {/* Payment section */}
           {checkoutSection === "payment" && <div className="payment-sec w-full bg-white rounded-md mt-4 p-4">
             <div className="px-4 flex gap-4 mt-4 justify-start">
               <button className='!bg-[orange] !border-none text-white flex justify-center items-center gap-2 font-bold
@@ -91,9 +94,11 @@ const Cart = () => {
               </button>
             </div>
             <p className="text-gray-600 text-[30px] font-semibold">Choose payment method</p>
-            <p className='text-gray-600 text-[20px] font-semibold'>To Pay: ₹{Math.round(grandTotal)}</p>
-
-          </div>}
+            {/* <p className='text-gray-600 text-[20px] font-semibold'>To Pay: ₹{grandTotal}</p> */}
+            <Payment grandTotal= {grandTotal} />
+          </div>
+          
+          }
         </div>
 
       )
