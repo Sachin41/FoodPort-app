@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 const Payment = ({ grandTotal }) => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const data = {
     name: 'Vikas',
@@ -15,11 +15,11 @@ const Payment = ({ grandTotal }) => {
   const handlePayment = async (e) => {
     e.preventDefault();
 
-    let res = await axios.post('http://localhost:8000/order', { ...data }).then(res => {
+    await axios.post('http://localhost:8000/order', { ...data }).then(res => {
 
       console.log(res)
-      if (res.data && res.data.data.instrumentResponse.redirectInfo.url) {
-        navigate(res.data.data.instrumentResponse.redirectInfo.url);
+      if (res.data && res.data.success === true) {
+        window.location.href = res.data.data.instrumentResponse.redirectInfo.url;
       }
     })
       .catch(error => {

@@ -9,6 +9,7 @@ import Contact from './components/Contact.jsx'
 import RestaurantMenu from './components/RestaurantMenu.jsx'
 import Login from './components/login.jsx'
 import User from './components/User.jsx'
+import OrderSummary from './components/OrderSummary.jsx'
 import Shimmer from './components/shimmer.jsx'
 import Signup from './components/Signup.jsx'
 import { Provider } from 'react-redux';
@@ -46,8 +47,8 @@ const appRouter = createBrowserRouter([
         path: "/contact",
         element: <Contact />
       },
-           // 🔐 PROTECTED ROUTES GROUP
-       {
+      // 🔐 PROTECTED ROUTES GROUP
+      {
         path: "/user",
         element: <User />,
         loader: requireAuth,
@@ -56,10 +57,15 @@ const appRouter = createBrowserRouter([
         path: "/cart",
         element:(
           <Suspense fallback={<div className='flex  h-[calc(100vh-250px)]  items-center'><h1 className="text-3xl font-bold">Loading...</h1></div>}>
-           <Cart />
+            <Cart />
           </Suspense>
-          ),
+        ),
         loader: requireAuth,
+      },
+      {
+        path: "/ordersummary",
+        element: <OrderSummary />,
+        // loader: requireAuth,
       },
       {
         path: "/restaurant/:resId",
