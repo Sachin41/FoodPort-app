@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-const protectedPaths = ["/cart", "/user"];
+const protectedPaths = ["/cart", "/user", "/ordersummary"];
 // import instamart from 
 
 /**

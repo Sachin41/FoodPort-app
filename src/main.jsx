@@ -65,7 +65,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/ordersummary",
         element: <OrderSummary />,
-        // loader: requireAuth,
+        loader: requireAuth,
       },
       {
         path: "/restaurant/:resId",
