@@ -18,6 +18,7 @@ const RestaurantMenuItemList = ({ restInfo, items }) => {
     const dispatch = useDispatch();
     const cart = useSelector((store) => store.cart.cartItems);
     const cartItems = Object.values(cart);
+    
     const checkCart = (cartItems, restId, restName) => {
         if (Object.keys(cartItems).length) {
             const restaurantId = cartItems?.[0]?.item?.id?.split("_")?.[0];

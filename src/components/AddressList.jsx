@@ -29,7 +29,9 @@ const AddressList = ({ isCart }) => {
     }, [addressList]);
     const handleDelete = (addrId) => {
         console.log("delete address")
-        setAddressList(addressList.filter((addr) => addr.id !== addrId))
+        if (confirm(`Are you sure, you want to delete this address?`)) {
+            setAddressList(addressList.filter((addr) => addr.id !== addrId))
+        } else return;
     }
     const handleEdit = (addr) => {
         setMode("edit");
@@ -53,15 +55,18 @@ const AddressList = ({ isCart }) => {
     const editAddress = (addrId, addrs) => {
         console.log("edit address")
         setAddressList(addressList.map((addr) => {
-            if(addr.id === addrId){
-                addr = {...addrs, type: addrs.addressType, id: addrId};
+            if (addr.id === addrId) {
+                addr = { ...addrs, type: addrs.addressType, id: addrId };
             }
             return addr;
         }));
-         setOpen(false);
+        setOpen(false);
     }
     return (
         <div className="address-list w-full h-full bg-white rounded-md p-4">
+            {!isCart && (<p className="!text-[25px] mb-3 font-bold">
+                Manage Addresses
+            </p>)}
             <div className="flex flex-wrap gap-2">
                 <button
                     onClick={() => {
@@ -74,17 +79,17 @@ const AddressList = ({ isCart }) => {
                     + Add New Address
                 </button>
                 {
-                     addressList.length === 0 ? <h3 className='p-3 font-bold'>No Address found, add an address</h3> :
-                addressList.map((addr) => (
-                    <AddressCard isCart={isCart}
-                        key={addr.id}
-                        address={addr}
-                        selected={isCart && selectedId === addr.id}
-                        onSelect={() => setSelectedId(addr.id)}
-                        onEdit={() => handleEdit(addr)}
-                        onDelete={() => handleDelete(addr.id)}
-                    />
-                ))}
+                    addressList.length === 0 ? <h3 className='p-3 font-bold'>No Address found, add an address</h3> :
+                        addressList.map((addr) => (
+                            <AddressCard isCart={isCart}
+                                key={addr.id}
+                                address={addr}
+                                selected={isCart && selectedId === addr.id}
+                                onSelect={() => setSelectedId(addr.id)}
+                                onEdit={() => handleEdit(addr)}
+                                onDelete={() => handleDelete(addr.id)}
+                            />
+                        ))}
             </div>
             <AddressSidebar
                 key={data.id || 0}
