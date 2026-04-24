@@ -6,7 +6,7 @@ import "../styles/RestaurantMenu.css";
 import useRestaurant from '../utils/useRestaurant';
 import { IMAGE_CDN_URL } from '../config/constant';
 import { MdStarRate } from "react-icons/md";
-import RestaurantMenuCategory from './RestaurantMenuCategory'
+import RestaurantMenuCategory from './RestaurantMenuCategory.jsx'
 function RestaurantMenu() {
   const [showIndex, setShowIndex]= useState(0);
   const { resId } = useParams();
