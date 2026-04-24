@@ -2,12 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../slices/cartSlice';
+import { addOrder } from "../slices/orderSlice";
+import { saveOrdersToStorage } from "../utils/orderStorage";
+
 
 const OrderSummary = () => {
   const [orderData, setOrderData] = useState(null);
   const location = useLocation();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.auth.user);
+  const { orders } = useSelector((store) => store.allOrder);
+  const cart = useSelector((store) => store.cart.cartItems);
+  const cartItems = Object.values(cart);
 
   // Get orderId from URL
   const query = new URLSearchParams(location.search);
@@ -15,7 +21,6 @@ const OrderSummary = () => {
 
   useEffect(() => {
     if (!orderId || !user?.email) return;
-    dispatch(clearCart({ userKey: `cart_${user.email}` }));
     const cookie = document.cookie
       .split('; ')
       .find(row => row.startsWith('orderData='));
@@ -27,8 +32,25 @@ const OrderSummary = () => {
         const data = JSON.parse(decodeURIComponent(value));
         console.log("OrderData:", data);
         setOrderData(data);
+                const newOrder = {
+          orderId: Date.now(),
+          items: cartItems,
+          totalAmount: (data.data.amount / 100).toFixed(2),
+          address: "83 New Nand Puri Kanker Khera, Mrt",
+          status: data.data.state,
+          createdAt: new Date()
+        };
+
+        const updatedOrders = [newOrder, ...orders];
+
+        // 1. Redux update
+        dispatch(addOrder(newOrder));
+
+        // 2. Save to localStorage
+        saveOrdersToStorage(user?.email, updatedOrders);
+        dispatch(clearCart({ userKey: `cart_${user.email}` }));
       } catch (error) {
-        console.error("Invalid order cookie:", err);
+        console.error("Invalid order cookie:", error);
       }
 
     }

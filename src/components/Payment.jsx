@@ -15,7 +15,7 @@ const Payment = ({ grandTotal }) => {
   const handlePayment = async (e) => {
     e.preventDefault();
 
-    await axios.post('http://localhost:8000/order', { ...data }).then(res => {
+    await axios.post('https://foodapp-backend-si51.onrender.com/order', { ...data }).then(res => {
 
       console.log(res)
       if (res.data && res.data.success === true) {
