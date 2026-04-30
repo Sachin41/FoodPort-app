@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 // import { MENU_API_URL } from '../config/constant';
-import Restaurantcard from './Restaurantcard';
+import Restaurantcard from './RestaurantCard';
 import "../styles/RestaurantMenu.css";
 import useRestaurant from '../utils/useRestaurant';
 import { IMAGE_CDN_URL } from '../config/constant';
