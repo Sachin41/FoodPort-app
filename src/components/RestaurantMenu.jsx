@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 // import { MENU_API_URL } from '../config/constant';
-import Restaurantcard from './Restaurantcard.jsx';
+import Restaurantcard from './Restaurantcard';
 import "../styles/RestaurantMenu.css";
 import useRestaurant from '../utils/useRestaurant';
 import { IMAGE_CDN_URL } from '../config/constant';
 import { MdStarRate } from "react-icons/md";
-import RestaurantMenuCategory from './RestaurantMenuCategory.jsx'
+import RestaurantMenuCategory from './RestaurantMenuCategory'
 function RestaurantMenu() {
   const [showIndex, setShowIndex]= useState(0);
   const { resId } = useParams();
