@@ -25,41 +25,43 @@ const OrderSummary = () => {
       .split('; ')
       .find(row => row.startsWith('orderData='));
 
-    if (cookie) {
+      if (!cookie) {
+    console.warn("Order cookie not found");
+    return;
+  }
       try {
         let value = cookie.split('=')[1];
         value = decodeURIComponent(value)
         const data = JSON.parse(decodeURIComponent(value));
         console.log("OrderData:", data);
         setOrderData(data);
+        const amount = Number(data?.data?.amount || 0);
                 const newOrder = {
           orderId: Date.now(),
           items: cartItems,
-          totalAmount: (data.data.amount / 100).toFixed(2),
+          totalAmount: (amount / 100).toFixed(2),
           address: "83 New Nand Puri Kanker Khera, Mrt",
-          status: data.data.state,
+          status: data?.data?.state,
           createdAt: new Date()
         };
-
-        const updatedOrders = [newOrder, ...orders];
 
         // 1. Redux update
         dispatch(addOrder(newOrder));
 
         // 2. Save to localStorage
-        saveOrdersToStorage(user?.email, updatedOrders);
+        saveOrdersToStorage(user?.email, [newOrder, ...orders]);
         dispatch(clearCart({ userKey: `cart_${user.email}` }));
       } catch (error) {
         console.error("Invalid order cookie:", error);
       }
 
-    }
+    
   }, [orderId, user?.email, dispatch]);
 
-
+const orderAmount = Number(orderData?.data?.amount || 0);
   return (
     <div className='w-full flex flex-col gap-[10px] h-fit items-center justify-center'>
-      <p className='text-[30px] text-gray-400 font-semibold'>Congratulation order placed!!- {(orderData?.data?.amount / 100).toFixed(2)}</p>
+      <p className='text-[30px] text-gray-400 font-semibold'>Congratulation order placed!!- ₹{(orderAmount / 100).toFixed(2)}</p>
       <p className='text-[20px] text-gray-500 font-semibold'>TransactionId:{orderId}</p>
     </div>
   )

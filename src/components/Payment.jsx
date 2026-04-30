@@ -14,7 +14,7 @@ const Payment = ({ grandTotal }) => {
 
   const handlePayment = async (e) => {
     e.preventDefault();
-
+    // http://localhost:8000
     await axios.post('https://foodapp-backend-si51.onrender.com/order', { ...data }).then(res => {
 
       console.log(res)
