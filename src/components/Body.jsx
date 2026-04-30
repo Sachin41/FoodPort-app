@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import restaurantLists from '../config/mockData';
 import Shimmer from './shimmer';
-import Restaurantcard from './Restaurantcard';
+import Restaurantcard from './RestaurantCard';
 import {
   SWIGGY_API_URL,
   SWIGGY_REST_API_PATH,
