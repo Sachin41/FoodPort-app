@@ -29,7 +29,7 @@ const CartItem = ({ details }) => {
 
     return (
         <div className='flex justify-between items-center gap-[50px] py-[10px] border-b border-[#5b5b5b] last:border-b-0' >
-            <div className="flex gap-[30px] w-[75%]">
+            <div className="flex gap-[15%] w-[75%]">
                 <img
                     className="w-[90px] h-[60px] object-cover rounded-[8px]"
                     // src={IMAGE_CDN_URL + imageId}

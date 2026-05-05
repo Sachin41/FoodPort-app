@@ -47,13 +47,13 @@ export default function Body() {
         <Shimmer />
     ) : (
         <div className='body'>
-            <div className="search-box">
+            <div className="search-box lg:w-1/2 md:w-2/3 w-80">
                 <input type="text" value={searchText} onChange={(e) => {
                     setSearchText(e.target.value);
                 }}
                     name="search" id="search" placeholder="search a restaurant you want..." />
             </div>
-            <div className="restaurant-container">
+            <div className="restaurant-container gap-4 w-auto sm:w-full">
                 {restaurants.length > 0 ?
                     restaurants.map((restaurant) => (
                         <Restaurantcard key={restaurant.info.id}

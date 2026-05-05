@@ -26,7 +26,7 @@ function RestaurantMenu() {
   const cards = restaurantInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
 
   return (
-    <div className="w-[60%]">
+    <div className="lg:w-[65%] w-[90%]">
       <div className="w-full flex items-center bg-black text-white shadow-md p-[20px] rounded-[8px] my-[25px] overflow-hidden">
         <img
           className="w-[250px] h-[150px] object-cover rounded-[8px] mr-[40px] hover:scale-[1.1] transition-transform duration-300 ease-in-out"

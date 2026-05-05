@@ -47,8 +47,8 @@ const Cart = () => {
   return (
     <div className='w-[90%]'>
       {cartItems.length > 0 ? (
-        <div className='flex gap-8'>
-          {checkoutSection === "address" && <div className='w-[70%] mt-4'>
+        <div className='flex gap-8 flex-wrap-reverse md:flex-nowrap'>
+          {checkoutSection === "address" && <div className='lg:w-[70%] w-full  mt-4'>
             <div className="address-sec bg-white rounded-md p-4">
               <p className="text-gray-600 text-xl font-bold px-4">Choose a delivery Address </p>
               <AddressList isCart={true} />
@@ -63,7 +63,7 @@ const Cart = () => {
 
           </div>}
 
-          {checkoutSection === "address" && <div className="w-[30%] flex flex-col gap-[10px] mt-4">
+          {checkoutSection === "address" && <div className="lg:w-[30%] w-full  flex flex-col gap-[10px] mt-4">
             <div className="flex items-center bg-white p-4 shadow-md rounded-md w-full justify-between">
               <Link to={"/restaurant/" + resId} className='flex items-center text-[18px] font-bold !text-gray-600 cursor-pointer !hover:bg-[gray]'>
                 <IoChevronBackSharp /> <span>Back to Menu </span>

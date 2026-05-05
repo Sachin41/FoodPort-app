@@ -70,7 +70,7 @@ const RestaurantMenuItemList = ({ restInfo, items }) => {
                     <div key={id} className={`flex justify-between items-center gap-[50px] py-[20px] ${ind === items.length - 1 ? ' ' : 'border-b border-[#5b5b5b]'}`} >
                         <div className="flex flex-col gap-[5px] w-[75%]">
                             <p className="text-[20px] font-bold text-gray-700">{name}</p>
-                            <p className="font-semibold text-black">₹{price}</p>
+                            <p className="font-semibold text-black">{price}</p>
                             <p className="text-gray-600 font-medium">
                                 {(description && description.slice(0, 140)) || "Dummy Data"}
                             </p>
