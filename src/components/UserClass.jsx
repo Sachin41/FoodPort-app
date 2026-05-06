@@ -43,7 +43,7 @@ class UserClass extends React.Component {
         // const {count, count1} = this.state;
         console.log("child render", this.props.name);
         return (
-            <div className='profile-container flex justify-center item-center gap-20'>
+            <div className='profile-container flex flex-wrap md:flex-nowrap justify-center item-center gap-10 lg:gap-20'>
                 <div className="profile-left w-full overflow-hidden bg-white flex flex-col
                  items-center justify-center gap-[20px] rounded-md p-[30px] shadow-2xl">
                     <h1 className='!text-[28px] font-bold text-center text-[#1e1e1e]'>About Me</h1>

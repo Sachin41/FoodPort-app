@@ -63,7 +63,7 @@ const AddressList = ({ isCart }) => {
         setOpen(false);
     }
     return (
-        <div className="address-list w-full h-full bg-white rounded-md p-4">
+        <div className="address-list w-full h-full bg-white rounded-md px-4">
             {!isCart && (<p className="!text-[25px] mb-3 font-bold">
                 Manage Addresses
             </p>)}

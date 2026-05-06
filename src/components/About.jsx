@@ -37,8 +37,8 @@ class About extends React.Component {
                 </div>
                 {/* <User name={'sachin'} /> */}
                 {this.state.showUser && <UserClass />}
-                <div className="about flex justify-between item-center gap-20 w-full py-10">
-                    <div className="about-left">
+                <div className="about flex flex-wrap justify-between item-center gap-20 w-full py-10">
+                    <div className="about-left md:w-[40%] w-full">
                         <h1 className='!text-[60px] text-[#494949] font-bold'>
                             Welcome to <br /> The world of <br />
                             <span className='text-white bg-[#253772] rounded-[15px] 
@@ -49,7 +49,7 @@ class About extends React.Component {
                             meal"
                         </h4>
                     </div>
-                    <div className="about-right">
+                    <div className="about-right md:w-[40%] w-full">
                         <img src={burgerImage} alt="burgerImage" />
                     </div>
                 </div>

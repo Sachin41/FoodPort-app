@@ -29,9 +29,9 @@ export default function AccountLayout({ user }) {
     }, []);
 
     return (
-        <div className="flex h-screen max-h-[75vh] bg-gray-100 w-[90%]">
+        <div className="flex h-screen max-h-[75vh] bg-gray-100 lg:w-[90%] w-full">
             {/* Sidebar */}
-            <div className="w-64 bg-gray-200 p-6">
+            <div className="lg:w-64 bg-gray-200 p-6">
                 <div className="space-y-3">
                     {menuItems.map((item) => {
                         const Icon = item.icon;
@@ -39,14 +39,14 @@ export default function AccountLayout({ user }) {
                             <button
                                 key={item.id}
                                 onClick={() => setActive(item.id)}
-                                className={`flex items-center gap-3 w-full px-4 py-3 rounded-lg text-left
+                                className={`flex items-center gap-3 w-full lg:!px-4 !px-0 lg:!py-3 !py-0 lg:bg-white-400 bg-transparent rounded-lg text-left
                 ${active === item.id
                                         ? "!text-orange-500"
                                         : "!shadow-md hover:!bg-gray-300"
                                     }`}
                             >
                                 <Icon size={20} />
-                                {item.label}
+                                <span className="hidden md:inline">{item.label}</span>
                             </button>
                         );
                     })}
@@ -54,7 +54,7 @@ export default function AccountLayout({ user }) {
             </div>
 
             {/* Content Area */}
-            <div className="flex-1 p-10 bg-white">
+            <div className="flex-1 lg:p-8 px-4 py-6 bg-white">
                 {active === "orders" && (
                     <div className="p-4">
 

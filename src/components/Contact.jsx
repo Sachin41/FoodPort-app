@@ -3,11 +3,11 @@ import contactImg from '../assets/Images/contact-us.png'
 
 function Contact() {
     return (
-        <div className='contact-container flex justify-evenly w-[85%] py-8'>
-            <div className="contact-left w-[40%] rounded-md">
+        <div className='contact-container flex justify-evenly w-[85%] flex-wrap py-8'>
+            <div className="contact-left md:w-[40%] w-full rounded-md">
                 <img src={contactImg} alt="contact-img" />
             </div>
-            <div className="contact-right flex flex-col justify-center items-center w-[40%]">
+            <div className="contact-right flex flex-col justify-center items-center md:w-[40%] w-full">
                 <h1 className='font-[48px]- font-semibold mb-4'>Contact us</h1>
                 <form action="submit" className='text-center'>
                     <input type="text" name="name" placeholder="Name"
