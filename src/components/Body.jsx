@@ -10,22 +10,22 @@ import {
 export default function Body() {
     const [searchText, setSearchText] = useState('');
     const [restaurants, setRestaurants] = useState(restaurantLists);
-  const fetchData = async () => {
-    try {
-    //   const data = await fetch(SWIGGY_API_URL);
-    //   const json = await data.json();
-    //   const restaurants = eval("json?." + SWIGGY_REST_API_PATH) || [];
-    //   console.log("data", restaurants)
-    //   setRestaurantList(restaurants);
-    //   setFilteredRestaurants(restaurants);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+//   const fetchData = async () => {
+//     try {
+//       const data = await fetch(SWIGGY_API_URL);
+//       const json = await data.json();
+//       const restaurants = eval("json?." + SWIGGY_REST_API_PATH) || [];
+//       console.log("data", restaurants)
+//       setRestaurantList(restaurants);
+//       setFilteredRestaurants(restaurants);
+//     } catch (error) {
+//       console.error("Error fetching data:", error);
+//     }
+//   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+//   useEffect(() => {
+//     fetchData();
+//   }, []);
 
     useEffect(() => {
         handleSearch(searchText);

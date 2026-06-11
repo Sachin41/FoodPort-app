@@ -15,16 +15,27 @@ const menuItems = [
 
 export default function AccountLayout({ user }) {
     const [active, setActive] = useState("profile");
+    const [orders, setOrders]= useState([]);
 
     const dispatch = useDispatch();
-    const { orders } = useSelector((store) => store.allOrder);
+    // const { orders } = useSelector((store) => store.allOrder);
 
     useEffect(() => {
         // const user = JSON.parse(localStorage.getItem("user"));
 
         if (user) {
-            const storedOrders = getOrdersFromStorage(user._id);
-            dispatch(setOrders(storedOrders.reverse()));
+            // const storedOrders = getOrdersFromStorage(user._id);
+            // dispatch(setOrders(storedOrders.reverse()));
+            const getOrder = async () => {
+                try {
+                    const fetchedData = await fetch("http://localhost:8000/api/orders");
+                    const res= await fetchedData.json();
+                    setOrders(res.orders);
+                } catch (error) {
+                    console.error("order fetching failed:", error)
+                }
+            }
+           getOrder();
         }
     }, []);
 
@@ -62,12 +73,12 @@ export default function AccountLayout({ user }) {
                             <h1 className="!text-2xl font-bold">No Orders</h1>
                         ) : (
                             orders.map(order => (
-                                <div key={order.orderId} className="border p-3 mb-3 rounded">
-                                    <p><strong>Order ID:</strong> {order.orderId}</p>
-                                    <p><strong>Total:</strong> ₹{order.totalAmount}</p>
-                                    <p><strong>Status:</strong> {order.status}</p>
+                                <div key={order._id} className="border p-3 mb-3 rounded">
+                                    <p><strong>Order ID:</strong> {order._id}</p>
+                                    <p><strong>Total:</strong> ₹{order.amount}</p>
+                                    <p><strong>Status:</strong> {order.orderStatus}</p>
 
-                                    {order.items.map((item, i) => (
+                                    {order.orderItems.map((item, i) => (
                                         <p key={i}>{item.name} x {item.quantity}</p>
                                     ))}
                                 </div>
