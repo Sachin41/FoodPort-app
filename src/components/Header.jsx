@@ -30,6 +30,7 @@ export default function Header() {
     if (!user) {
       navigate("/login");
     } else {
+      localStorage.removeItem("token");
       dispatch(logoutUser());
     }
   }
@@ -65,7 +66,7 @@ export default function Header() {
           <li className='!p-0 flex justify-center items-center'>
             {user && (
               <Link to="/user" className='flex justify-center items-center gap-[4px] !text-black !p-[6px] align-text-middle hover:!text-white hover:!bg-[#253772] hover:!rounded-[5px]'>
-                <span><FaRegUserCircle /></span>{user?.userName.slice(0, 2).toUpperCase()}
+                <span><FaRegUserCircle /></span>{user?.name.slice(0, 2).toUpperCase()}
               </Link>)
             }
             <button className='!bg-transparent !border-none !p-[6px] hover:!text-white hover:!bg-[#253772] hover:!rounded-[5px]'

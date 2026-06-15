@@ -89,7 +89,7 @@ const Cart = () => {
           {checkoutSection === "payment" && <div className="payment-sec w-full bg-white rounded-md mt-4 p-4">
             <p className="text-gray-600 text-[30px] font-semibold pb-4">Choose payment method</p>
             {/* <p className='text-gray-600 text-[20px] font-semibold'>To Pay: ₹{grandTotal}</p> */}
-            <Payment grandTotal= {grandTotal} />
+            <Payment grandTotal= {grandTotal} user = {user} />
             <div className="py-4 flex gap-4 mt-4 justify-start">
               <button className='!bg-[orange] !border-none text-white flex justify-center items-center gap-2 font-bold
                  !py-2 !px-4 rounded-lg cursor-pointer !hover:bg-[green]' onClick={() => setCheckoutSection("address")}>

@@ -14,6 +14,7 @@ const OrderSummary = () => {
   const { orders } = useSelector((store) => store.allOrder);
   const cart = useSelector((store) => store.cart.cartItems);
   const cartItems = Object.values(cart);
+  const token = localStorage.getItem("token");
 
   // Get orderId from URL
   const query = new URLSearchParams(location.search);
@@ -21,9 +22,15 @@ const OrderSummary = () => {
 
   async function getOrder(orderId) {
     try {
-      const fetchedData = await fetch("http://localhost:8000/api/orders");
+      const fetchedData = await fetch("http://localhost:8000/api/orders",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       const allOrder = await fetchedData.json();
-      console.log("OrderData:", orders);
+      console.log("OrderData:", allOrder);
       const data = allOrder.orders.filter(o => o.phonePeTransactionId === orderId)
       setOrderData(data[0]);
       dispatch(clearCart({ userKey: `cart_${user.email}` }));

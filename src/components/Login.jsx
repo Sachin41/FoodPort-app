@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import "../styles/login.css"
 import { Formik } from 'formik';
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
@@ -13,23 +14,32 @@ import { loginUser } from "../slices/authSlice";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleNavigate = (values, { setSubmitting }) => {
+  const handleNavigate = async (values, { setSubmitting }) => {
     try {
       console.log("login", values)
-      const savedUsers = JSON.parse(localStorage.getItem("users"));
-      if (savedUsers?.length > 0 && savedUsers.some((user) => user.email === values.email && user.password === values.password)) {
-        const login_user = savedUsers.filter((user) => user.email === values.email && user.password === values.password);
-        console.log("login user", login_user);
-        dispatch(loginUser(login_user[0]));
-        alert(`Login Success: ${JSON.stringify(values, null, 2)}`);
-        navigate("/");
-      }
-      else {
-        alert("Login failed, retry with correct email/password:", values.email);
-        setTimeout(() => {
-          setSubmitting(false);
-        }, 10);
-      }
+      await axios.post('http://localhost:8000/api/auth/login', { ...values }).then(res => {
+        console.log(res)
+        if (res.data && res.data.success === true) {
+          localStorage.setItem("token", res.data.token);
+          dispatch(loginUser(res.data.user));
+          navigate("/");
+        }
+      })
+      // const savedUsers = JSON.parse(localStorage.getItem("users"));
+      // if (savedUsers?.length > 0 && savedUsers.some((user) => user.email === values.email && user.password === values.password)) {
+      //   const login_user = savedUsers.filter((user) => user.email === values.email && user.password === values.password);
+      //   console.log("login user", login_user);
+      //   dispatch(loginUser(login_user[0]));
+      //   alert(`Login Success: ${JSON.stringify(values, null, 2)}`);
+      //   navigate("/");
+      // }
+      // else {
+      //     console.log(res.data.message);
+      //   alert("Login failed, retry with correct email/password:");
+      //   setTimeout(() => {
+      //     setSubmitting(false);
+      //   }, 10);
+      // }
     } catch (error) {
       console.error("Login error:", error);
     } finally {

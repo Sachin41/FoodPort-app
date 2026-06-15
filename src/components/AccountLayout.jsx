@@ -15,7 +15,7 @@ const menuItems = [
 
 export default function AccountLayout({ user }) {
     const [active, setActive] = useState("profile");
-    const [orders, setOrders]= useState([]);
+    const [orders, setOrders] = useState([]);
 
     const dispatch = useDispatch();
     // const { orders } = useSelector((store) => store.allOrder);
@@ -26,16 +26,24 @@ export default function AccountLayout({ user }) {
         if (user) {
             // const storedOrders = getOrdersFromStorage(user._id);
             // dispatch(setOrders(storedOrders.reverse()));
+            const token =
+  localStorage.getItem("token");
             const getOrder = async () => {
                 try {
-                    const fetchedData = await fetch("http://localhost:8000/api/orders");
-                    const res= await fetchedData.json();
+                    const fetchedData = await fetch("http://localhost:8000/api/orders",
+                        {
+                            headers: {
+                                Authorization: `Bearer ${token}`,
+                            },
+                        }
+                    );
+                    const res = await fetchedData.json();
                     setOrders(res.orders);
                 } catch (error) {
                     console.error("order fetching failed:", error)
                 }
             }
-           getOrder();
+            getOrder();
         }
     }, []);
 
@@ -93,7 +101,7 @@ export default function AccountLayout({ user }) {
                         <h1 className="!text-[25px] mb-3 font-bold">
                             Profile
                         </h1>
-                        <h2 className='!text-xl font-semibold'>{user?.userName}</h2>
+                        <h2 className='!text-xl font-semibold'>{user?.name}</h2>
                         <h3 className='!text-xl font-semibold'>{user?.email}</h3>
                     </div>
 

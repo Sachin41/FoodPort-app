@@ -2,13 +2,15 @@ import React from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const Payment = ({ grandTotal }) => {
+const Payment = ({ grandTotal, user }) => {
   // const navigate = useNavigate()
+  // const user = useSelector((store) => store.auth.user);
 
   const data = {
-    name: 'Vikas',
+    userId: user._id,
+    name: user.name,
     amount: grandTotal,
-    number: '9999999999',
+    number: user.phone,
     transactionId: 'T' + Date.now(),
   }
 
