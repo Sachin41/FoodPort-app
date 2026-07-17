@@ -29,7 +29,6 @@ const Cart = () => {
   const handleClearCart = () => {
     console.log("clear Cart");
     dispatch(clearCart({ userKey: `cart_${user.email}` }));
-
   }
 
 

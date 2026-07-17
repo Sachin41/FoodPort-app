@@ -7,8 +7,6 @@ import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../slices/authSlice";
-// import { useAuth } from "../utils/AuthContext";
-// import { useDispatch, useSelector } from 'react-redux';
 
 
 const Login = () => {

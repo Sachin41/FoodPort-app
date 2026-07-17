@@ -25,7 +25,7 @@ const RestaurantMenuItemList = ({ restInfo, items }) => {
             console.log(restaurantId, "Restaurant Id");
             if (restId !== restaurantId) {
                 if (confirm(`Your cart contain dishesh from another restaurant. Do you want to discard selection and add dishesh from ${restName} restaurant`)) {
-                    dispatch(clearCart(clearCart({ userKey: `cart_${user.email}` })));
+                    dispatch(clearCart({ userKey: `cart_${user.email}` }));
                     return true;
                 } else return false
             }

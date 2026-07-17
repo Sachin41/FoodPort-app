@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrders } from "../slices/orderSlice";
 import { getOrdersFromStorage } from "../utils/orderStorage";
+import useFetchOrders from "../utils/useFetchOrders";
 
 const menuItems = [
     { id: "profile", label: "Profile", icon: FaRegUser },
@@ -15,37 +16,7 @@ const menuItems = [
 
 export default function AccountLayout({ user }) {
     const [active, setActive] = useState("profile");
-    const [orders, setOrders] = useState([]);
-
-    const dispatch = useDispatch();
-    // const { orders } = useSelector((store) => store.allOrder);
-
-    useEffect(() => {
-        // const user = JSON.parse(localStorage.getItem("user"));
-
-        if (user) {
-            // const storedOrders = getOrdersFromStorage(user._id);
-            // dispatch(setOrders(storedOrders.reverse()));
-            const token =
-  localStorage.getItem("token");
-            const getOrder = async () => {
-                try {
-                    const fetchedData = await fetch("http://localhost:8000/api/orders",
-                        {
-                            headers: {
-                                Authorization: `Bearer ${token}`,
-                            },
-                        }
-                    );
-                    const res = await fetchedData.json();
-                    setOrders(res.orders);
-                } catch (error) {
-                    console.error("order fetching failed:", error)
-                }
-            }
-            getOrder();
-        }
-    }, []);
+    const orders = useFetchOrders(user);
 
     return (
         <div className="flex h-screen max-h-[75vh] bg-gray-100 lg:w-[90%] w-full">
