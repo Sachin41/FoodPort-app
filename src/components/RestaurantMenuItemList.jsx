@@ -1,60 +1,63 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addItemsToCart, removeItemsToCart, clearCart, setCartFromStorage } from '../slices/cartSlice';
+import { fetchCart } from '../slices/cartSlice';
+import { addItemToCart, removeItemFromCart, clearCart } from '../slices/cartSlice';
 // import { IMAGE_CDN_URL } from '../config/constant';
 
 const RestaurantMenuItemList = ({ restInfo, items }) => {
-    const user = useSelector((store) => store.auth.user);
+    const user = useSelector((state) => state.auth.user);
+    let { cartItems, loading } = useSelector((state) => state.cart);
     const isAuthenticated = useSelector(
         (store) => store.auth.isAuthenticated
     );
-    useEffect(() => {
-        if (!user) {
-            dispatch(setCartFromStorage({}))
-        }
-    }, [isAuthenticated])
     const { restId, restName } = restInfo;
-    console.log(restId, "Restaurant Id", restName);
     const dispatch = useDispatch();
-    const cart = useSelector((store) => store.cart.cartItems);
-    const cartItems = Object.values(cart);
-    
+
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            dispatch(fetchCart());
+        }
+    }, [dispatch, user])
+
+
     const checkCart = (cartItems, restId, restName) => {
-        if (Object.keys(cartItems).length) {
-            const restaurantId = cartItems?.[0]?.item?.id?.split("_")?.[0];
-            console.log(restaurantId, "Restaurant Id");
+
+        if (cartItems.length) {
+            const restaurantId = cartItems?.[0]?.restaurantId;
             if (restId !== restaurantId) {
-                if (confirm(`Your cart contain dishesh from another restaurant. Do you want to discard selection and add dishesh from ${restName} restaurant`)) {
-                    dispatch(clearCart({ userKey: `cart_${user.email}` }));
+                if (confirm(`Your cart contain dishesh from another restaurant. Do you want to discard selection and add dishesh from ${restName} - ${restaurantId} restaurant`)) {
+                    dispatch(clearCart());
                     return true;
-                } else return false
+                } else return false;
             }
         }
         return true;
     }
 
-    const handleRemoveFromCart = (item) => {
-        console.log("remove to cart clicked");
-
-        dispatch(removeItemsToCart({
-            ...item,
-            id: item.id,
-            userKey: `cart_${user.email}`,
-        }))
+    const handleRemoveFromCart = (itemId) => {
+        dispatch(removeItemFromCart(itemId))
     }
-    const handleAddToCart = (item) => {
+    const handleAddToCart = async (item) => {
         console.log("add to cart clicked");
         if (!user) {
             alert("Login required");
             return;
         }
-        const proceed = checkCart(cartItems, restId, restName);
+        const proceed = await checkCart(cartItems, restId, restName);
+
         return proceed ?
             dispatch(
-                addItemsToCart({
-                    ...item,
-                    id: item.id,
-                    userKey: `cart_${user.email}`,
+                addItemToCart({
+                    restaurantId: item.restaurantId ? item.restaurantId : item.id.split("_")[0],
+                    menuItemId: item.id ? item.id : item.menuItemId,
+                    name: item.name,
+                    image: "...",
+                    category: item.category,
+                    description: item.description,
+                    price: item?.price,
+                    quantity: 1
                 })
             ) : false;
     }
@@ -63,9 +66,8 @@ const RestaurantMenuItemList = ({ restInfo, items }) => {
         <div>
             {items?.map((item, ind) => {
                 const { id, name, price, imageId, description } = item?.card?.info;
-                const cartItem = cartItems.find(cartItem => cartItem.item.id === id)
-                { console.log("id what:", id) }
-                // { console.log("cart Item:", cartItem.item) }
+                const cartItem = cartItems?.find(cartItem => cartItem.menuItemId === id);
+                { console.log("cart Item:", cartItem) }
                 return (
                     <div key={id} className={`flex justify-between items-center gap-[50px] py-[20px] ${ind === items.length - 1 ? ' ' : 'border-b border-[#5b5b5b]'}`} >
                         <div className="flex flex-col gap-[5px] w-[75%]">
@@ -87,12 +89,12 @@ const RestaurantMenuItemList = ({ restInfo, items }) => {
                                     (
                                         <div className="!bg-white text-green-600 font-semibold rounded-md relative bottom-[15px] flex items-center justify-between">
                                             <button className="!rounded-r-none !bg-white px-[12px] py-[5px] cursor-pointer border-none hover:bg-gray-300 hover:text-green-800 transition-all 0.3s"
-                                                onClick={() => handleRemoveFromCart(cartItem.item)}>
+                                                onClick={() => handleRemoveFromCart(cartItem.menuItemId)}>
                                                 -
                                             </button>
                                             <span className="px-2">{cartItem.quantity}</span>
                                             <button className="!rounded-l-none !bg-white px-[12px] py-[5px] cursor-pointer border-none hover:bg-gray-300 hover:text-green-800 transition-all 0.3s"
-                                                onClick={() => handleAddToCart(cartItem.item)}>+</button>
+                                                onClick={() => handleAddToCart(cartItem)}>+</button>
                                         </div>
                                     )
                                     : (

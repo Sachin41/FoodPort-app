@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { FaCartArrowDown } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
-import { setCartFromStorage } from '../slices/cartSlice';
 import { logoutUser } from "../slices/authSlice";
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchCart, resetCart } from '../slices/cartSlice';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -14,23 +14,23 @@ export default function Header() {
   const isAuthenticated = useSelector(
     (store) => store.auth.isAuthenticated
   );
-  let count = useSelector((store) => store.cart.totalItems);
-  console.log(count);
+  let count = useSelector((state) => state.cart.totalItems);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (user) {
-      const cartKey = `cart_${user.email}`;      
-      const storedCart = JSON.parse(localStorage.getItem(cartKey)) || {};
-      dispatch(setCartFromStorage(storedCart));
-    } 
-  }, [dispatch]);
+    const token = localStorage.getItem("token");
+    if (token) {
+      dispatch(fetchCart(token));
+    }
+    
+  }, [count, user]);
 
   function logInOut(e) {
     if (!user) {
       navigate("/login");
     } else {
       localStorage.removeItem("token");
+      dispatch(resetCart())
       dispatch(logoutUser());
     }
   }

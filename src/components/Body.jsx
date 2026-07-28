@@ -23,8 +23,6 @@ export default function Body() {
     //       const json = await data.json();
     //       const restaurants = eval("json?." + SWIGGY_REST_API_PATH) || [];
     //       console.log("data", restaurants)
-    //       setRestaurantList(restaurants);
-    //       setFilteredRestaurants(restaurants);
     //     } catch (error) {
     //       console.error("Error fetching data:", error);
     //     }
@@ -46,8 +44,6 @@ export default function Body() {
     }
 
     useEffect(() => {
-        // fetchData();
-        console.log("effect load")
         dispatch({ type: "load", page: page + 1 });
     }, []);
 

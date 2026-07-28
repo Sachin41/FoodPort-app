@@ -12,8 +12,8 @@ const OrderSummary = () => {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.auth.user);
   const { orders } = useSelector((store) => store.allOrder);
-  const cart = useSelector((store) => store.cart.cartItems);
-  const cartItems = Object.values(cart);
+  const {cartItems} = useSelector((store) => store.cart);
+  // const cartItems = Object.values(cart);
   const token = localStorage.getItem("token");
 
   // Get orderId from URL
@@ -33,7 +33,7 @@ const OrderSummary = () => {
       console.log("OrderData:", allOrder);
       const data = allOrder.orders.filter(o => o.phonePeTransactionId === orderId)
       setOrderData(data[0]);
-      dispatch(clearCart({ userKey: `cart_${user.email}` }));
+      dispatch(clearCart());
       // let value = cookie.split('=')[1];
       // value = decodeURIComponent(value)
       // const data = JSON.parse(decodeURIComponent(value));

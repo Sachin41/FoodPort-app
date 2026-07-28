@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { setCartFromStorage } from "./cartSlice";
+import { fetchCart } from "./cartSlice";
 
 /* =====================
    LOGIN THUNK
@@ -8,31 +8,13 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (userData, { dispatch }) => {
     // ⛔ Replace with API later
-    localStorage.setItem("isAuth", "true");
+    localStorage.setItem("isAuthenticated", "true");
     localStorage.setItem("loggedInUser", JSON.stringify(userData));
-
-    // 🔥 Load user cart
-    const cartKey = `cart_${userData.email}`;
-    const storedCart = JSON.parse(localStorage.getItem(cartKey)) || {};
-    dispatch(setCartFromStorage(storedCart));
+    // dispatch(fetchCart);
 
     return userData;
   }
 );
-
-/* =====================
-   LOGOUT THUNK
-===================== */
-// export const logoutUser = createAsyncThunk(
-//   "auth/logoutUser",
-//   async (_, { dispatch }) => {
-//     localStorage.removeItem("loggedInUser");
-//     localStorage.removeItem("isAuth");
-
-//     dispatch(clearCart());
-//     return null;
-//   }
-// );
 
 /* =====================
    SLICE
@@ -47,8 +29,7 @@ const authSlice = createSlice({
     logoutUser(state) {
       state.user = null;
       state.isAuthenticated = false;
-      // localStorage.removeItem("loggedInUser");
-      // localStorage.removeItem("isAuth");
+      localStorage.removeItem("loggedInUser");
     },
 
   },

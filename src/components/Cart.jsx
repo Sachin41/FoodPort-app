@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from './CartItem';
-import { clearCart, setCartFromStorage } from '../slices/cartSlice';
+import { fetchCart, clearCart } from '../slices/cartSlice';
 import Bill from './Bill';
 import { IoChevronBackSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
@@ -10,32 +10,22 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import Payment from './Payment';
 
 const Cart = () => {
-  const [checkoutSection, setCheckoutSection] = useState("address")
-  const cart = useSelector((store) => store.cart.cartItems);
-  const cartItems = Object.values(cart);
-  const resId = cartItems?.[0]?.item?.id?.split("_")?.[0];
-  console.log(resId, "Restaurant Id");
-  const user = useSelector((store) => store.auth.user);
+  const [checkoutSection, setCheckoutSection] = useState("address");
+  const {cartItems, loading} = useSelector((state)=>state.cart);
   const dispatch = useDispatch();
+  const user = useSelector((store) => store.auth.user);
+  const resId = cartItems?.[0]?.restaurantId;
+
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (user) {
-      const cartKey = `cart_${user.email}`;
-      const storedCart = JSON.parse(localStorage.getItem(cartKey)) || {};
-      dispatch(setCartFromStorage(storedCart));
-    }
-  }, []);
-  console.log(cartItems, "CART")
+    dispatch(fetchCart());
+  }, [dispatch]);
+
   const handleClearCart = () => {
-    console.log("clear Cart");
-    dispatch(clearCart({ userKey: `cart_${user.email}` }));
+    dispatch(clearCart());
   }
 
 
-  const total = cartItems.reduce((total, it) => {
-    const price = Number(it.item.price.replace("₹", ""));
-    return total + price * it.quantity;
-  }, 0);
+  const total = cartItems.length && cartItems?.reduce((total, item) => total + item.price * item.quantity, 0);
   console.log(total);
   const deliveryFee = 36;
   const restaurantPackaging = 30;
@@ -73,7 +63,7 @@ const Cart = () => {
             <div className="w-full h-full bg-white rounded-md px-4 py-2 max-h-[285px] overflow-auto">
               {/* Cart Section */}
               {cartItems.map((menu) => {
-                return (<CartItem key={menu.item.id} details={menu} />)
+                return (<CartItem key={menu.menuItemId} details={menu} />)
               })}
             </div>
 
