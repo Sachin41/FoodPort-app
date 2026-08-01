@@ -4,62 +4,143 @@ import AddressSidebar from "./AddressSidebar";
 const AddressList = ({ isCart }) => {
     // const addresses = [
     //     {
-    //         id: 1,
-    //         type: "Home",
-    //         line1: "Flat 203, Green Residency",
-    //         area: "Sector 62",
+    //         addressType: "Home",
+    //         fullName: "Sachin Kumar",
+    //         phone: "9876543210"
+    //         houseNo: "Flat 203, Green Residency",
+    //         street: "Sector 62",
+    //         landmark: "Near Metro",
     //         city: "Noida",
-    //         pincode: "201301",
+    //         state: "Uttar Pradesh",
+    //         pincode: "250001",
+    //         isDefault: true,
+    //         _id: "6a6b977107924cd400697ba2"
     //     }
     // ];
-    let initAddress;
-    if (localStorage.getItem("addresses") === null) {
-        initAddress = [];
-    } else {
-        initAddress = JSON.parse(localStorage.getItem("addresses"))
-    }
+    // let initAddress;
+    // // if (localStorage.getItem("addresses") === null) {
+    // //     initAddress = [];
+    // // } else {
+    // //     initAddress = JSON.parse(localStorage.getItem("addresses"))
+    // // }
 
     const [selectedId, setSelectedId] = useState(1);
     const [data, setData] = useState({});
-    const [addressList, setAddressList] = useState(initAddress);
+    const [addressList, setAddressList] = useState([]);
     const [open, setOpen] = useState(false);
     const [mode, setMode] = useState("");
+
+    const fetchAddress = async () => {
+        try {
+            const token = localStorage.getItem("token");
+            const res = await fetch('http://localhost:8000/api/address', {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+
+            return await res.json();
+
+        } catch (error) {
+            console.log("ERROR:", error)
+        }
+    }
+
+    const deleteAddress = async (addressId) => {
+        const token = localStorage.getItem("token");
+        const res = await fetch(`http://localhost:8000/api/address/deleteAddress/${addressId}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        });
+        const data = await res.json();
+
+        setAddressList(data.addresses);
+    }
+
+    const addAddress = async (address) => {
+        const token = localStorage.getItem("token");
+        const res = await fetch("http://localhost:8000/api/address/addAddress", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(address)
+        });
+
+        const data = await res.json();
+
+        setAddressList(data.addresses)
+    }
+
+    const updateAddress = async (addressId, address) => {
+        try {
+            const token = localStorage.getItem("token");
+
+            const res = await fetch(`http://localhost:8000/api/address/updateAddress/${addressId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify(address)
+            })
+            const data = await res.json();
+            setAddressList(data.addresses)
+        } catch (error) {
+            console.log("ERROR:", error)
+        }
+    }
+
     useEffect(() => {
-        localStorage.setItem('addresses', JSON.stringify(addressList));
-    }, [addressList]);
+        fetchAddress().then((data) => {
+            setAddressList(data.addresses.addresses);
+        })
+        // localStorage.setItem('addresses', JSON.stringify(addressList));
+    }, []);
     const handleDelete = (addrId) => {
-        console.log("delete address")
         if (confirm(`Are you sure, you want to delete this address?`)) {
-            setAddressList(addressList.filter((addr) => addr.id !== addrId))
+            // setAddressList(addressList.filter((addr) => addr.id !== addrId))
+            deleteAddress(addrId)
         } else return;
+
     }
     const handleEdit = (addr) => {
         setMode("edit");
         setOpen(true);
         setData(addr)
     }
-    const addNewAddress = (addressType, line1, area, landmark, city, pincode) => {
-        console.log("New", line1, area, landmark);
-        let id = addressList.length ? addressList[addressList.length - 1].id + 1 : 1;
+    const addNewAddress = (addressType, fullName, phone, houseNo, street, landmark, city, state, pincode, isDefault) => {
+
+        // let id = addressList.length ? addressList[addressList.length - 1].id + 1 : 1;
         const address = {
-            id: id,
-            type: addressType,
-            line1: line1,
-            area: area,
+            addressType: addressType,
+            fullName: fullName,
+            phone: phone,
+            houseNo: houseNo,
+            street: street,
+            landmark: landmark,
             city: city,
+            state: state,
             pincode: pincode,
+            isDefault: isDefault
         }
-        setAddressList([...addressList, address]);
+        addAddress(address)
+        // setAddressList([...addressList, address]);
         setOpen(false);
     }
     const editAddress = (addrId, addrs) => {
-        console.log("edit address")
-        setAddressList(addressList.map((addr) => {
-            if (addr.id === addrId) {
-                addr = { ...addrs, type: addrs.addressType, id: addrId };
-            }
-            return addr;
-        }));
+
+        // setAddressList(addressList.map((addr) => {
+        //     if (addr.id === addrId) {
+        //         addr = { ...addrs, addressType: addrs.addressType, id: addrId };
+        //     }
+        //     return addr;
+        // }));
+        updateAddress(addrId, addrs);
         setOpen(false);
     }
     return (
@@ -82,17 +163,17 @@ const AddressList = ({ isCart }) => {
                     addressList.length === 0 ? <h3 className='p-3 font-bold'>No Address found, add an address</h3> :
                         addressList.map((addr) => (
                             <AddressCard isCart={isCart}
-                                key={addr.id}
+                                key={addr._id}
                                 address={addr}
-                                selected={isCart && selectedId === addr.id}
-                                onSelect={() => setSelectedId(addr.id)}
+                                selected={isCart && selectedId === addr._id}
+                                onSelect={() => setSelectedId(addr._id)}
                                 onEdit={() => handleEdit(addr)}
-                                onDelete={() => handleDelete(addr.id)}
+                                onDelete={() => handleDelete(addr._id)}
                             />
                         ))}
             </div>
             <AddressSidebar
-                key={data.id || 0}
+                key={data?._id}
                 isOpen={open}
                 mode={mode}
                 addNewAddress={addNewAddress}

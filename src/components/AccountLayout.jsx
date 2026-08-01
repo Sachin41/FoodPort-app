@@ -19,7 +19,7 @@ export default function AccountLayout({ user }) {
     const orders = useFetchOrders(user);
 
     return (
-        <div className="flex h-screen max-h-[75vh] bg-gray-100 lg:w-[90%] w-full">
+        <div className="flex bg-gray-100 lg:w-[90%] w-full">
             {/* Sidebar */}
             <div className="lg:w-64 bg-gray-200 p-6">
                 <div className="space-y-3">
