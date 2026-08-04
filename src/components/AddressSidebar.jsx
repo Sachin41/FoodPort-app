@@ -20,8 +20,8 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
 
     const submit = (e) => {
         e.preventDefault();
-        if (!houseNo || !street) {
-            console.log("houseNo or Area can not be blank");
+        if (!addressType || !fullName || !phone || !houseNo || !city || !state || !pincode || !street) {
+            console.log("require field can not be blank");
         } else {
             if (mode === 'add') {
                 addNewAddress(addressType, fullName, phone, houseNo, street, landmark, city, state, pincode, isDefault);
@@ -97,8 +97,10 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
                             <input className="input" placeholder="State" value={state}
                                 onChange={(e) => setState(e.target.value)} />
                         </div>
-                        <input className="input flex-1" placeholder="Pincode" value={pincode}
+                        <input className="input block" placeholder="Pincode" value={pincode}
                             onChange={(e) => setPincode(e.target.value)} />
+                        <input type='checkbox' className="input flex-1" checked={isDefault}
+                            onChange={(e) => setIsDefault(e.target.checked)} /> <label>Set as default Address</label>
 
                     </div>
 
@@ -107,12 +109,6 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
                         <button type="submit" className="w-full !bg-orange-500 text-white py-3 rounded-lg font-semibold">
                             Save Address
                         </button>
-
-                        {/* {mode === "edit" && (
-                            <button className="w-full mt-3 text-red-500 font-medium">
-                                Delete Address
-                            </button>
-                        )} */}
                     </div>
                 </div>
             </form>

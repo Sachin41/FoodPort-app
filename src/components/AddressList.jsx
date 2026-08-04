@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import AddressCard from './AddressCard';
 import AddressSidebar from "./AddressSidebar";
+import {addressContext} from "./Cart";
 const AddressList = ({ isCart }) => {
     // const addresses = [
     //     {
@@ -17,19 +18,16 @@ const AddressList = ({ isCart }) => {
     //         _id: "6a6b977107924cd400697ba2"
     //     }
     // ];
-    // let initAddress;
-    // // if (localStorage.getItem("addresses") === null) {
-    // //     initAddress = [];
-    // // } else {
-    // //     initAddress = JSON.parse(localStorage.getItem("addresses"))
-    // // }
 
-    const [selectedId, setSelectedId] = useState(1);
+
+    const [selectedId, setSelectedId] = useState(null);
     const [data, setData] = useState({});
     const [addressList, setAddressList] = useState([]);
     const [open, setOpen] = useState(false);
     const [mode, setMode] = useState("");
 
+        const addressContextValue  = useContext(addressContext);
+    
     const fetchAddress = async () => {
         try {
             const token = localStorage.getItem("token");
@@ -58,6 +56,9 @@ const AddressList = ({ isCart }) => {
         const data = await res.json();
 
         setAddressList(data.addresses);
+        if(isCart){
+            addressContextValue.setAddrdata(data.addAddress);
+        }
     }
 
     const addAddress = async (address) => {
@@ -73,7 +74,10 @@ const AddressList = ({ isCart }) => {
 
         const data = await res.json();
 
-        setAddressList(data.addresses)
+        setAddressList(data.addresses);
+        if(isCart){
+            addressContextValue.setAddrdata(data.addAddress);
+        }
     }
 
     const updateAddress = async (addressId, address) => {
@@ -90,17 +94,27 @@ const AddressList = ({ isCart }) => {
             })
             const data = await res.json();
             setAddressList(data.addresses)
+            if(isCart){
+                addressContextValue.setAddrdata(data.addAddress);
+            }
         } catch (error) {
             console.log("ERROR:", error)
         }
     }
 
-    useEffect(() => {
+    useEffect(() => {        
         fetchAddress().then((data) => {
             setAddressList(data.addresses.addresses);
-        })
-        // localStorage.setItem('addresses', JSON.stringify(addressList));
+            const defaultAddr = data.addresses.addresses?.find(addr => addr.isDefault === true);
+            setSelectedId(defaultAddr ? defaultAddr._id : data.addresses.addresses?.[0]?._id);
+            if(isCart){
+                addressContextValue.setAddrdata(data.addresses.addresses);
+            }
+
+        });
+        
     }, []);
+
     const handleDelete = (addrId) => {
         if (confirm(`Are you sure, you want to delete this address?`)) {
             // setAddressList(addressList.filter((addr) => addr.id !== addrId))
@@ -114,7 +128,6 @@ const AddressList = ({ isCart }) => {
         setData(addr)
     }
     const addNewAddress = (addressType, fullName, phone, houseNo, street, landmark, city, state, pincode, isDefault) => {
-
         // let id = addressList.length ? addressList[addressList.length - 1].id + 1 : 1;
         const address = {
             addressType: addressType,
@@ -128,8 +141,8 @@ const AddressList = ({ isCart }) => {
             pincode: pincode,
             isDefault: isDefault
         }
-        addAddress(address)
         // setAddressList([...addressList, address]);
+        addAddress(address)
         setOpen(false);
     }
     const editAddress = (addrId, addrs) => {

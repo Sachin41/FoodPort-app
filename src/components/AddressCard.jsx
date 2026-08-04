@@ -7,7 +7,7 @@ const AddressCard = ({ isCart, address, selected, onSelect, onEdit, onDelete }) 
     <div
       onClick={onSelect}
       className={`w-auto max-w-[280px] cursor-pointer border rounded-xl p-4 flex gap-4 items-start transition
-        ${selected ? "border-orange-500 bg-orange-50" : "border-gray-200 hover:shadow-md"}`}
+       ${address.isDefault && "pb-0"} ${selected ? "border-orange-500 bg-orange-50" : "border-gray-200 hover:shadow-md"}`}
     >
       <div className="text-orange-500 text-xl mt-[12px]">
         {address.addressType === "Home" ? <FaHome /> : <FaBriefcase />}
@@ -41,6 +41,7 @@ const AddressCard = ({ isCart, address, selected, onSelect, onEdit, onDelete }) 
         <p className="text-sm text-gray-600 mt-1">
           {address.houseNo}, {address.street}, {address.landmark}, {address.city}, {address.state} - {address.pincode}
         </p>
+        {address.isDefault && <p className="mt-4"><span className="inline-flex items-center rounded-md rounded-bl-none rounded-br-none bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">Default Address</span></p>}
       </div>
     </div>
   );

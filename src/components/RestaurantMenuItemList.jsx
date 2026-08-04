@@ -66,7 +66,7 @@ const RestaurantMenuItemList = ({ restInfo, items }) => {
         <div>
             {items?.map((item, ind) => {
                 const { id, name, price, imageId, description } = item?.card?.info;
-                const cartItem = cartItems?.find(cartItem => cartItem.menuItemId === id);
+                const cartItem = cartItems?.find(item => item.menuItemId === id);
                 { console.log("cart Item:", cartItem) }
                 return (
                     <div key={id} className={`flex justify-between items-center gap-[50px] py-[20px] ${ind === items.length - 1 ? ' ' : 'border-b border-[#5b5b5b]'}`} >
