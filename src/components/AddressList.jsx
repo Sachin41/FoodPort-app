@@ -1,8 +1,7 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect} from "react";
 import AddressCard from './AddressCard';
 import AddressSidebar from "./AddressSidebar";
-import {addressContext} from "./Cart";
-const AddressList = ({ isCart }) => {
+const AddressList = (props) => {
     // const addresses = [
     //     {
     //         addressType: "Home",
@@ -19,15 +18,13 @@ const AddressList = ({ isCart }) => {
     //     }
     // ];
 
-
+    const { isCart } = props;
     const [selectedId, setSelectedId] = useState(null);
     const [data, setData] = useState({});
     const [addressList, setAddressList] = useState([]);
     const [open, setOpen] = useState(false);
     const [mode, setMode] = useState("");
 
-        const addressContextValue  = useContext(addressContext);
-    
     const fetchAddress = async () => {
         try {
             const token = localStorage.getItem("token");
@@ -56,9 +53,6 @@ const AddressList = ({ isCart }) => {
         const data = await res.json();
 
         setAddressList(data.addresses);
-        if(isCart){
-            addressContextValue.setAddrdata(data.addAddress);
-        }
     }
 
     const addAddress = async (address) => {
@@ -75,9 +69,6 @@ const AddressList = ({ isCart }) => {
         const data = await res.json();
 
         setAddressList(data.addresses);
-        if(isCart){
-            addressContextValue.setAddrdata(data.addAddress);
-        }
     }
 
     const updateAddress = async (addressId, address) => {
@@ -94,26 +85,23 @@ const AddressList = ({ isCart }) => {
             })
             const data = await res.json();
             setAddressList(data.addresses)
-            if(isCart){
-                addressContextValue.setAddrdata(data.addAddress);
-            }
         } catch (error) {
             console.log("ERROR:", error)
         }
     }
 
-    useEffect(() => {        
+    useEffect(() => {
         fetchAddress().then((data) => {
-            setAddressList(data.addresses.addresses);
-            const defaultAddr = data.addresses.addresses?.find(addr => addr.isDefault === true);
-            setSelectedId(defaultAddr ? defaultAddr._id : data.addresses.addresses?.[0]?._id);
-            if(isCart){
-                addressContextValue.setAddrdata(data.addresses.addresses);
-            }
-
+            if (data.success) {
+                setAddressList(data.addresses.addresses);
+            }else console.log(data.message);
         });
-        
     }, []);
+
+    useEffect(()=>{
+        const defaultAddr = addressList.find(addr => addr.isDefault === true);
+        setSelectedId(defaultAddr ? defaultAddr._id : addressList?.[0]?._id);
+    }, [addressList])
 
     const handleDelete = (addrId) => {
         if (confirm(`Are you sure, you want to delete this address?`)) {
@@ -158,9 +146,7 @@ const AddressList = ({ isCart }) => {
     }
     return (
         <div className="address-list w-full h-full bg-white rounded-md px-4">
-            {!isCart && (<p className="!text-[25px] mb-3 font-bold">
-                Manage Addresses
-            </p>)}
+            {!isCart && props.children}
             <div className="flex flex-wrap gap-2">
                 <button
                     onClick={() => {
@@ -173,8 +159,8 @@ const AddressList = ({ isCart }) => {
                     + Add New Address
                 </button>
                 {
-                    addressList.length === 0 ? <h3 className='p-3 font-bold'>No Address found, add an address</h3> :
-                        addressList.map((addr) => (
+                    addressList.length === 0 ? <h3 className='p-3 font-bold'>No Address found, add an address</h3>
+                        : addressList.map((addr) => (
                             <AddressCard isCart={isCart}
                                 key={addr._id}
                                 address={addr}
@@ -185,6 +171,9 @@ const AddressList = ({ isCart }) => {
                             />
                         ))}
             </div>
+            {isCart && addressList?.length > 0 && (<div className="px-4 flex gap-4 mt-4 justify-end">
+                {props.children}
+            </div>)}
             <AddressSidebar
                 key={data?._id}
                 isOpen={open}

@@ -23,18 +23,18 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
         if (!addressType || !fullName || !phone || !houseNo || !city || !state || !pincode || !street) {
             console.log("require field can not be blank");
         } else {
-            if (mode === 'add') {
-                addNewAddress(addressType, fullName, phone, houseNo, street, landmark, city, state, pincode, isDefault);
-                setFullName('');
-                setPhone('');
-                setHouseNo('');
-                setStreet('');
-                setCity('');
-                setState('')
-                setPincode('');
-                setLandmark('');
-                setIsDefault(false);
-            } else editAddress(data._id, { addressType, fullName, phone, houseNo, street, landmark, city, state, pincode, isDefault });
+        if (mode === 'add') {
+            addNewAddress(addressType, fullName, phone, houseNo, street, landmark, city, state, pincode, isDefault);
+            setFullName('');
+            setPhone('');
+            setHouseNo('');
+            setStreet('');
+            setCity('');
+            setState('')
+            setPincode('');
+            setLandmark('');
+            setIsDefault(false);
+        } else editAddress(data._id, { addressType, fullName, phone, houseNo, street, landmark, city, state, pincode, isDefault });
 
         }
     }
@@ -48,7 +48,7 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
 
             {/* Sidebar */}
             <form onSubmit={submit}>
-                <div className="w-full sm:w-[420px] bg-white h-full p-5 overflow-y-auto">
+                <div className="w-full sm:w-[520px] bg-white h-full p-5 overflow-y-auto">
                     {/* Header */}
                     <div className="flex items-center justify-between mb-5">
                         <h2 className="text-lg font-semibold">
@@ -81,24 +81,44 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
 
                     {/* Form */}
                     <div className="space-y-4">
-                        <input className="input" placeholder="Full Name" value={fullName}
-                            onChange={(e) => setFullName(e.target.value)} />
-                        <input className="input" placeholder="Mobile Number" defaultValue={phone}
-                            onChange={(e) => setPhone(e.target.value)} />
-                        <input className="input" placeholder="Flat / House No." value={houseNo}
-                            onChange={(e) => setHouseNo(e.target.value)} />
-                        <input className="input" placeholder="Area / Street" value={street}
-                            onChange={(e) => setStreet(e.target.value)} />
-                        <input className="input" placeholder="Landmark (Optional)" value={landmark}
+                        <div className='flex gap-3'>
+                            <input type="text" name="FullName" className="w-1/2 border border-gray-300 rounded-lg px-4 py-1
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Full Name" value={fullName}
+                                onChange={(e) => setFullName(e.target.value)} />
+
+                            <input type="text" name="mobile" className="w-1/2 border border-gray-300 rounded-lg px-4 py-1
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Mobile Number" defaultValue={phone}
+                                onChange={(e) => setPhone(e.target.value)} />
+                        </div>
+
+                        <div className='flex gap-3'>
+                            <input type="text" className="w-1/2 border border-gray-300 rounded-lg px-4 py-1
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Flat / House No." value={houseNo}
+                                onChange={(e) => setHouseNo(e.target.value)} />
+
+                            <input className="w-1/2 border border-gray-300 rounded-lg px-4 py-1
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Area / Street" value={street}
+                                onChange={(e) => setStreet(e.target.value)} />
+                        </div>
+
+                        <input name="landmark" className="w-full border border-gray-300 rounded-lg px-4 py-1
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Landmark (Optional)" value={landmark}
                             onChange={(e) => setLandmark(e.target.value)} />
+
                         <div className="flex gap-3">
-                            <input className="input flex-1" placeholder="City" value={city}
+                            <input type="text" className="w-1/2 border border-gray-300 rounded-lg px-4 py-1
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 flex-1" placeholder="City" value={city}
                                 onChange={(e) => setCity(e.target.value)} />
-                            <input className="input" placeholder="State" value={state}
+
+                            <input type="text" className="w-1/2 border border-gray-300 rounded-lg px-4 py-1
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="State" value={state}
                                 onChange={(e) => setState(e.target.value)} />
                         </div>
-                        <input className="input block" placeholder="Pincode" value={pincode}
+
+                        <input type="text" className="w-full border border-gray-300 rounded-lg px-4 py-1
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block" placeholder="Pincode" value={pincode}
                             onChange={(e) => setPincode(e.target.value)} />
+
                         <input type='checkbox' className="input flex-1" checked={isDefault}
                             onChange={(e) => setIsDefault(e.target.checked)} /> <label>Set as default Address</label>
 
@@ -106,9 +126,9 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
 
                     {/* Footer */}
                     <div className="sticky bottom-0 bg-white pt-5 mt-6">
-                        <button type="submit" className="w-full !bg-orange-500 text-white py-3 rounded-lg font-semibold">
-                            Save Address
-                        </button>
+                       <button type="submit" className="w-full !bg-orange-500 text-white py-3 rounded-lg font-semibold">
+                                Save Address
+                            </button>
                     </div>
                 </div>
             </form>

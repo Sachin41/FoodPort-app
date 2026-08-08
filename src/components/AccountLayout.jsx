@@ -85,7 +85,11 @@ export default function AccountLayout({ user }) {
                 )}
 
                 {active === "addresses" && (
-                    <AddressList />
+                    <AddressList>
+                        <p className="!text-[25px] mb-3 font-bold">
+                            Manage Addresses
+                        </p>
+                    </AddressList>
                 )}
             </div>
         </div>

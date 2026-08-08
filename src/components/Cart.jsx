@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import CartItem from './CartItem';
 import { fetchCart, clearCart } from '../slices/cartSlice';
@@ -8,11 +8,6 @@ import { Link } from 'react-router-dom';
 import AddressList from './AddressList';
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import Payment from './Payment';
-
-export const addressContext = createContext({
-  addrData:[],
-  setAddrdata:()=>{}
-});
 
 const Cart = () => {
   const [checkoutSection, setCheckoutSection] = useState("address");
@@ -45,16 +40,12 @@ const [addrData, setAddrdata]= useState(null);
           {checkoutSection === "address" && <div className='lg:w-[70%] w-full  mt-4'>
             <div className="address-sec bg-white rounded-md p-4">
               <p className="text-gray-600 text-xl font-bold px-4 pb-4">Choose a delivery Address </p>
-             <addressContext.Provider value={{addrData, setAddrdata}}>
-              <AddressList isCart={true} />
-              
-              {addrData?.length>0 && <div className="px-4 flex gap-4 mt-4 justify-end">
+              <AddressList isCart={true}>
                 <button className='!bg-[orange] !border-none text-white flex justify-center items-center gap-2 font-bold
                  !py-2 !px-4 rounded-lg cursor-pointer !hover:bg-[green]' onClick={() => setCheckoutSection("payment")}>
                   Proceed to Pay <FaArrowRight />
-                </button>
-              </div>}
-              </addressContext.Provider>
+                </button>            
+              </AddressList>
             </div>
 
 
