@@ -1,6 +1,8 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import AddressCard from './AddressCard';
 import AddressSidebar from "./AddressSidebar";
+import AddressesWithActions from "./withAddressActions";
+
 const AddressList = (props) => {
     // const addresses = [
     //     {
@@ -160,16 +162,24 @@ const AddressList = (props) => {
                 </button>
                 {
                     addressList.length === 0 ? <h3 className='p-3 font-bold'>No Address found, add an address</h3>
-                        : addressList.map((addr) => (
-                            <AddressCard isCart={isCart}
-                                key={addr._id}
-                                address={addr}
-                                selected={isCart && selectedId === addr._id}
-                                onSelect={() => setSelectedId(addr._id)}
-                                onEdit={() => handleEdit(addr)}
-                                onDelete={() => handleDelete(addr._id)}
-                            />
-                        ))}
+                        : isCart ?
+                            addressList.map((addr) => (
+                                <AddressCard
+                                    key={addr._id}
+                                    address={addr}
+                                    selected={selectedId === addr._id}
+                                    onSelect={() => setSelectedId(addr._id)}
+                                />
+                            )) :
+
+                            addressList.map((addr) => (
+                                <AddressesWithActions key={addr._id}
+                                    address={addr}
+                                    onEdit={() => handleEdit(addr)}
+                                    onDelete={() => handleDelete(addr._id)}
+                                />
+                            ))
+                }
             </div>
             {isCart && addressList?.length > 0 && (<div className="px-4 flex gap-4 mt-4 justify-end">
                 {props.children}

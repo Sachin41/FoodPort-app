@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { FaHome, FaBriefcase, FaEdit, FaTrash } from "react-icons/fa";
+import { FaHome, FaBriefcase } from "react-icons/fa";
 
-const AddressCard = ({ isCart, address, selected, onSelect, onEdit, onDelete }) => {
+const AddressCard = ({address, actions, selected, onSelect }) => {
 
   return (
     <div
@@ -16,26 +16,10 @@ const AddressCard = ({ isCart, address, selected, onSelect, onEdit, onDelete }) 
       <div className="flex-1">
         <div className="flex justify-between items-center gap-4">
           <h3 className="font-semibold text-gray-800">{address.addressType}</h3>
-          <div className="flex gap-2">
-            {!isCart && <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onEdit();
-              }}
-              className="text-sm text-orange-500 flex items-center gap-1 !p-2"
-            >
-              <FaEdit /> Edit
-            </button>}
-            {!isCart && <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onDelete();
-              }}
-              className="text-sm text-orange-500 flex items-center gap-1 !p-2"
-            >
-              <FaTrash /> Delete
-            </button>}
-          </div>
+
+          {/* Actions supplied by HOC */}
+          {actions}
+
         </div>
         <h3 className="font-semibold text-gray-600">{address.fullName} - {address.phone}</h3>
         <p className="text-sm text-gray-600 mt-1">
