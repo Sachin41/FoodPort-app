@@ -4,21 +4,6 @@ import AddressSidebar from "./AddressSidebar";
 import AddressesWithActions from "./withAddressActions";
 
 const AddressList = (props) => {
-    // const addresses = [
-    //     {
-    //         addressType: "Home",
-    //         fullName: "Sachin Kumar",
-    //         phone: "9876543210"
-    //         houseNo: "Flat 203, Green Residency",
-    //         street: "Sector 62",
-    //         landmark: "Near Metro",
-    //         city: "Noida",
-    //         state: "Uttar Pradesh",
-    //         pincode: "250001",
-    //         isDefault: true,
-    //         _id: "6a6b977107924cd400697ba2"
-    //     }
-    // ];
 
     const { isCart } = props;
     const [selectedId, setSelectedId] = useState(null);
@@ -107,7 +92,6 @@ const AddressList = (props) => {
 
     const handleDelete = (addrId) => {
         if (confirm(`Are you sure, you want to delete this address?`)) {
-            // setAddressList(addressList.filter((addr) => addr.id !== addrId))
             deleteAddress(addrId)
         } else return;
 
@@ -117,32 +101,11 @@ const AddressList = (props) => {
         setOpen(true);
         setData(addr)
     }
-    const addNewAddress = (addressType, fullName, phone, houseNo, street, landmark, city, state, pincode, isDefault) => {
-        // let id = addressList.length ? addressList[addressList.length - 1].id + 1 : 1;
-        const address = {
-            addressType: addressType,
-            fullName: fullName,
-            phone: phone,
-            houseNo: houseNo,
-            street: street,
-            landmark: landmark,
-            city: city,
-            state: state,
-            pincode: pincode,
-            isDefault: isDefault
-        }
-        // setAddressList([...addressList, address]);
-        addAddress(address)
+    const addNewAddress = (data) => {
+        addAddress(data)
         setOpen(false);
     }
     const editAddress = (addrId, addrs) => {
-
-        // setAddressList(addressList.map((addr) => {
-        //     if (addr.id === addrId) {
-        //         addr = { ...addrs, addressType: addrs.addressType, id: addrId };
-        //     }
-        //     return addr;
-        // }));
         updateAddress(addrId, addrs);
         setOpen(false);
     }

@@ -25,7 +25,10 @@ const AddressCard = ({address, actions, selected, onSelect }) => {
         <p className="text-sm text-gray-600 mt-1">
           {address.houseNo}, {address.street}, {address.landmark}, {address.city}, {address.state} - {address.pincode}
         </p>
-        {address.isDefault && <p className="mt-4"><span className="inline-flex items-center rounded-md rounded-bl-none rounded-br-none bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">Default Address</span></p>}
+        {address.isDefault && <p className="mt-4">
+          <span className="inline-flex items-center rounded-md rounded-bl-none rounded-br-none bg-blue-50 px-2
+         py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">Default Address</span>
+        </p>}
       </div>
     </div>
   );
