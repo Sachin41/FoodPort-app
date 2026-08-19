@@ -32,7 +32,7 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
     if (!isOpen) return null;
 
     const { register, handleSubmit, reset,
-        setValue, watch, formState: { errors, isSubmitting } } = useForm({
+        setValue, watch, formState: { errors, isSubmitting, isValid } } = useForm({
             defaultValues: {
                 addressType: data.addressType || "Home",
                 fullName: data.fullName || "",
@@ -45,7 +45,8 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
                 landmark: data.landmark || "",
                 isDefault: data.isDefault || false
             },
-            resolver: yupResolver(addressSchema)
+            resolver: yupResolver(addressSchema),
+             mode: 'all'
         })
 
     const selectedType = watch("addressType");
@@ -105,16 +106,16 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
                     <div className="space-y-4">
                         <div className='grid grid-cols-2 gap-3'>
                             <div>
-                                <input type="text" className="w-full border border-gray-300 rounded-lg px-4 py-1
-                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Full Name"
+                                <input type="text" className={`w-full border border-gray-300 rounded-lg px-4 py-1 invalid:border-red-500
+                         focus:outline-none focus:border-sky-500  ${errors.fullName && "border-red-500"}`} placeholder="Full Name"
                                     {...register("fullName")} />
                                 {errors.fullName && (<p className="text-red-500">
                                     {errors.fullName.message}
                                 </p>)}
                             </div>
                             <div>
-                                <input type="text" name="mobile" className="w-full border border-gray-300 rounded-lg px-4 py-1
-                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Mobile Number"
+                                <input type="text" name="mobile" className={`w-full border border-gray-300 rounded-lg px-4 py-1 invalid:border-red-500
+                         focus:outline-none focus:border-sky-500  ${errors.phone && "border-red-500"}`} placeholder="Mobile Number"
                                     {...register("phone")} />
                                 {errors.phone && (<p className="text-red-500">
                                     {errors.phone.message}
@@ -124,16 +125,16 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
 
                         <div className='grid grid-cols-2 gap-3'>
                             <div>
-                                <input type="text" className="w-full border border-gray-300 rounded-lg px-4 py-1
-                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Flat / House No."
+                                <input type="text" className={`w-full border border-gray-300 rounded-lg px-4 py-1 invalid:border-red-500
+                         focus:outline-none focus:border-sky-500  ${errors.houseNo && "border-red-500"}`} placeholder="Flat / House No."
                                     {...register("houseNo")} />
                                 {errors.houseNo && (<p className="text-red-500">
                                     {errors.houseNo.message}
                                 </p>)}
                             </div>
                             <div>
-                                <input className="w-full border border-gray-300 rounded-lg px-4 py-1
-                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Area / Street"
+                                <input className={`w-full border border-gray-300 rounded-lg px-4 py-1 invalid:border-red-500
+                         focus:outline-none focus:border-sky-500  ${errors.street && "border-red-500"}`} placeholder="Area / Street"
                                     {...register("street")} />
                                 {errors.street && (<p className="text-red-500">
                                     {errors.street.message}
@@ -141,14 +142,14 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
                             </div>
                         </div>
 
-                        <input name="landmark" className="w-full border border-gray-300 rounded-lg px-4 py-1
-                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Landmark (Optional)"
+                        <input name="landmark" className={`w-full border border-gray-300 rounded-lg px-4 py-1 invalid:border-red-500
+                         focus:outline-none focus:border-sky-500`} placeholder="Landmark (Optional)"
                             {...register("landmark")} />
 
                         <div className="grid grid-cols-2 gap-3">
                             <div>
-                                <input type="text" className="w-full border border-gray-300 rounded-lg px-4 py-1
-                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 flex-1" placeholder="City"
+                                <input type="text" className={`w-full border border-gray-300 rounded-lg px-4 py-1
+                         focus:outline-none focus:border-blue-500 flex-1 ${errors.city && "border-red-500"}`} placeholder="City"
                                     {...register("city")} />
                                 {errors.city && (<p className="text-red-500">
                                     {errors.city.message}
@@ -156,8 +157,8 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
 
                             </div>
                             <div>
-                                <input type="text" className="w-full border border-gray-300 rounded-lg px-4 py-1
-                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="State"
+                                <input type="text" className={`w-full border border-gray-300 rounded-lg px-4 py-1 invalid:border-red-500
+                         focus:outline-none focus:border-sky-500 ${errors.state && "border-red-500"}`} placeholder="State"
                                     {...register("state")} />
                                 {errors.state && (<p className="text-red-500">
                                     {errors.state.message}
@@ -166,8 +167,8 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
 
                         </div>
 
-                        <input type="text" className="w-full border border-gray-300 rounded-lg px-4 py-1
-                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-0" placeholder="Pincode"
+                        <input type="text" className={`w-full border border-gray-300 rounded-lg px-4 py-1
+                         focus:outline-none focus:border-blue-500 mb-0 ${errors.pincode && "border-red-500"}`} placeholder="Pincode"
                             {...register("pincode")} />
                         {errors.pincode && (<p className="text-red-500">
                             {errors.pincode.message}
@@ -179,9 +180,10 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
                     </div>
 
                     {/* Footer */}
-                    <div className="sticky bottom-0 bg-white pt-5 mt-6">
-                        <button type="submit" className="w-full !bg-orange-500 text-white py-3 rounded-lg font-semibold">
-                            Save Address
+                    <div className="sticky bottom-0 bg-white mt-6">
+                        <button type="submit" disabled={!isValid || isSubmitting} className={`w-full !bg-orange-500 text-white py-3 rounded-lg font-semibold
+                        ${!isValid && "disabled:opacity-50 disabled:!cursor-not-allowed"}`}>
+                            {isSubmitting? "Saving...": "Save Address"}
                         </button>
                     </div>
                 </div>

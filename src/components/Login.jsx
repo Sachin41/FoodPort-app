@@ -12,7 +12,7 @@ import { loginUser } from "../slices/authSlice";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleNavigate = async (values, { setSubmitting }) => {
+  const handleNavigate = async (values, { setSubmitting, setStatus }) => {
     try {
       console.log("login", values)
       await axios.post('http://localhost:8000/api/auth/login', { ...values }).then(res => {
@@ -23,23 +23,20 @@ const Login = () => {
           navigate("/");
         }
       })
-      // const savedUsers = JSON.parse(localStorage.getItem("users"));
-      // if (savedUsers?.length > 0 && savedUsers.some((user) => user.email === values.email && user.password === values.password)) {
-      //   const login_user = savedUsers.filter((user) => user.email === values.email && user.password === values.password);
-      //   console.log("login user", login_user);
-      //   dispatch(loginUser(login_user[0]));
-      //   alert(`Login Success: ${JSON.stringify(values, null, 2)}`);
-      //   navigate("/");
-      // }
-      // else {
-      //     console.log(res.data.message);
-      //   alert("Login failed, retry with correct email/password:");
-      //   setTimeout(() => {
-      //     setSubmitting(false);
-      //   }, 10);
-      // }
+        .catch(error => {
+          if (error.response) {
+            switch (error.response.status) {
+              case 401:
+                setStatus(error.response.data.message)
+                break;
+              default:
+                setStatus(error.response.statusText)
+            }
+
+          }
+        });
     } catch (error) {
-      console.error("Login error:", error);
+      console.error("Loginerror:", error.message);
     } finally {
       setSubmitting(false);
     }
@@ -69,12 +66,14 @@ const Login = () => {
             errors,
             touched,
             values,
+            status,
             handleBlur,
             handleChange,
             handleSubmit
           }) => (
             <form className='w-full' noValidate onSubmit={handleSubmit}>
               <h2 className='text-4xl font-bold text-center text-gray-800 !mb-6'>LOGIN</h2>
+              {status && <div className="rounded-lg bg-red-200 text-red-500 font-medium px-4 py-2 mb-2">{status}</div>}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email

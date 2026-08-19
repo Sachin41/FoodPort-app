@@ -6,7 +6,7 @@ const AddressCard = ({address, actions, selected, onSelect }) => {
   return (
     <div
       onClick={onSelect}
-      className={`w-auto max-w-[280px] cursor-pointer border rounded-xl p-4 flex gap-4 items-start transition
+      className={`w-[266px] cursor-pointer border rounded-xl p-4 flex gap-2 items-start transition
        ${address.isDefault && "pb-0"} ${selected ? "border-orange-500 bg-orange-50" : "border-gray-200 hover:shadow-md"}`}
     >
       <div className="text-orange-500 text-xl mt-[12px]">
@@ -14,7 +14,7 @@ const AddressCard = ({address, actions, selected, onSelect }) => {
       </div>
 
       <div className="flex-1">
-        <div className="flex justify-between items-center gap-4">
+        <div className="flex justify-between items-center">
           <h3 className="font-semibold text-gray-800">{address.addressType}</h3>
 
           {/* Actions supplied by HOC */}
@@ -25,7 +25,7 @@ const AddressCard = ({address, actions, selected, onSelect }) => {
         <p className="text-sm text-gray-600 mt-1">
           {address.houseNo}, {address.street}, {address.landmark}, {address.city}, {address.state} - {address.pincode}
         </p>
-        {address.isDefault && <p className="mt-4">
+        {address.isDefault && <p className="mt-1">
           <span className="inline-flex items-center rounded-md rounded-bl-none rounded-br-none bg-blue-50 px-2
          py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">Default Address</span>
         </p>}

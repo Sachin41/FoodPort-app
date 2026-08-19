@@ -119,7 +119,7 @@ const AddressList = (props) => {
                         setOpen(true);
                         setData({})
                     }}
-                    className="lg:w-[40%] w-auto max-w-[280px] !border-2 !border-dashed !border-orange-400 rounded-xl !p-2
+                    className="w-[266px] !border-2 !border-dashed !border-orange-400 rounded-xl !p-2
                      whitespace-nowrap text-orange-500 font-semibold !hover:bg-orange-500">
                     + Add New Address
                 </button>

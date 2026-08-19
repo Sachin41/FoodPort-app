@@ -7,35 +7,30 @@ import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 const Signup = () => {
   const navigate = useNavigate();
-  //   const dispatch = useDispatch();
 
-  const phoneRegExp = /^[0-9]{10}$/;
-
-  // const checkUserExists = (userName) => {
-  //   const existVal = localStorage.getItem("users");
-  //   const dataArr = existVal ? JSON.parse(existVal) : [];
-  //   return dataArr.some(user => user.userName === userName);
-  // };
-
-  const handleNavigate = async (values, { setSubmitting }) => {
+  const handleNavigate = async (values, { setSubmitting, setStatus }) => {
     try {
       console.log(values);
       await axios.post('http://localhost:8000/api/auth/signup', { ...values }).then(res => {
-      console.log(res)
-      if (res.data && res.data.success === true) {
-        navigate("/login");
-        // window.location.href = res.data.data.instrumentResponse.redirectInfo.url;
-      }
-    })
-      // const existVal = localStorage.getItem("users");
-      // const dataArr = existVal ? JSON.parse(existVal) : [];
-      // dataArr.push(values);
-      // localStorage.setItem('users', JSON.stringify(dataArr));
-      // console.log("saved user", dataArr);
-      // console.log("storage", JSON.parse(localStorage.getItem("users")));
-      // alert(`Signup Success: ${JSON.stringify(values, null, 2)}`);
-      // resetForm();
-     
+        console.log(res)
+        if (res.data && res.data.success === true) {
+          navigate("/login");
+        }
+      })
+        .catch(error => {
+          if (error.response) {
+            switch (error.response.status) {
+              case 400: {
+                setStatus(error.response.data.message)
+              }
+                break;
+              default: {
+                setStatus(error.response.statusText)
+              }
+            }
+          }
+        })
+
     } catch (error) {
       console.error("Signup error:", error);
     } finally {
@@ -46,16 +41,7 @@ const Signup = () => {
   const signupSchema = Yup.object({
     name: Yup.string()
       .required("User Name is required")
-      .min(3, "Username must be at least 3 characters")
-      // .test(
-      //   "unique-username",
-      //   "Username already exists",
-      //   function (value) {
-      //     if (!value) return true; // required handles empty
-      //     return !checkUserExists(value);
-      //   }
-      // )
-    ,
+      .min(3, "Username must be at least 3 characters"),
     email: Yup.string()
       .required("Email is required")
       .email("Invalid email format"),
@@ -65,7 +51,7 @@ const Signup = () => {
       .max(50, "Too long"),
     phone: Yup.string()
       .required("Phone No is rquired")
-      .matches(phoneRegExp, 'Phone number is not valid (must be exactly 10 digits)')
+      .matches(/^[6-9]\d{9}$/, 'Enter a valid mobile number')
   })
   return (
     <div className="w-full flex justify-center">
@@ -81,12 +67,14 @@ const Signup = () => {
             errors,
             touched,
             values,
+            status,
             handleBlur,
             handleChange,
             handleSubmit
           }) => (
             <form className='w-full' noValidate onSubmit={handleSubmit}>
               <h2 className='text-4xl font-bold text-center text-gray-800 !mb-6'>Signup</h2>
+              {status && <div className="rounded-lg bg-red-200 text-red-500 font-medium px-4 py-2 mb-2">{status}</div>}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   User Name
