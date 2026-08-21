@@ -11,7 +11,7 @@ const Restaurantcard = (
             <Link to={"/restaurant/" + id}>
                 <img className="restaurant-logo" src={IMAGE_CDN_URL + cloudinaryImageId} alt={name} />
                 <div className="restaurant-details">
-                    <h3 className="restaurant-name">
+                    <h3 title={name} className="restaurant-name">
                         {name?.length > 24 ? name?.slice(0, 21) + "...": name}
                         </h3>
 

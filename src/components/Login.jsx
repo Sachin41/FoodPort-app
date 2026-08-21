@@ -14,9 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const handleNavigate = async (values, { setSubmitting, setStatus }) => {
     try {
-      console.log("login", values)
       await axios.post('http://localhost:8000/api/auth/login', { ...values }).then(res => {
-        console.log(res)
         if (res.data && res.data.success === true) {
           localStorage.setItem("token", res.data.token);
           dispatch(loginUser(res.data.user));

@@ -50,6 +50,7 @@ const RestaurantMenuItemList = ({ restInfo, items }) => {
         return proceed ?
             dispatch(
                 addItemToCart({
+                    restaurantName: restName,
                     restaurantId: item.restaurantId ? item.restaurantId : item.id.split("_")[0],
                     menuItemId: item.id ? item.id : item.menuItemId,
                     name: item.name,

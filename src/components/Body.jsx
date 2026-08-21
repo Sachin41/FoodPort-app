@@ -94,7 +94,7 @@ export default function Body() {
         setLoading(true);
 
         setTimeout(() => {
-            const filterText = !!searchRef.current.value
+            const filterText = !!searchRef?.current?.value
             if (hasMore === true && !filterText) {
                 console.log("Not filtered")
                 setPage(prev => prev + 1);

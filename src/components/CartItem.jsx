@@ -41,7 +41,7 @@ const CartItem = ({ details }) => {
                     <button className="!rounded-l-none !bg-white !px-[8px] !py-[4px] cursor-pointer border-none hover:bg-gray-300 hover:text-green-800 transition-all 0.3s"
                         onClick={() => handleAddToCart(details)}>+</button>
                 </div>
-                <p className="font-semibold text-black ml-6">₹{quantity}</p>
+                <p className="font-semibold text-black ml-6">₹{price*quantity}</p>
             </div>
         </div>
     )

@@ -11,11 +11,13 @@ import Payment from './Payment';
 
 const Cart = () => {
   const [checkoutSection, setCheckoutSection] = useState("address");
-  const {cartItems, loading} = useSelector((state)=>state.cart);
+  const [checkoutAddress, setCheckoutAddress] = useState(null);
+  const { cartItems, loading } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const user = useSelector((store) => store.auth.user);
-  const resId = cartItems?.[0]?.restaurantId;
-const [addrData, setAddrdata]= useState(null);
+  const restaurantId = cartItems?.[0]?.restaurantId;
+  const restaurantName = cartItems?.[0]?.restaurantName;
+
   useEffect(() => {
     dispatch(fetchCart());
   }, [dispatch]);
@@ -24,7 +26,10 @@ const [addrData, setAddrdata]= useState(null);
     dispatch(clearCart());
   }
 
-
+  const addressSelection = (address) => {
+    console.log("address", address);
+    setCheckoutAddress(address);
+  }
   const total = cartItems.length && cartItems?.reduce((total, item) => total + item.price * item.quantity, 0);
   console.log(total);
   const deliveryFee = 36;
@@ -40,11 +45,11 @@ const [addrData, setAddrdata]= useState(null);
           {checkoutSection === "address" && <div className='lg:w-[70%] w-full  mt-4'>
             <div className="address-sec bg-white rounded-md p-4">
               <p className="text-gray-600 text-xl font-bold px-4 pb-4">Choose a delivery Address </p>
-              <AddressList isCart={true}>
+              <AddressList isCart={true} addressSelection={addressSelection}>
                 <button className='!bg-[orange] !border-none text-white flex justify-center items-center gap-2 font-bold
                  !py-2 !px-4 rounded-lg cursor-pointer !hover:bg-[green]' onClick={() => setCheckoutSection("payment")}>
                   Proceed to Pay <FaArrowRight />
-                </button>            
+                </button>
               </AddressList>
             </div>
 
@@ -52,12 +57,12 @@ const [addrData, setAddrdata]= useState(null);
           </div>}
 
           {checkoutSection === "address" && <div className="lg:w-[30%] w-full  flex flex-col gap-[10px] mt-4">
-            <div className="flex items-center bg-white p-4 shadow-md rounded-md w-full justify-between">
-              <Link to={"/restaurant/" + resId} className='flex items-center text-[18px] font-bold !text-gray-600 cursor-pointer !hover:bg-[gray]'>
-                <IoChevronBackSharp /> <span>Back to Menu </span>
+            <div className="flex items-center bg-white p-4 shadow-md rounded-md w-full justify-between gap-3">
+              <Link to={"/restaurant/" + restaurantId} className='flex items-center text-[18px] !overflow-x-hidden font-bold !text-gray-600 cursor-pointer !hover:bg-[gray]'>
+                <IoChevronBackSharp /> <span title={restaurantName} className='truncate'>{restaurantName}</span>
               </Link>
               <a className='!border-none !text-[orange]
-             font-bold rounded-lg cursor-pointer !hover:bg-[green]' onClick={() => handleClearCart()}>Clear Cart</a>
+             font-bold rounded-lg cursor-pointer !hover:bg-[green] whitespace-nowrap' onClick={() => handleClearCart()}>Clear Cart</a>
             </div>
             <div className="w-full h-full bg-white rounded-md px-4 py-2 max-h-[285px] overflow-auto">
               {/* Cart Section */}
@@ -72,12 +77,12 @@ const [addrData, setAddrdata]= useState(null);
             </div>
 
           </div>}
-          
+
           {/* Payment section */}
           {checkoutSection === "payment" && <div className="payment-sec w-full bg-white rounded-md mt-4 p-4">
             <p className="text-gray-600 text-[30px] font-semibold pb-4">Choose payment method</p>
             {/* <p className='text-gray-600 text-[20px] font-semibold'>To Pay: ₹{grandTotal}</p> */}
-            <Payment grandTotal= {grandTotal} user = {user} />
+            <Payment grandTotal={grandTotal} cartItems={cartItems} checkoutAddress={checkoutAddress} user={user} />
             <div className="py-4 flex gap-4 mt-4 justify-start">
               <button className='!bg-[orange] !border-none text-white flex justify-center items-center gap-2 font-bold
                  !py-2 !px-4 rounded-lg cursor-pointer !hover:bg-[green]' onClick={() => setCheckoutSection("address")}>
@@ -85,7 +90,7 @@ const [addrData, setAddrdata]= useState(null);
               </button>
             </div>
           </div>
-          
+
           }
         </div>
 

@@ -10,9 +10,7 @@ const Signup = () => {
 
   const handleNavigate = async (values, { setSubmitting, setStatus }) => {
     try {
-      console.log(values);
       await axios.post('http://localhost:8000/api/auth/signup', { ...values }).then(res => {
-        console.log(res)
         if (res.data && res.data.success === true) {
           navigate("/login");
         }

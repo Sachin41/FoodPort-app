@@ -5,8 +5,8 @@ import AddressesWithActions from "./withAddressActions";
 
 const AddressList = (props) => {
 
-    const { isCart } = props;
-    const [selectedId, setSelectedId] = useState(null);
+    const { isCart, addressSelection } = props;
+    const [selectedAddress, setSelectedAddress] = useState(null);
     const [data, setData] = useState({});
     const [addressList, setAddressList] = useState([]);
     const [open, setOpen] = useState(false);
@@ -21,9 +21,13 @@ const AddressList = (props) => {
                     Authorization: `Bearer ${token}`
                 }
             })
+            const data = await res.json();
 
-            return await res.json();
-
+            if (!data.success) {
+                console.log(data.message);
+            } else {
+                setAddressList(data.addresses.addresses);
+            }
         } catch (error) {
             console.log("ERROR:", error)
         }
@@ -78,16 +82,14 @@ const AddressList = (props) => {
     }
 
     useEffect(() => {
-        fetchAddress().then((data) => {
-            if (data.success) {
-                setAddressList(data.addresses.addresses);
-            }else console.log(data.message);
-        });
+        fetchAddress()
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         const defaultAddr = addressList.find(addr => addr.isDefault === true);
-        setSelectedId(defaultAddr ? defaultAddr._id : addressList?.[0]?._id);
+        const selection = defaultAddr ? defaultAddr : addressList?.[0]
+        setSelectedAddress(selection);
+        isCart && addressSelection(selection)
     }, [addressList])
 
     const handleDelete = (addrId) => {
@@ -124,14 +126,17 @@ const AddressList = (props) => {
                     + Add New Address
                 </button>
                 {
-                    addressList.length === 0 ? <h3 className='p-3 font-bold'>No Address found, add an address</h3>
+                    addressList.length === 0 ? <h3 className='p-3 font-bold'>No address added for the user, add an address</h3>
                         : isCart ?
                             addressList.map((addr) => (
                                 <AddressCard
                                     key={addr._id}
                                     address={addr}
-                                    selected={selectedId === addr._id}
-                                    onSelect={() => setSelectedId(addr._id)}
+                                    selected={selectedAddress?._id === addr._id}
+                                    onSelect={() => {
+                                        setSelectedAddress(addr);
+                                        addressSelection(addr);
+                                    }}
                                 />
                             )) :
 

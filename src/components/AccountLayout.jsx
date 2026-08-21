@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setOrders } from "../slices/orderSlice";
 import { getOrdersFromStorage } from "../utils/orderStorage";
 import useFetchOrders from "../utils/useFetchOrders";
+import AddressCard from "./AddressCard";
+import { Link } from 'react-router-dom';
 
 const menuItems = [
     { id: "profile", label: "Profile", icon: FaRegUser },
@@ -17,6 +19,10 @@ const menuItems = [
 export default function AccountLayout({ user }) {
     const [active, setActive] = useState("profile");
     const orders = useFetchOrders(user);
+
+    useEffect(() => {
+        console.log("orders", orders)
+    })
 
     return (
         <div className="flex bg-gray-100 lg:w-[90%] w-full">
@@ -52,14 +58,25 @@ export default function AccountLayout({ user }) {
                             <h1 className="!text-2xl font-bold">No Orders</h1>
                         ) : (
                             orders.map(order => (
-                                <div key={order._id} className="border p-3 mb-3 rounded">
-                                    <p><strong>Order ID:</strong> {order._id}</p>
-                                    <p><strong>Total:</strong> ₹{order.amount}</p>
-                                    <p><strong>Status:</strong> {order.orderStatus}</p>
-
-                                    {order.orderItems.map((item, i) => (
-                                        <p key={i}>{item.name} x {item.quantity}</p>
-                                    ))}
+                                <div key={order._id} className="border p-3 mb-3 rounded flex">
+                                    <div className="border-r border-[#5b5b5b] pr-4 mr-4 w-[35%]">
+                                        <p><Link to={"/restaurant/" + order?.orderItems[0]?.restaurantId} className='items-center text-[18px] !overflow-x-hidden font-bold !text-gray-600 cursor-pointer !hover:bg-[gray]'>
+                                            <span title={order.orderItems[0]?.restaurantName} className='truncate'>{order.orderItems[0]?.restaurantName}</span>
+                                        </Link></p>
+                                        <p><strong>Order ID:</strong> {order._id}</p>
+                                        <p><strong>Status:</strong> {order.orderStatus}</p>  
+                                        <p className="text-md text-gray-500">Ordered: {order.createdAt.slice(0, 9)}, {order.createdAt.slice(11, 16)}</p>  
+                                                  
+                                    </div>
+                                    <AddressCard address={order?.orderAddress} />
+                                    <div className="border-l border-[#5b5b5b] pl-4 ml-4 w-[30%] relative">
+                                        <div className="w-full">
+                                        {order.orderItems.map((item, i) => (
+                                            <p className="text-[12px]" key={i}>{item.name} x {item.quantity} <span className="float-right">{item.price*item.quantity}</span></p>
+                                        ))}
+                                        </div>
+                                        <p className="absolute border-t pb-2 bottom-0 w-[95%]"><strong>Bill Total:</strong> <span className="float-right">₹{order.amount}</span></p>
+                                    </div>
                                 </div>
                             ))
                         )}
