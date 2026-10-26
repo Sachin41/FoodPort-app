@@ -58,8 +58,8 @@ export default function AccountLayout({ user }) {
                             <h1 className="!text-2xl font-bold">No Orders</h1>
                         ) : (
                             orders.map(order => (
-                                <div key={order._id} className="border p-3 mb-3 rounded flex">
-                                    <div className="border-r border-[#5b5b5b] pr-4 mr-4 w-[35%]">
+                                <div key={order._id} className="border p-3 mb-3 rounded flex flex-wrap gap-2">
+                                    <div className="md:flex-grow flex-1 border border-gray-200 rounded-xl p-4">
                                         <p><Link to={"/restaurant/" + order?.orderItems[0]?.restaurantId} className='items-center text-[18px] !overflow-x-hidden font-bold !text-gray-600 cursor-pointer !hover:bg-[gray]'>
                                             <span title={order.orderItems[0]?.restaurantName} className='truncate'>{order.orderItems[0]?.restaurantName}</span>
                                         </Link></p>
@@ -69,13 +69,13 @@ export default function AccountLayout({ user }) {
                                                   
                                     </div>
                                     <AddressCard address={order?.orderAddress} />
-                                    <div className="border-l border-[#5b5b5b] pl-4 ml-4 w-[30%] relative">
-                                        <div className="w-full">
+                                    <div className="flex-grow lg:flex-1 border border-gray-200 rounded-xl p-4 relative">
+                                        <div className="w-full pb-2 mb-[12px]">
                                         {order.orderItems.map((item, i) => (
                                             <p className="text-[12px]" key={i}>{item.name} x {item.quantity} <span className="float-right">{item.price*item.quantity}</span></p>
                                         ))}
                                         </div>
-                                        <p className="absolute border-t pb-2 bottom-0 w-[95%]"><strong>Bill Total:</strong> <span className="float-right">₹{order.amount}</span></p>
+                                        <p className="md:absolute border-t pb-2 bottom-0 w-full md:w-[90%]"><strong>Bill Total:</strong> <span className="float-right">₹{order.amount}</span></p>
                                     </div>
                                 </div>
                             ))
