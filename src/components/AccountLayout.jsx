@@ -5,6 +5,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrders } from "../slices/orderSlice";
 import { getOrdersFromStorage } from "../utils/orderStorage";
+import useFetchOrders from "../utils/useFetchOrders";
+import AddressCard from "./AddressCard";
+import { Link } from 'react-router-dom';
 
 const menuItems = [
     { id: "profile", label: "Profile", icon: FaRegUser },
@@ -15,21 +18,14 @@ const menuItems = [
 
 export default function AccountLayout({ user }) {
     const [active, setActive] = useState("profile");
-
-    const dispatch = useDispatch();
-    const { orders } = useSelector((store) => store.allOrder);
+    const orders = useFetchOrders(user);
 
     useEffect(() => {
-        // const user = JSON.parse(localStorage.getItem("user"));
-
-        if (user) {
-            const storedOrders = getOrdersFromStorage(user._id);
-            dispatch(setOrders(storedOrders.reverse()));
-        }
-    }, []);
+        console.log("orders", orders)
+    })
 
     return (
-        <div className="flex h-screen max-h-[75vh] bg-gray-100 lg:w-[90%] w-full">
+        <div className="flex bg-gray-100 lg:w-[90%] w-full">
             {/* Sidebar */}
             <div className="lg:w-64 bg-gray-200 p-6">
                 <div className="space-y-3">
@@ -62,14 +58,25 @@ export default function AccountLayout({ user }) {
                             <h1 className="!text-2xl font-bold">No Orders</h1>
                         ) : (
                             orders.map(order => (
-                                <div key={order.orderId} className="border p-3 mb-3 rounded">
-                                    <p><strong>Order ID:</strong> {order.orderId}</p>
-                                    <p><strong>Total:</strong> ₹{order.totalAmount}</p>
-                                    <p><strong>Status:</strong> {order.status}</p>
-
-                                    {order.items.map((item, i) => (
-                                        <p key={i}>{item.name} x {item.quantity}</p>
-                                    ))}
+                                <div key={order._id} className="border p-3 mb-3 rounded flex flex-wrap gap-2">
+                                    <div className="md:flex-grow flex-1 border border-gray-200 rounded-xl p-4">
+                                        <p><Link to={"/restaurant/" + order?.orderItems[0]?.restaurantId} className='items-center text-[18px] !overflow-x-hidden font-bold !text-gray-600 cursor-pointer !hover:bg-[gray]'>
+                                            <span title={order.orderItems[0]?.restaurantName} className='truncate'>{order.orderItems[0]?.restaurantName}</span>
+                                        </Link></p>
+                                        <p><strong>Order ID:</strong> {order._id}</p>
+                                        <p><strong>Status:</strong> {order.orderStatus}</p>  
+                                        <p><strong>Ordered:</strong> <span className="text-md text-gray-500">{order.createdAt.slice(0, 9)}, {order.createdAt.slice(11, 16)}</span></p>  
+                                                  
+                                    </div>
+                                    <AddressCard address={order?.orderAddress} />
+                                    <div className="flex-grow lg:flex-1 border border-gray-200 rounded-xl p-4 relative">
+                                        <div className="w-full pb-2 mb-[12px]">
+                                        {order.orderItems.map((item, i) => (
+                                            <p className="text-[12px]" key={i}>{item.name} x {item.quantity} <span className="float-right">{item.price*item.quantity}</span></p>
+                                        ))}
+                                        </div>
+                                        <p className="md:absolute border-t pb-2 bottom-0 w-full md:w-[90%]"><strong>Bill Total:</strong> <span className="float-right">₹{order.amount}</span></p>
+                                    </div>
                                 </div>
                             ))
                         )}
@@ -82,7 +89,7 @@ export default function AccountLayout({ user }) {
                         <h1 className="!text-[25px] mb-3 font-bold">
                             Profile
                         </h1>
-                        <h2 className='!text-xl font-semibold'>{user?.userName}</h2>
+                        <h2 className='!text-xl font-semibold'>{user?.name}</h2>
                         <h3 className='!text-xl font-semibold'>{user?.email}</h3>
                     </div>
 
@@ -95,7 +102,11 @@ export default function AccountLayout({ user }) {
                 )}
 
                 {active === "addresses" && (
-                    <AddressList />
+                    <AddressList>
+                        <p className="!text-[25px] mb-3 font-bold">
+                            Manage Addresses
+                        </p>
+                    </AddressList>
                 )}
             </div>
         </div>

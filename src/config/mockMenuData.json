@@ -39,7 +39,7 @@
                             "info": {
                               "id": "10894_Rec_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_10894_Rec_1"
                             }
@@ -50,7 +50,7 @@
                             "info": {
                               "id": "10894_Rec_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_10894_Rec_2"
                             }
@@ -61,7 +61,7 @@
                             "info": {
                               "id": "10894_Rec_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_10894_Rec_3"
                             }
@@ -72,7 +72,7 @@
                             "info": {
                               "id": "10894_Rec_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_10894_Rec_4"
                             }
@@ -83,7 +83,7 @@
                             "info": {
                               "id": "10894_Rec_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_10894_Rec_5"
                             }
@@ -103,7 +103,7 @@
                             "info": {
                               "id": "10894_Com_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_10894_Com_1"
                             }
@@ -114,7 +114,7 @@
                             "info": {
                               "id": "10894_Com_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_10894_Com_2"
                             }
@@ -125,7 +125,7 @@
                             "info": {
                               "id": "10894_Com_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_10894_Com_3"
                             }
@@ -136,7 +136,7 @@
                             "info": {
                               "id": "10894_Com_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_10894_Com_4"
                             }
@@ -156,7 +156,7 @@
                             "info": {
                               "id": "10894_Des_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_10894_Des_1"
                             }
@@ -167,7 +167,7 @@
                             "info": {
                               "id": "10894_Des_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_10894_Des_2"
                             }
@@ -178,7 +178,7 @@
                             "info": {
                               "id": "10894_Des_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_10894_Des_3"
                             }
@@ -189,7 +189,7 @@
                             "info": {
                               "id": "10894_Des_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_10894_Des_4"
                             }
@@ -209,7 +209,7 @@
                             "info": {
                               "id": "10894_Bev_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_10894_Bev_1"
                             }
@@ -220,7 +220,7 @@
                             "info": {
                               "id": "10894_Bev_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_10894_Bev_2"
                             }
@@ -231,7 +231,7 @@
                             "info": {
                               "id": "10894_Bev_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_10894_Bev_3"
                             }
@@ -242,7 +242,7 @@
                             "info": {
                               "id": "10894_Bev_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_10894_Bev_4"
                             }
@@ -306,7 +306,7 @@
                               "category": "Pizzas",
                               "description": "Classic cheese pizza with tomato sauce and mozzarella.",
                               "imageId": "img_211192_Rec_1",
-                              "price": "₹199"
+                              "price": "199"
                             }
                           }
                         },
@@ -318,7 +318,7 @@
                               "category": "Pizzas",
                               "description": "Loaded with capsicum, onion, tomato, and olives.",
                               "imageId": "img_211192_Rec_2",
-                              "price": "₹249"
+                              "price": "249"
                             }
                           }
                         },
@@ -330,7 +330,7 @@
                               "category": "Starters",
                               "description": "Freshly baked bread stuffed with melted cheese and garlic.",
                               "imageId": "img_211192_Rec_3",
-                              "price": "₹149"
+                              "price": "149"
                             }
                           }
                         },
@@ -342,7 +342,7 @@
                               "category": "Pastas",
                               "description": "Creamy Alfredo pasta cooked with herbs and cheese.",
                               "imageId": "img_211192_Rec_4",
-                              "price": "₹229"
+                              "price": "229"
                             }
                           }
                         },
@@ -354,7 +354,7 @@
                               "category": "Desserts",
                               "description": "Warm chocolate cake with gooey molten center.",
                               "imageId": "img_211192_Rec_5",
-                              "price": "₹129"
+                              "price": "129"
                             }
                           }
                         }
@@ -375,7 +375,7 @@
                               "category": "Beverages",
                               "description": "Chilled Pepsi bottle.",
                               "imageId": "img_211192_Bev_1",
-                              "price": "₹59"
+                              "price": "59"
                             }
                           }
                         },
@@ -387,7 +387,7 @@
                               "category": "Beverages",
                               "description": "Iced coffee served with cream.",
                               "imageId": "img_211192_Bev_2",
-                              "price": "₹99"
+                              "price": "99"
                             }
                           }
                         }
@@ -444,7 +444,7 @@
                             "info": {
                               "id": "477963_Rec_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_477963_Rec_1"
                             }
@@ -455,7 +455,7 @@
                             "info": {
                               "id": "477963_Rec_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_477963_Rec_2"
                             }
@@ -466,7 +466,7 @@
                             "info": {
                               "id": "477963_Rec_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_477963_Rec_3"
                             }
@@ -477,7 +477,7 @@
                             "info": {
                               "id": "477963_Rec_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_477963_Rec_4"
                             }
@@ -488,7 +488,7 @@
                             "info": {
                               "id": "477963_Rec_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_477963_Rec_5"
                             }
@@ -508,7 +508,7 @@
                             "info": {
                               "id": "477963_Com_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_477963_Com_1"
                             }
@@ -519,7 +519,7 @@
                             "info": {
                               "id": "477963_Com_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_477963_Com_2"
                             }
@@ -530,7 +530,7 @@
                             "info": {
                               "id": "477963_Com_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_477963_Com_3"
                             }
@@ -541,7 +541,7 @@
                             "info": {
                               "id": "477963_Com_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_477963_Com_4"
                             }
@@ -561,7 +561,7 @@
                             "info": {
                               "id": "477963_Des_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_477963_Des_1"
                             }
@@ -572,7 +572,7 @@
                             "info": {
                               "id": "477963_Des_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_477963_Des_2"
                             }
@@ -583,7 +583,7 @@
                             "info": {
                               "id": "477963_Des_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_477963_Des_3"
                             }
@@ -594,7 +594,7 @@
                             "info": {
                               "id": "477963_Des_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_477963_Des_4"
                             }
@@ -614,7 +614,7 @@
                             "info": {
                               "id": "477963_Bev_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_477963_Bev_1"
                             }
@@ -625,7 +625,7 @@
                             "info": {
                               "id": "477963_Bev_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_477963_Bev_2"
                             }
@@ -636,7 +636,7 @@
                             "info": {
                               "id": "477963_Bev_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_477963_Bev_3"
                             }
@@ -647,7 +647,7 @@
                             "info": {
                               "id": "477963_Bev_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_477963_Bev_4"
                             }
@@ -707,7 +707,7 @@
                             "info": {
                               "id": "23683_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_23683_1"
                             }
@@ -718,7 +718,7 @@
                             "info": {
                               "id": "23683_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_23683_2"
                             }
@@ -729,7 +729,7 @@
                             "info": {
                               "id": "23683_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_23683_3"
                             }
@@ -740,7 +740,7 @@
                             "info": {
                               "id": "23683_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_23683_4"
                             }
@@ -751,7 +751,7 @@
                             "info": {
                               "id": "23683_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_23683_5"
                             }
@@ -771,7 +771,7 @@
                             "info": {
                               "id": "23683_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_23683_1"
                             }
@@ -782,7 +782,7 @@
                             "info": {
                               "id": "23683_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_23683_2"
                             }
@@ -793,7 +793,7 @@
                             "info": {
                               "id": "23683_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_23683_3"
                             }
@@ -804,7 +804,7 @@
                             "info": {
                               "id": "23683_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_23683_4"
                             }
@@ -824,7 +824,7 @@
                             "info": {
                               "id": "23683_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_23683_1"
                             }
@@ -835,7 +835,7 @@
                             "info": {
                               "id": "23683_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_23683_2"
                             }
@@ -846,7 +846,7 @@
                             "info": {
                               "id": "23683_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_23683_3"
                             }
@@ -857,7 +857,7 @@
                             "info": {
                               "id": "23683_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_23683_4"
                             }
@@ -877,7 +877,7 @@
                             "info": {
                               "id": "23683_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_23683_1"
                             }
@@ -888,7 +888,7 @@
                             "info": {
                               "id": "23683_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_23683_2"
                             }
@@ -899,7 +899,7 @@
                             "info": {
                               "id": "23683_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_23683_3"
                             }
@@ -910,7 +910,7 @@
                             "info": {
                               "id": "23683_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_23683_4"
                             }
@@ -969,7 +969,7 @@
                             "info": {
                               "id": "255038_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_255038_1"
                             }
@@ -980,7 +980,7 @@
                             "info": {
                               "id": "255038_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_255038_2"
                             }
@@ -991,7 +991,7 @@
                             "info": {
                               "id": "255038_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_255038_3"
                             }
@@ -1002,7 +1002,7 @@
                             "info": {
                               "id": "255038_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_255038_4"
                             }
@@ -1013,7 +1013,7 @@
                             "info": {
                               "id": "255038_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_255038_5"
                             }
@@ -1033,7 +1033,7 @@
                             "info": {
                               "id": "255038_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_255038_1"
                             }
@@ -1044,7 +1044,7 @@
                             "info": {
                               "id": "255038_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_255038_2"
                             }
@@ -1055,7 +1055,7 @@
                             "info": {
                               "id": "255038_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_255038_3"
                             }
@@ -1066,7 +1066,7 @@
                             "info": {
                               "id": "255038_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_255038_4"
                             }
@@ -1086,7 +1086,7 @@
                             "info": {
                               "id": "255038_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_255038_1"
                             }
@@ -1097,7 +1097,7 @@
                             "info": {
                               "id": "255038_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_255038_2"
                             }
@@ -1108,7 +1108,7 @@
                             "info": {
                               "id": "255038_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_255038_3"
                             }
@@ -1119,7 +1119,7 @@
                             "info": {
                               "id": "255038_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_255038_4"
                             }
@@ -1139,7 +1139,7 @@
                             "info": {
                               "id": "255038_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_255038_1"
                             }
@@ -1150,7 +1150,7 @@
                             "info": {
                               "id": "255038_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_255038_2"
                             }
@@ -1161,7 +1161,7 @@
                             "info": {
                               "id": "255038_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_255038_3"
                             }
@@ -1172,7 +1172,7 @@
                             "info": {
                               "id": "255038_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_255038_4"
                             }
@@ -1231,7 +1231,7 @@
                             "info": {
                               "id": "240178_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_240178_1"
                             }
@@ -1242,7 +1242,7 @@
                             "info": {
                               "id": "240178_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_240178_2"
                             }
@@ -1253,7 +1253,7 @@
                             "info": {
                               "id": "240178_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_240178_3"
                             }
@@ -1264,7 +1264,7 @@
                             "info": {
                               "id": "240178_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_240178_4"
                             }
@@ -1275,7 +1275,7 @@
                             "info": {
                               "id": "240178_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_240178_5"
                             }
@@ -1295,7 +1295,7 @@
                             "info": {
                               "id": "240178_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_240178_1"
                             }
@@ -1306,7 +1306,7 @@
                             "info": {
                               "id": "240178_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_240178_2"
                             }
@@ -1317,7 +1317,7 @@
                             "info": {
                               "id": "240178_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_240178_3"
                             }
@@ -1328,7 +1328,7 @@
                             "info": {
                               "id": "240178_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_240178_4"
                             }
@@ -1348,7 +1348,7 @@
                             "info": {
                               "id": "240178_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_240178_1"
                             }
@@ -1359,7 +1359,7 @@
                             "info": {
                               "id": "240178_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_240178_2"
                             }
@@ -1370,7 +1370,7 @@
                             "info": {
                               "id": "240178_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_240178_3"
                             }
@@ -1381,7 +1381,7 @@
                             "info": {
                               "id": "240178_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_240178_4"
                             }
@@ -1401,7 +1401,7 @@
                             "info": {
                               "id": "240178_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_240178_1"
                             }
@@ -1412,7 +1412,7 @@
                             "info": {
                               "id": "240178_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_240178_2"
                             }
@@ -1423,7 +1423,7 @@
                             "info": {
                               "id": "240178_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_240178_3"
                             }
@@ -1434,7 +1434,7 @@
                             "info": {
                               "id": "240178_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_240178_4"
                             }
@@ -1493,7 +1493,7 @@
                             "info": {
                               "id": "290271_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_290271_1"
                             }
@@ -1504,7 +1504,7 @@
                             "info": {
                               "id": "290271_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_290271_2"
                             }
@@ -1515,7 +1515,7 @@
                             "info": {
                               "id": "290271_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_290271_3"
                             }
@@ -1526,7 +1526,7 @@
                             "info": {
                               "id": "290271_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_290271_4"
                             }
@@ -1537,7 +1537,7 @@
                             "info": {
                               "id": "290271_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_290271_5"
                             }
@@ -1557,7 +1557,7 @@
                             "info": {
                               "id": "290271_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_290271_1"
                             }
@@ -1568,7 +1568,7 @@
                             "info": {
                               "id": "290271_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_290271_2"
                             }
@@ -1579,7 +1579,7 @@
                             "info": {
                               "id": "290271_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_290271_3"
                             }
@@ -1590,7 +1590,7 @@
                             "info": {
                               "id": "290271_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_290271_4"
                             }
@@ -1610,7 +1610,7 @@
                             "info": {
                               "id": "290271_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_290271_1"
                             }
@@ -1621,7 +1621,7 @@
                             "info": {
                               "id": "290271_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_290271_2"
                             }
@@ -1632,7 +1632,7 @@
                             "info": {
                               "id": "290271_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_290271_3"
                             }
@@ -1643,7 +1643,7 @@
                             "info": {
                               "id": "290271_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_290271_4"
                             }
@@ -1663,7 +1663,7 @@
                             "info": {
                               "id": "290271_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_290271_1"
                             }
@@ -1674,7 +1674,7 @@
                             "info": {
                               "id": "290271_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_290271_2"
                             }
@@ -1685,7 +1685,7 @@
                             "info": {
                               "id": "290271_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_290271_3"
                             }
@@ -1696,7 +1696,7 @@
                             "info": {
                               "id": "290271_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_290271_4"
                             }
@@ -1755,7 +1755,7 @@
                             "info": {
                               "id": "17312_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_17312_1"
                             }
@@ -1766,7 +1766,7 @@
                             "info": {
                               "id": "17312_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_17312_2"
                             }
@@ -1777,7 +1777,7 @@
                             "info": {
                               "id": "17312_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_17312_3"
                             }
@@ -1788,7 +1788,7 @@
                             "info": {
                               "id": "17312_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_17312_4"
                             }
@@ -1799,7 +1799,7 @@
                             "info": {
                               "id": "17312_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_17312_5"
                             }
@@ -1819,7 +1819,7 @@
                             "info": {
                               "id": "17312_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_17312_1"
                             }
@@ -1830,7 +1830,7 @@
                             "info": {
                               "id": "17312_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_17312_2"
                             }
@@ -1841,7 +1841,7 @@
                             "info": {
                               "id": "17312_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_17312_3"
                             }
@@ -1852,7 +1852,7 @@
                             "info": {
                               "id": "17312_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_17312_4"
                             }
@@ -1872,7 +1872,7 @@
                             "info": {
                               "id": "17312_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_17312_1"
                             }
@@ -1883,7 +1883,7 @@
                             "info": {
                               "id": "17312_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_17312_2"
                             }
@@ -1894,7 +1894,7 @@
                             "info": {
                               "id": "17312_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_17312_3"
                             }
@@ -1905,7 +1905,7 @@
                             "info": {
                               "id": "17312_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_17312_4"
                             }
@@ -1925,7 +1925,7 @@
                             "info": {
                               "id": "17312_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_17312_1"
                             }
@@ -1936,7 +1936,7 @@
                             "info": {
                               "id": "17312_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_17312_2"
                             }
@@ -1947,7 +1947,7 @@
                             "info": {
                               "id": "17312_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_17312_3"
                             }
@@ -1958,7 +1958,7 @@
                             "info": {
                               "id": "17312_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_17312_4"
                             }
@@ -2017,7 +2017,7 @@
                             "info": {
                               "id": "49704_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_49704_1"
                             }
@@ -2028,7 +2028,7 @@
                             "info": {
                               "id": "49704_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_49704_2"
                             }
@@ -2039,7 +2039,7 @@
                             "info": {
                               "id": "49704_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_49704_3"
                             }
@@ -2050,7 +2050,7 @@
                             "info": {
                               "id": "49704_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_49704_4"
                             }
@@ -2061,7 +2061,7 @@
                             "info": {
                               "id": "49704_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_49704_5"
                             }
@@ -2081,7 +2081,7 @@
                             "info": {
                               "id": "49704_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_49704_1"
                             }
@@ -2092,7 +2092,7 @@
                             "info": {
                               "id": "49704_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_49704_2"
                             }
@@ -2103,7 +2103,7 @@
                             "info": {
                               "id": "49704_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_49704_3"
                             }
@@ -2114,7 +2114,7 @@
                             "info": {
                               "id": "49704_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_49704_4"
                             }
@@ -2134,7 +2134,7 @@
                             "info": {
                               "id": "49704_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_49704_1"
                             }
@@ -2145,7 +2145,7 @@
                             "info": {
                               "id": "49704_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_49704_2"
                             }
@@ -2156,7 +2156,7 @@
                             "info": {
                               "id": "49704_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_49704_3"
                             }
@@ -2167,7 +2167,7 @@
                             "info": {
                               "id": "49704_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_49704_4"
                             }
@@ -2187,7 +2187,7 @@
                             "info": {
                               "id": "49704_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_49704_1"
                             }
@@ -2198,7 +2198,7 @@
                             "info": {
                               "id": "49704_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_49704_2"
                             }
@@ -2209,7 +2209,7 @@
                             "info": {
                               "id": "49704_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_49704_3"
                             }
@@ -2220,7 +2220,7 @@
                             "info": {
                               "id": "49704_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_49704_4"
                             }
@@ -2279,7 +2279,7 @@
                             "info": {
                               "id": "246645_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_246645_1"
                             }
@@ -2290,7 +2290,7 @@
                             "info": {
                               "id": "246645_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_246645_2"
                             }
@@ -2301,7 +2301,7 @@
                             "info": {
                               "id": "246645_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_246645_3"
                             }
@@ -2312,7 +2312,7 @@
                             "info": {
                               "id": "246645_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_246645_4"
                             }
@@ -2323,7 +2323,7 @@
                             "info": {
                               "id": "246645_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_246645_5"
                             }
@@ -2343,7 +2343,7 @@
                             "info": {
                               "id": "246645_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_246645_1"
                             }
@@ -2354,7 +2354,7 @@
                             "info": {
                               "id": "246645_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_246645_2"
                             }
@@ -2365,7 +2365,7 @@
                             "info": {
                               "id": "246645_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_246645_3"
                             }
@@ -2376,7 +2376,7 @@
                             "info": {
                               "id": "246645_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_246645_4"
                             }
@@ -2396,7 +2396,7 @@
                             "info": {
                               "id": "246645_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_246645_1"
                             }
@@ -2407,7 +2407,7 @@
                             "info": {
                               "id": "246645_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_246645_2"
                             }
@@ -2418,7 +2418,7 @@
                             "info": {
                               "id": "246645_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_246645_3"
                             }
@@ -2429,7 +2429,7 @@
                             "info": {
                               "id": "246645_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_246645_4"
                             }
@@ -2449,7 +2449,7 @@
                             "info": {
                               "id": "246645_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_246645_1"
                             }
@@ -2460,7 +2460,7 @@
                             "info": {
                               "id": "246645_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_246645_2"
                             }
@@ -2471,7 +2471,7 @@
                             "info": {
                               "id": "246645_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_246645_3"
                             }
@@ -2482,7 +2482,7 @@
                             "info": {
                               "id": "246645_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_246645_4"
                             }
@@ -2540,7 +2540,7 @@
                             "info": {
                               "id": "643652_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_643652_1"
                             }
@@ -2551,7 +2551,7 @@
                             "info": {
                               "id": "643652_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_643652_2"
                             }
@@ -2562,7 +2562,7 @@
                             "info": {
                               "id": "643652_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_643652_3"
                             }
@@ -2573,7 +2573,7 @@
                             "info": {
                               "id": "643652_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_643652_4"
                             }
@@ -2584,7 +2584,7 @@
                             "info": {
                               "id": "643652_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_643652_5"
                             }
@@ -2604,7 +2604,7 @@
                             "info": {
                               "id": "643652_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_643652_1"
                             }
@@ -2615,7 +2615,7 @@
                             "info": {
                               "id": "643652_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_643652_2"
                             }
@@ -2626,7 +2626,7 @@
                             "info": {
                               "id": "643652_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_643652_3"
                             }
@@ -2637,7 +2637,7 @@
                             "info": {
                               "id": "643652_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_643652_4"
                             }
@@ -2657,7 +2657,7 @@
                             "info": {
                               "id": "643652_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_643652_1"
                             }
@@ -2668,7 +2668,7 @@
                             "info": {
                               "id": "643652_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_643652_2"
                             }
@@ -2679,7 +2679,7 @@
                             "info": {
                               "id": "643652_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_643652_3"
                             }
@@ -2690,7 +2690,7 @@
                             "info": {
                               "id": "643652_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_643652_4"
                             }
@@ -2710,7 +2710,7 @@
                             "info": {
                               "id": "643652_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_643652_1"
                             }
@@ -2721,7 +2721,7 @@
                             "info": {
                               "id": "643652_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_643652_2"
                             }
@@ -2732,7 +2732,7 @@
                             "info": {
                               "id": "643652_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_643652_3"
                             }
@@ -2743,7 +2743,7 @@
                             "info": {
                               "id": "643652_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_643652_4"
                             }
@@ -2802,7 +2802,7 @@
                             "info": {
                               "id": "750212_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_750212_1"
                             }
@@ -2813,7 +2813,7 @@
                             "info": {
                               "id": "750212_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_750212_2"
                             }
@@ -2824,7 +2824,7 @@
                             "info": {
                               "id": "750212_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_750212_3"
                             }
@@ -2835,7 +2835,7 @@
                             "info": {
                               "id": "750212_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_750212_4"
                             }
@@ -2846,7 +2846,7 @@
                             "info": {
                               "id": "750212_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_750212_5"
                             }
@@ -2866,7 +2866,7 @@
                             "info": {
                               "id": "750212_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_750212_1"
                             }
@@ -2877,7 +2877,7 @@
                             "info": {
                               "id": "750212_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_750212_2"
                             }
@@ -2888,7 +2888,7 @@
                             "info": {
                               "id": "750212_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_750212_3"
                             }
@@ -2899,7 +2899,7 @@
                             "info": {
                               "id": "750212_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_750212_4"
                             }
@@ -2919,7 +2919,7 @@
                             "info": {
                               "id": "750212_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_750212_1"
                             }
@@ -2930,7 +2930,7 @@
                             "info": {
                               "id": "750212_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_750212_2"
                             }
@@ -2941,7 +2941,7 @@
                             "info": {
                               "id": "750212_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_750212_3"
                             }
@@ -2952,7 +2952,7 @@
                             "info": {
                               "id": "750212_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_750212_4"
                             }
@@ -2972,7 +2972,7 @@
                             "info": {
                               "id": "750212_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_750212_1"
                             }
@@ -2983,7 +2983,7 @@
                             "info": {
                               "id": "750212_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_750212_2"
                             }
@@ -2994,7 +2994,7 @@
                             "info": {
                               "id": "750212_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_750212_3"
                             }
@@ -3005,7 +3005,7 @@
                             "info": {
                               "id": "750212_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_750212_4"
                             }
@@ -3063,7 +3063,7 @@
                             "info": {
                               "id": "390045_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_390045_1"
                             }
@@ -3074,7 +3074,7 @@
                             "info": {
                               "id": "390045_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_390045_2"
                             }
@@ -3085,7 +3085,7 @@
                             "info": {
                               "id": "390045_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_390045_3"
                             }
@@ -3096,7 +3096,7 @@
                             "info": {
                               "id": "390045_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_390045_4"
                             }
@@ -3107,7 +3107,7 @@
                             "info": {
                               "id": "390045_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_390045_5"
                             }
@@ -3127,7 +3127,7 @@
                             "info": {
                               "id": "390045_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_390045_1"
                             }
@@ -3138,7 +3138,7 @@
                             "info": {
                               "id": "390045_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_390045_2"
                             }
@@ -3149,7 +3149,7 @@
                             "info": {
                               "id": "390045_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_390045_3"
                             }
@@ -3160,7 +3160,7 @@
                             "info": {
                               "id": "390045_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_390045_4"
                             }
@@ -3180,7 +3180,7 @@
                             "info": {
                               "id": "390045_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_390045_1"
                             }
@@ -3191,7 +3191,7 @@
                             "info": {
                               "id": "390045_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_390045_2"
                             }
@@ -3202,7 +3202,7 @@
                             "info": {
                               "id": "390045_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_390045_3"
                             }
@@ -3213,7 +3213,7 @@
                             "info": {
                               "id": "390045_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_390045_4"
                             }
@@ -3233,7 +3233,7 @@
                             "info": {
                               "id": "390045_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_390045_1"
                             }
@@ -3244,7 +3244,7 @@
                             "info": {
                               "id": "390045_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_390045_2"
                             }
@@ -3255,7 +3255,7 @@
                             "info": {
                               "id": "390045_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_390045_3"
                             }
@@ -3266,7 +3266,7 @@
                             "info": {
                               "id": "390045_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_390045_4"
                             }
@@ -3324,7 +3324,7 @@
                             "info": {
                               "id": "374525_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_374525_1"
                             }
@@ -3335,7 +3335,7 @@
                             "info": {
                               "id": "374525_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_374525_2"
                             }
@@ -3346,7 +3346,7 @@
                             "info": {
                               "id": "374525_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_374525_3"
                             }
@@ -3357,7 +3357,7 @@
                             "info": {
                               "id": "374525_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_374525_4"
                             }
@@ -3368,7 +3368,7 @@
                             "info": {
                               "id": "374525_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_374525_5"
                             }
@@ -3388,7 +3388,7 @@
                             "info": {
                               "id": "374525_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_374525_1"
                             }
@@ -3399,7 +3399,7 @@
                             "info": {
                               "id": "374525_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_374525_2"
                             }
@@ -3410,7 +3410,7 @@
                             "info": {
                               "id": "374525_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_374525_3"
                             }
@@ -3421,7 +3421,7 @@
                             "info": {
                               "id": "374525_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_374525_4"
                             }
@@ -3441,7 +3441,7 @@
                             "info": {
                               "id": "374525_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_374525_1"
                             }
@@ -3452,7 +3452,7 @@
                             "info": {
                               "id": "374525_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_374525_2"
                             }
@@ -3463,7 +3463,7 @@
                             "info": {
                               "id": "374525_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_374525_3"
                             }
@@ -3474,7 +3474,7 @@
                             "info": {
                               "id": "374525_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_374525_4"
                             }
@@ -3494,7 +3494,7 @@
                             "info": {
                               "id": "374525_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_374525_1"
                             }
@@ -3505,7 +3505,7 @@
                             "info": {
                               "id": "374525_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_374525_2"
                             }
@@ -3516,7 +3516,7 @@
                             "info": {
                               "id": "374525_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_374525_3"
                             }
@@ -3527,7 +3527,7 @@
                             "info": {
                               "id": "374525_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_374525_4"
                             }
@@ -3585,7 +3585,7 @@
                             "info": {
                               "id": "758321_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_758321_1"
                             }
@@ -3596,7 +3596,7 @@
                             "info": {
                               "id": "758321_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_758321_2"
                             }
@@ -3607,7 +3607,7 @@
                             "info": {
                               "id": "758321_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_758321_3"
                             }
@@ -3618,7 +3618,7 @@
                             "info": {
                               "id": "758321_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_758321_4"
                             }
@@ -3629,7 +3629,7 @@
                             "info": {
                               "id": "758321_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_758321_5"
                             }
@@ -3649,7 +3649,7 @@
                             "info": {
                               "id": "758321_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_758321_1"
                             }
@@ -3660,7 +3660,7 @@
                             "info": {
                               "id": "758321_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_758321_2"
                             }
@@ -3671,7 +3671,7 @@
                             "info": {
                               "id": "758321_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_758321_3"
                             }
@@ -3682,7 +3682,7 @@
                             "info": {
                               "id": "758321_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_758321_4"
                             }
@@ -3702,7 +3702,7 @@
                             "info": {
                               "id": "758321_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_758321_1"
                             }
@@ -3713,7 +3713,7 @@
                             "info": {
                               "id": "758321_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_758321_2"
                             }
@@ -3724,7 +3724,7 @@
                             "info": {
                               "id": "758321_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_758321_3"
                             }
@@ -3735,7 +3735,7 @@
                             "info": {
                               "id": "758321_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_758321_4"
                             }
@@ -3755,7 +3755,7 @@
                             "info": {
                               "id": "758321_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_758321_1"
                             }
@@ -3766,7 +3766,7 @@
                             "info": {
                               "id": "758321_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_758321_2"
                             }
@@ -3777,7 +3777,7 @@
                             "info": {
                               "id": "758321_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_758321_3"
                             }
@@ -3788,7 +3788,7 @@
                             "info": {
                               "id": "758321_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_758321_4"
                             }
@@ -3846,7 +3846,7 @@
                             "info": {
                               "id": "590119_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_590119_1"
                             }
@@ -3857,7 +3857,7 @@
                             "info": {
                               "id": "590119_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_590119_2"
                             }
@@ -3868,7 +3868,7 @@
                             "info": {
                               "id": "590119_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_590119_3"
                             }
@@ -3879,7 +3879,7 @@
                             "info": {
                               "id": "590119_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_590119_4"
                             }
@@ -3890,7 +3890,7 @@
                             "info": {
                               "id": "590119_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_590119_5"
                             }
@@ -3910,7 +3910,7 @@
                             "info": {
                               "id": "590119_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_590119_1"
                             }
@@ -3921,7 +3921,7 @@
                             "info": {
                               "id": "590119_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_590119_2"
                             }
@@ -3932,7 +3932,7 @@
                             "info": {
                               "id": "590119_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_590119_3"
                             }
@@ -3943,7 +3943,7 @@
                             "info": {
                               "id": "590119_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_590119_4"
                             }
@@ -3963,7 +3963,7 @@
                             "info": {
                               "id": "590119_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_590119_1"
                             }
@@ -3974,7 +3974,7 @@
                             "info": {
                               "id": "590119_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_590119_2"
                             }
@@ -3985,7 +3985,7 @@
                             "info": {
                               "id": "590119_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_590119_3"
                             }
@@ -3996,7 +3996,7 @@
                             "info": {
                               "id": "590119_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_590119_4"
                             }
@@ -4016,7 +4016,7 @@
                             "info": {
                               "id": "590119_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_590119_1"
                             }
@@ -4027,7 +4027,7 @@
                             "info": {
                               "id": "590119_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_590119_2"
                             }
@@ -4038,7 +4038,7 @@
                             "info": {
                               "id": "590119_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_590119_3"
                             }
@@ -4049,7 +4049,7 @@
                             "info": {
                               "id": "590119_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_590119_4"
                             }
@@ -4107,7 +4107,7 @@
                             "info": {
                               "id": "399138_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_399138_1"
                             }
@@ -4118,7 +4118,7 @@
                             "info": {
                               "id": "399138_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_399138_2"
                             }
@@ -4129,7 +4129,7 @@
                             "info": {
                               "id": "399138_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_399138_3"
                             }
@@ -4140,7 +4140,7 @@
                             "info": {
                               "id": "399138_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_399138_4"
                             }
@@ -4151,7 +4151,7 @@
                             "info": {
                               "id": "399138_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_399138_5"
                             }
@@ -4171,7 +4171,7 @@
                             "info": {
                               "id": "399138_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_399138_1"
                             }
@@ -4182,7 +4182,7 @@
                             "info": {
                               "id": "399138_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_399138_2"
                             }
@@ -4193,7 +4193,7 @@
                             "info": {
                               "id": "399138_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_399138_3"
                             }
@@ -4204,7 +4204,7 @@
                             "info": {
                               "id": "399138_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_399138_4"
                             }
@@ -4224,7 +4224,7 @@
                             "info": {
                               "id": "399138_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_399138_1"
                             }
@@ -4235,7 +4235,7 @@
                             "info": {
                               "id": "399138_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_399138_2"
                             }
@@ -4246,7 +4246,7 @@
                             "info": {
                               "id": "399138_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_399138_3"
                             }
@@ -4257,7 +4257,7 @@
                             "info": {
                               "id": "399138_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_399138_4"
                             }
@@ -4277,7 +4277,7 @@
                             "info": {
                               "id": "399138_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_399138_1"
                             }
@@ -4288,7 +4288,7 @@
                             "info": {
                               "id": "399138_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_399138_2"
                             }
@@ -4299,7 +4299,7 @@
                             "info": {
                               "id": "399138_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_399138_3"
                             }
@@ -4310,7 +4310,7 @@
                             "info": {
                               "id": "399138_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_399138_4"
                             }
@@ -4368,7 +4368,7 @@
                             "info": {
                               "id": "108097_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_108097_1"
                             }
@@ -4379,7 +4379,7 @@
                             "info": {
                               "id": "108097_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_108097_2"
                             }
@@ -4390,7 +4390,7 @@
                             "info": {
                               "id": "108097_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_108097_3"
                             }
@@ -4401,7 +4401,7 @@
                             "info": {
                               "id": "108097_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_108097_4"
                             }
@@ -4412,7 +4412,7 @@
                             "info": {
                               "id": "108097_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_108097_5"
                             }
@@ -4432,7 +4432,7 @@
                             "info": {
                               "id": "108097_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_108097_1"
                             }
@@ -4443,7 +4443,7 @@
                             "info": {
                               "id": "108097_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_108097_2"
                             }
@@ -4454,7 +4454,7 @@
                             "info": {
                               "id": "108097_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_108097_3"
                             }
@@ -4465,7 +4465,7 @@
                             "info": {
                               "id": "108097_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_108097_4"
                             }
@@ -4485,7 +4485,7 @@
                             "info": {
                               "id": "108097_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_108097_1"
                             }
@@ -4496,7 +4496,7 @@
                             "info": {
                               "id": "108097_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_108097_2"
                             }
@@ -4507,7 +4507,7 @@
                             "info": {
                               "id": "108097_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_108097_3"
                             }
@@ -4518,7 +4518,7 @@
                             "info": {
                               "id": "108097_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_108097_4"
                             }
@@ -4538,7 +4538,7 @@
                             "info": {
                               "id": "108097_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_108097_1"
                             }
@@ -4549,7 +4549,7 @@
                             "info": {
                               "id": "108097_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_108097_2"
                             }
@@ -4560,7 +4560,7 @@
                             "info": {
                               "id": "108097_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_108097_3"
                             }
@@ -4571,7 +4571,7 @@
                             "info": {
                               "id": "108097_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_108097_4"
                             }
@@ -4629,7 +4629,7 @@
                             "info": {
                               "id": "622017_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_622017_1"
                             }
@@ -4640,7 +4640,7 @@
                             "info": {
                               "id": "622017_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_622017_2"
                             }
@@ -4651,7 +4651,7 @@
                             "info": {
                               "id": "622017_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_622017_3"
                             }
@@ -4662,7 +4662,7 @@
                             "info": {
                               "id": "622017_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_622017_4"
                             }
@@ -4673,7 +4673,7 @@
                             "info": {
                               "id": "622017_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_622017_5"
                             }
@@ -4693,7 +4693,7 @@
                             "info": {
                               "id": "622017_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_622017_1"
                             }
@@ -4704,7 +4704,7 @@
                             "info": {
                               "id": "622017_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_622017_2"
                             }
@@ -4715,7 +4715,7 @@
                             "info": {
                               "id": "622017_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_622017_3"
                             }
@@ -4726,7 +4726,7 @@
                             "info": {
                               "id": "622017_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_622017_4"
                             }
@@ -4746,7 +4746,7 @@
                             "info": {
                               "id": "622017_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_622017_1"
                             }
@@ -4757,7 +4757,7 @@
                             "info": {
                               "id": "622017_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_622017_2"
                             }
@@ -4768,7 +4768,7 @@
                             "info": {
                               "id": "622017_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_622017_3"
                             }
@@ -4779,7 +4779,7 @@
                             "info": {
                               "id": "622017_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_622017_4"
                             }
@@ -4799,7 +4799,7 @@
                             "info": {
                               "id": "622017_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_622017_1"
                             }
@@ -4810,7 +4810,7 @@
                             "info": {
                               "id": "622017_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_622017_2"
                             }
@@ -4821,7 +4821,7 @@
                             "info": {
                               "id": "622017_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_622017_3"
                             }
@@ -4832,7 +4832,7 @@
                             "info": {
                               "id": "622017_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_622017_4"
                             }
@@ -4890,7 +4890,7 @@
                             "info": {
                               "id": "558760_1",
                               "name": "Special Combo",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty special combo served hot",
                               "imageId": "img_558760_1"
                             }
@@ -4901,7 +4901,7 @@
                             "info": {
                               "id": "558760_2",
                               "name": "Veg Delight",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty veg delight served hot",
                               "imageId": "img_558760_2"
                             }
@@ -4912,7 +4912,7 @@
                             "info": {
                               "id": "558760_3",
                               "name": "Chicken Feast",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty chicken feast served hot",
                               "imageId": "img_558760_3"
                             }
@@ -4923,7 +4923,7 @@
                             "info": {
                               "id": "558760_4",
                               "name": "Chef's Pick",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty chef's pick served hot",
                               "imageId": "img_558760_4"
                             }
@@ -4934,7 +4934,7 @@
                             "info": {
                               "id": "558760_5",
                               "name": "Classic Bowl",
-                              "price": "₹270",
+                              "price": "270",
                               "description": "Tasty classic bowl served hot",
                               "imageId": "img_558760_5"
                             }
@@ -4954,7 +4954,7 @@
                             "info": {
                               "id": "558760_1",
                               "name": "Meal for One",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty meal for one served hot",
                               "imageId": "img_558760_1"
                             }
@@ -4965,7 +4965,7 @@
                             "info": {
                               "id": "558760_2",
                               "name": "Family Combo",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty family combo served hot",
                               "imageId": "img_558760_2"
                             }
@@ -4976,7 +4976,7 @@
                             "info": {
                               "id": "558760_3",
                               "name": "Snack Box",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty snack box served hot",
                               "imageId": "img_558760_3"
                             }
@@ -4987,7 +4987,7 @@
                             "info": {
                               "id": "558760_4",
                               "name": "Biryani Combo",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty biryani combo served hot",
                               "imageId": "img_558760_4"
                             }
@@ -5007,7 +5007,7 @@
                             "info": {
                               "id": "558760_1",
                               "name": "Choco Brownie",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty choco brownie served hot",
                               "imageId": "img_558760_1"
                             }
@@ -5018,7 +5018,7 @@
                             "info": {
                               "id": "558760_2",
                               "name": "Chocolate Lava Cake",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty chocolate lava cake served hot",
                               "imageId": "img_558760_2"
                             }
@@ -5029,7 +5029,7 @@
                             "info": {
                               "id": "558760_3",
                               "name": "Ice Cream Cup",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty ice cream cup served hot",
                               "imageId": "img_558760_3"
                             }
@@ -5040,7 +5040,7 @@
                             "info": {
                               "id": "558760_4",
                               "name": "Fruit Tart",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty fruit tart served hot",
                               "imageId": "img_558760_4"
                             }
@@ -5060,7 +5060,7 @@
                             "info": {
                               "id": "558760_1",
                               "name": "Pepsi",
-                              "price": "₹150",
+                              "price": "150",
                               "description": "Tasty pepsi served hot",
                               "imageId": "img_558760_1"
                             }
@@ -5071,7 +5071,7 @@
                             "info": {
                               "id": "558760_2",
                               "name": "Coke",
-                              "price": "₹180",
+                              "price": "180",
                               "description": "Tasty coke served hot",
                               "imageId": "img_558760_2"
                             }
@@ -5082,7 +5082,7 @@
                             "info": {
                               "id": "558760_3",
                               "name": "7Up",
-                              "price": "₹210",
+                              "price": "210",
                               "description": "Tasty 7up served hot",
                               "imageId": "img_558760_3"
                             }
@@ -5093,7 +5093,7 @@
                             "info": {
                               "id": "558760_4",
                               "name": "Iced Tea",
-                              "price": "₹240",
+                              "price": "240",
                               "description": "Tasty iced tea served hot",
                               "imageId": "img_558760_4"
                             }

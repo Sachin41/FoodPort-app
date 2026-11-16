@@ -2,20 +2,24 @@ import React from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const Payment = ({ grandTotal }) => {
+const Payment = ({ grandTotal, cartItems, checkoutAddress, user }) => {
   // const navigate = useNavigate()
+  // const user = useSelector((store) => store.auth.user);
 
+  const API_URL = import.meta.env.VITE_API_URL;
   const data = {
-    name: 'Vikas',
+    userId: user._id,
+    name: user.name,
     amount: grandTotal,
-    number: '9999999999',
+    number: user.phone,
+    orderItems: cartItems,
+    address: checkoutAddress,
     transactionId: 'T' + Date.now(),
   }
 
   const handlePayment = async (e) => {
     e.preventDefault();
-    // http://localhost:8000
-    await axios.post('https://foodapp-backend-si51.onrender.com/order', { ...data }).then(res => {
+    await axios.post(`${API_URL}/api/payment/order`, { ...data }).then(res => {
 
       console.log(res)
       if (res.data && res.data.success === true) {

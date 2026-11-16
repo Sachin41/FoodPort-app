@@ -1,32 +1,62 @@
 import e from "cors";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddress, data }) => {
-    console.log(data);
-    const [addressType, setAddressType] = useState(data.type || "Home");
-    // const [addressData, setAddressData] = useState(data || {})
-    const [line1, setLine1] = useState(data.line1 || "");
-    const [area, setArea] = useState(data.area || "");
-    const [city, setCity] = useState(data.city || "");
-    const [pincode, setPincode] = useState(data.pincode || "");
-    const [landmark, setLandmark] = useState(data.landmark || "");
-    if (!isOpen) return null;
-    const submit = (e) => {
-        e.preventDefault();
-        if (!line1 || !area) {
-            console.log("line1 or Area can not be blank");
-        } else {
-           if(mode === 'add'){
-            addNewAddress(addressType, line1, area, landmark, city, pincode);
-                        setLine1('');
-            setArea('');
-            setCity('');
-            setPincode('');
-            setLandmark('');
-           }else editAddress(data.id, { addressType, line1, area, landmark, city, pincode });
 
+    const addressSchema = yup.object({
+        addressType: yup.string(),
+        fullName: yup.string()
+            .required("Full name is required")
+            .min(3, "Name must be atleast 3 character"),
+        phone: yup.string()
+            .required("Mobile number is required")
+            .matches(/^[6-9]\d{9}$/, "Enter a valid mobile number"),
+        houseNo: yup.string()
+            .required("House number is required"),
+        street: yup.string()
+            .required("street is required"),
+        city: yup.string()
+            .required("city is required"),
+        state: yup.string()
+            .required("state is required"),
+        pincode: yup.string()
+            .required("Pincode is required")
+            .matches(/^[1-9][0-9]{5}$/, "Enter a valid Pincode"),
+        isDefault: yup.boolean()
+    });
+
+    if (!isOpen) return null;
+
+    const { register, handleSubmit, reset,
+        setValue, watch, formState: { errors, isSubmitting, isValid } } = useForm({
+            defaultValues: {
+                addressType: data.addressType || "Home",
+                fullName: data.fullName || "",
+                phone: data.phone || "",
+                houseNo: data.houseNo || "",
+                street: data.street || "",
+                city: data.city || "",
+                state: data.state || "",
+                pincode: data.pincode || "",
+                landmark: data.landmark || "",
+                isDefault: data.isDefault || false
+            },
+            resolver: yupResolver(addressSchema),
+             mode: 'all'
+        })
+
+    const selectedType = watch("addressType");
+    const checkedDefault = watch("isDefault");
+
+    const submit = (formData) => {
+        if (mode === 'add') {
+            addNewAddress(formData);
         }
+        else editAddress(data._id, formData);
     }
     return (
         <div className="fixed top-20 inset-0 z-50 flex">
@@ -37,8 +67,8 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
             />
 
             {/* Sidebar */}
-            <form onSubmit={submit}>
-                <div className="w-full sm:w-[420px] bg-white h-full p-5 overflow-y-auto">
+            <form onSubmit={handleSubmit(submit)}>
+                <div className="w-full sm:w-[520px] bg-white h-full p-5 overflow-y-auto">
                     {/* Header */}
                     <div className="flex items-center justify-between mb-5">
                         <h2 className="text-lg font-semibold">
@@ -54,12 +84,15 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
                         {["Home", "Work", "Other"].map(type => (
                             <button
                                 key={type}
+                                {...register("addressType")}
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    setAddressType(type)
+                                    setValue("addressType", type, {
+                                        shouldValidate: true
+                                    })
                                 }}
                                 className={`px-4 py-2 rounded-full text-sm border
-                ${addressType === type
+                ${selectedType === type
                                         ? "!bg-orange-500 text-white !border-orange-500"
                                         : "!bg-gray"
                                     }`}
@@ -71,33 +104,87 @@ const AddressSidebar = ({ isOpen, onClose, mode = "add", addNewAddress, editAddr
 
                     {/* Form */}
                     <div className="space-y-4">
-                        <input className="input" placeholder="Flat / House No." value={line1}
-                            onChange={(e) => setLine1(e.target.value)} />
-                        <input className="input" placeholder="Area / Street" value={area}
-                            onChange={(e) => setArea(e.target.value)} />
-                        <input className="input" placeholder="Landmark (Optional)" value={landmark}
-                            onChange={(e) => setLandmark(e.target.value)} />
-                        <div className="flex gap-3">
-                            <input className="input flex-1" placeholder="City" value={city}
-                                onChange={(e) => setCity(e.target.value)} />
-                            <input className="input flex-1" placeholder="Pincode" value={pincode}
-                                onChange={(e) => setPincode(e.target.value)} />
+                        <div className='grid grid-cols-2 gap-3'>
+                            <div>
+                                <input type="text" className={`w-full border border-gray-300 rounded-lg px-4 py-1 invalid:border-red-500
+                         focus:outline-none focus:border-sky-500  ${errors.fullName && "border-red-500"}`} placeholder="Full Name"
+                                    {...register("fullName")} />
+                                {errors.fullName && (<p className="text-red-500">
+                                    {errors.fullName.message}
+                                </p>)}
+                            </div>
+                            <div>
+                                <input type="text" name="mobile" className={`w-full border border-gray-300 rounded-lg px-4 py-1 invalid:border-red-500
+                         focus:outline-none focus:border-sky-500  ${errors.phone && "border-red-500"}`} placeholder="Mobile Number"
+                                    {...register("phone")} />
+                                {errors.phone && (<p className="text-red-500">
+                                    {errors.phone.message}
+                                </p>)}
+                            </div>
                         </div>
-                        {/* <input className="input" placeholder="State" defaultValue={data.state} />
-          <input className="input" placeholder="Mobile Number" defaultValue={data.mobile} /> */}
+
+                        <div className='grid grid-cols-2 gap-3'>
+                            <div>
+                                <input type="text" className={`w-full border border-gray-300 rounded-lg px-4 py-1 invalid:border-red-500
+                         focus:outline-none focus:border-sky-500  ${errors.houseNo && "border-red-500"}`} placeholder="Flat / House No."
+                                    {...register("houseNo")} />
+                                {errors.houseNo && (<p className="text-red-500">
+                                    {errors.houseNo.message}
+                                </p>)}
+                            </div>
+                            <div>
+                                <input className={`w-full border border-gray-300 rounded-lg px-4 py-1 invalid:border-red-500
+                         focus:outline-none focus:border-sky-500  ${errors.street && "border-red-500"}`} placeholder="Area / Street"
+                                    {...register("street")} />
+                                {errors.street && (<p className="text-red-500">
+                                    {errors.street.message}
+                                </p>)}
+                            </div>
+                        </div>
+
+                        <input name="landmark" className={`w-full border border-gray-300 rounded-lg px-4 py-1 invalid:border-red-500
+                         focus:outline-none focus:border-sky-500`} placeholder="Landmark (Optional)"
+                            {...register("landmark")} />
+
+                        <div className="grid grid-cols-2 gap-3">
+                            <div>
+                                <input type="text" className={`w-full border border-gray-300 rounded-lg px-4 py-1
+                         focus:outline-none focus:border-blue-500 flex-1 ${errors.city && "border-red-500"}`} placeholder="City"
+                                    {...register("city")} />
+                                {errors.city && (<p className="text-red-500">
+                                    {errors.city.message}
+                                </p>)}
+
+                            </div>
+                            <div>
+                                <input type="text" className={`w-full border border-gray-300 rounded-lg px-4 py-1 invalid:border-red-500
+                         focus:outline-none focus:border-sky-500 ${errors.state && "border-red-500"}`} placeholder="State"
+                                    {...register("state")} />
+                                {errors.state && (<p className="text-red-500">
+                                    {errors.state.message}
+                                </p>)}
+                            </div>
+
+                        </div>
+
+                        <input type="text" className={`w-full border border-gray-300 rounded-lg px-4 py-1
+                         focus:outline-none focus:border-blue-500 mb-0 ${errors.pincode && "border-red-500"}`} placeholder="Pincode"
+                            {...register("pincode")} />
+                        {errors.pincode && (<p className="text-red-500">
+                            {errors.pincode.message}
+                        </p>)}
+
+                        <input type='checkbox' className="input flex-1 mt-4" checked={checkedDefault}
+                            onChange={(e) => setValue("isDefault", e.target.checked)} /> <label>Set as default Address</label>
+
                     </div>
 
                     {/* Footer */}
-                    <div className="sticky bottom-0 bg-white pt-5 mt-6">
-                        <button type="submit" className="w-full !bg-orange-500 text-white py-3 rounded-lg font-semibold">
-                            Save Address
+                    <div className="sticky bottom-0 bg-white mt-6">
+                        <button type="submit" disabled={!isValid || isSubmitting} className={`w-full !bg-orange-500 text-white py-3 rounded-lg font-semibold
+                        ${!isValid && "disabled:opacity-50 disabled:!cursor-not-allowed"}`}>
+                            {isSubmitting? "Saving...": "Save Address"}
                         </button>
-
-                        {/* {mode === "edit" && (
-                            <button className="w-full mt-3 text-red-500 font-medium">
-                                Delete Address
-                            </button>
-                        )} */}
                     </div>
                 </div>
             </form>

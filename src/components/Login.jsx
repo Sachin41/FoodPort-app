@@ -1,37 +1,42 @@
 import React, { useEffect } from 'react'
 import "../styles/login.css"
 import { Formik } from 'formik';
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../slices/authSlice";
-// import { useAuth } from "../utils/AuthContext";
-// import { useDispatch, useSelector } from 'react-redux';
 
 
 const Login = () => {
+
+  const API_URL = import.meta.env.VITE_API_URL;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleNavigate = (values, { setSubmitting }) => {
+  const handleNavigate = async (values, { setSubmitting, setStatus }) => {
     try {
-      console.log("login", values)
-      const savedUsers = JSON.parse(localStorage.getItem("users"));
-      if (savedUsers?.length > 0 && savedUsers.some((user) => user.email === values.email && user.password === values.password)) {
-        const login_user = savedUsers.filter((user) => user.email === values.email && user.password === values.password);
-        console.log("login user", login_user);
-        dispatch(loginUser(login_user[0]));
-        alert(`Login Success: ${JSON.stringify(values, null, 2)}`);
-        navigate("/");
-      }
-      else {
-        alert("Login failed, retry with correct email/password:", values.email);
-        setTimeout(() => {
-          setSubmitting(false);
-        }, 10);
-      }
+      await axios.post(`${API_URL}/api/auth/login`, { ...values }).then(res => {
+        if (res.data && res.data.success === true) {
+          localStorage.setItem("token", res.data.token);
+          dispatch(loginUser(res.data.user));
+          navigate("/");
+        }
+      })
+        .catch(error => {
+          if (error.response) {
+            switch (error.response.status) {
+              case 401:
+                setStatus(error.response.data.message)
+                break;
+              default:
+                setStatus(error.response.statusText)
+            }
+
+          }
+        });
     } catch (error) {
-      console.error("Login error:", error);
+      console.error("Loginerror:", error.message);
     } finally {
       setSubmitting(false);
     }
@@ -61,12 +66,14 @@ const Login = () => {
             errors,
             touched,
             values,
+            status,
             handleBlur,
             handleChange,
             handleSubmit
           }) => (
             <form className='w-full' noValidate onSubmit={handleSubmit}>
               <h2 className='text-4xl font-bold text-center text-gray-800 !mb-6'>LOGIN</h2>
+              {status && <div className="rounded-lg bg-red-200 text-red-500 font-medium px-4 py-2 mb-2">{status}</div>}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email

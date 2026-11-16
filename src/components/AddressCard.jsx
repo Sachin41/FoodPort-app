@@ -1,45 +1,35 @@
-import { FaHome, FaBriefcase, FaEdit, FaTrash } from "react-icons/fa";
+import { useEffect } from "react";
+import { FaHome, FaBriefcase } from "react-icons/fa";
 
-const AddressCard = ({ isCart, address, selected, onSelect, onEdit, onDelete }) => {
-   
+const AddressCard = ({address, actions, selected, onSelect }) => {
+const {isDefault, addressType, fullName, phone, houseNo, street, landmark, city, state, pincode} = address;
+
   return (
     <div
       onClick={onSelect}
-      className={`w-auto max-w-[280px] cursor-pointer border rounded-xl p-4 flex gap-4 items-start transition
-        ${selected ? "border-orange-500 bg-orange-50" : "border-gray-200 hover:shadow-md"}`}
+      className={`w-[266px] cursor-pointer border rounded-xl p-4 flex gap-2 items-start transition
+       ${isDefault && "pb-0"} ${selected ? "border-orange-500 bg-orange-50" : "border-gray-200 hover:shadow-md"}`}
     >
       <div className="text-orange-500 text-xl mt-[12px]">
-        {address.type === "Home" ? <FaHome /> : <FaBriefcase />}
+        {addressType === "Home" ? <FaHome /> : <FaBriefcase />}
       </div>
 
       <div className="flex-1">
-        <div className="flex justify-between items-center gap-4">
-          <h3 className="font-semibold text-gray-800">{address.type}</h3>
-          <div className="flex gap-2">
-         {!isCart && <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onEdit();
-            }}
-            className="text-sm text-orange-500 flex items-center gap-1 !p-2"
-          >
-            <FaEdit /> Edit
-          </button>}
-         {!isCart && <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onDelete();
-            }}
-            className="text-sm text-orange-500 flex items-center gap-1 !p-2"
-          >
-            <FaTrash  /> Delete
-          </button>} 
-          </div>
-        </div>
+        <div className="flex justify-between items-center">
+          <h3 className="font-semibold text-gray-800">{addressType}</h3>
 
+          {/* Actions supplied by HOC */}
+          {actions}
+
+        </div>
+        <h3 className="font-semibold text-gray-600">{fullName} - {phone}</h3>
         <p className="text-sm text-gray-600 mt-1">
-          {address.line1}, {address.area}, {address.city} - {address.pincode}
+          {houseNo}, {street}, {landmark}, {city}, {state} - {pincode}
         </p>
+        {isDefault && <p className="mt-1">
+          <span className="inline-flex items-center rounded-md rounded-bl-none rounded-br-none bg-blue-50 px-2
+         py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10">Default Address</span>
+        </p>}
       </div>
     </div>
   );

@@ -1,72 +1,120 @@
 import { useState, useEffect } from "react";
 import AddressCard from './AddressCard';
 import AddressSidebar from "./AddressSidebar";
-const AddressList = ({ isCart }) => {
-    // const addresses = [
-    //     {
-    //         id: 1,
-    //         type: "Home",
-    //         line1: "Flat 203, Green Residency",
-    //         area: "Sector 62",
-    //         city: "Noida",
-    //         pincode: "201301",
-    //     }
-    // ];
-    let initAddress;
-    if (localStorage.getItem("addresses") === null) {
-        initAddress = [];
-    } else {
-        initAddress = JSON.parse(localStorage.getItem("addresses"))
-    }
+import AddressesWithActions from "./withAddressActions";
 
-    const [selectedId, setSelectedId] = useState(1);
+const AddressList = (props) => {
+
+    const API_URL = import.meta.env.VITE_API_URL;
+    const { isCart, addressSelection } = props;
+    const [selectedAddress, setSelectedAddress] = useState(null);
     const [data, setData] = useState({});
-    const [addressList, setAddressList] = useState(initAddress);
+    const [addressList, setAddressList] = useState([]);
     const [open, setOpen] = useState(false);
     const [mode, setMode] = useState("");
+
+    const fetchAddress = async () => {
+        try {
+            const token = localStorage.getItem("token");
+            const res = await fetch(`${API_URL}/api/address`, {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            const data = await res.json();
+
+            if (!data.success) {
+                console.log(data.message);
+            } else {
+                setAddressList(data.addresses.addresses);
+            }
+        } catch (error) {
+            console.log("ERROR:", error)
+        }
+    }
+
+    const deleteAddress = async (addressId) => {
+        const token = localStorage.getItem("token");
+        const res = await fetch(`${API_URL}/api/address/deleteAddress/${addressId}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        });
+        const data = await res.json();
+
+        setAddressList(data.addresses);
+    }
+
+    const addAddress = async (address) => {
+        const token = localStorage.getItem("token");
+        const res = await fetch(`${API_URL}/api/address/addAddress`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(address)
+        });
+
+        const data = await res.json();
+
+        setAddressList(data.addresses);
+    }
+
+    const updateAddress = async (addressId, address) => {
+        try {
+            const token = localStorage.getItem("token");
+
+            const res = await fetch(`${API_URL}/api/address/updateAddress/${addressId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify(address)
+            })
+            const data = await res.json();
+            setAddressList(data.addresses)
+        } catch (error) {
+            console.log("ERROR:", error)
+        }
+    }
+
     useEffect(() => {
-        localStorage.setItem('addresses', JSON.stringify(addressList));
-    }, [addressList]);
+        fetchAddress()
+    }, []);
+
+    useEffect(() => {
+        const defaultAddr = addressList.find(addr => addr.isDefault === true);
+        const selection = defaultAddr ? defaultAddr : addressList?.[0]
+        setSelectedAddress(selection);
+        isCart && addressSelection(selection)
+    }, [addressList])
+
     const handleDelete = (addrId) => {
-        console.log("delete address")
         if (confirm(`Are you sure, you want to delete this address?`)) {
-            setAddressList(addressList.filter((addr) => addr.id !== addrId))
+            deleteAddress(addrId)
         } else return;
+
     }
     const handleEdit = (addr) => {
         setMode("edit");
         setOpen(true);
         setData(addr)
     }
-    const addNewAddress = (addressType, line1, area, landmark, city, pincode) => {
-        console.log("New", line1, area, landmark);
-        let id = addressList.length ? addressList[addressList.length - 1].id + 1 : 1;
-        const address = {
-            id: id,
-            type: addressType,
-            line1: line1,
-            area: area,
-            city: city,
-            pincode: pincode,
-        }
-        setAddressList([...addressList, address]);
+    const addNewAddress = (data) => {
+        addAddress(data)
         setOpen(false);
     }
     const editAddress = (addrId, addrs) => {
-        console.log("edit address")
-        setAddressList(addressList.map((addr) => {
-            if (addr.id === addrId) {
-                addr = { ...addrs, type: addrs.addressType, id: addrId };
-            }
-            return addr;
-        }));
+        updateAddress(addrId, addrs);
         setOpen(false);
     }
     return (
         <div className="address-list w-full h-full bg-white rounded-md px-4">
-            {!isCart && (<p className="!text-[25px] mb-3 font-bold">
-                Manage Addresses
-            </p>)}
+            {!isCart && props.children}
             <div className="flex flex-wrap gap-2">
                 <button
                     onClick={() => {
@@ -74,25 +122,39 @@ const AddressList = ({ isCart }) => {
                         setOpen(true);
                         setData({})
                     }}
-                    className="lg:w-[40%] w-auto max-w-[280px] !border-2 !border-dashed !border-orange-400 rounded-xl !p-2
+                    className="w-[266px] !border-2 !border-dashed !border-orange-400 rounded-xl !p-2
                      whitespace-nowrap text-orange-500 font-semibold !hover:bg-orange-500">
                     + Add New Address
                 </button>
                 {
-                    addressList.length === 0 ? <h3 className='p-3 font-bold'>No Address found, add an address</h3> :
-                        addressList.map((addr) => (
-                            <AddressCard isCart={isCart}
-                                key={addr.id}
-                                address={addr}
-                                selected={isCart && selectedId === addr.id}
-                                onSelect={() => setSelectedId(addr.id)}
-                                onEdit={() => handleEdit(addr)}
-                                onDelete={() => handleDelete(addr.id)}
-                            />
-                        ))}
+                    addressList.length === 0 ? <h3 className='p-3 font-bold'>No address added for the user, add an address</h3>
+                        : isCart ?
+                            addressList.map((addr) => (
+                                <AddressCard
+                                    key={addr._id}
+                                    address={addr}
+                                    selected={selectedAddress?._id === addr._id}
+                                    onSelect={() => {
+                                        setSelectedAddress(addr);
+                                        addressSelection(addr);
+                                    }}
+                                />
+                            )) :
+
+                            addressList.map((addr) => (
+                                <AddressesWithActions key={addr._id}
+                                    address={addr}
+                                    onEdit={() => handleEdit(addr)}
+                                    onDelete={() => handleDelete(addr._id)}
+                                />
+                            ))
+                }
             </div>
+            {isCart && addressList?.length > 0 && (<div className="px-4 flex gap-4 mt-4 justify-end">
+                {props.children}
+            </div>)}
             <AddressSidebar
-                key={data.id || 0}
+                key={data?._id}
                 isOpen={open}
                 mode={mode}
                 addNewAddress={addNewAddress}

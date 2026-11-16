@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { FaCartArrowDown } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
-import { setCartFromStorage } from '../slices/cartSlice';
 import { logoutUser } from "../slices/authSlice";
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchCart, resetCart } from '../slices/cartSlice';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -14,22 +14,23 @@ export default function Header() {
   const isAuthenticated = useSelector(
     (store) => store.auth.isAuthenticated
   );
-  let count = useSelector((store) => store.cart.totalItems);
-  console.log(count);
+  let count = useSelector((state) => state.cart.totalItems);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (user) {
-      const cartKey = `cart_${user.email}`;      
-      const storedCart = JSON.parse(localStorage.getItem(cartKey)) || {};
-      dispatch(setCartFromStorage(storedCart));
-    } 
-  }, [dispatch]);
+    const token = localStorage.getItem("token");
+    if (token) {
+      dispatch(fetchCart(token));
+    }
+    
+  }, [count, user]);
 
   function logInOut(e) {
     if (!user) {
       navigate("/login");
     } else {
+      localStorage.removeItem("token");
+      dispatch(resetCart())
       dispatch(logoutUser());
     }
   }
@@ -65,7 +66,7 @@ export default function Header() {
           <li className='!p-0 flex justify-center items-center'>
             {user && (
               <Link to="/user" className='flex justify-center items-center gap-[4px] !text-black !p-[6px] align-text-middle hover:!text-white hover:!bg-[#253772] hover:!rounded-[5px]'>
-                <span><FaRegUserCircle /></span>{user?.userName.slice(0, 2).toUpperCase()}
+                <span><FaRegUserCircle /></span>{user?.name.slice(0, 2).toUpperCase()}
               </Link>)
             }
             <button className='!bg-transparent !border-none !p-[6px] hover:!text-white hover:!bg-[#253772] hover:!rounded-[5px]'
