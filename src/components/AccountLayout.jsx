@@ -65,7 +65,7 @@ export default function AccountLayout({ user }) {
                                         </Link></p>
                                         <p><strong>Order ID:</strong> {order._id}</p>
                                         <p><strong>Status:</strong> {order.orderStatus}</p>  
-                                        <p className="text-md text-gray-500">Ordered: {order.createdAt.slice(0, 9)}, {order.createdAt.slice(11, 16)}</p>  
+                                        <p><strong>Ordered:</strong> <span className="text-md text-gray-500">{order.createdAt.slice(0, 9)}, {order.createdAt.slice(11, 16)}</span></p>  
                                                   
                                     </div>
                                     <AddressCard address={order?.orderAddress} />

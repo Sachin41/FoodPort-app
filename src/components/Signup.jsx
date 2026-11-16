@@ -6,11 +6,14 @@ import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 const Signup = () => {
+
+  const API_URL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
 
   const handleNavigate = async (values, { setSubmitting, setStatus }) => {
     try {
-      await axios.post('http://localhost:8000/api/auth/signup', { ...values }).then(res => {
+
+      await axios.post(`${API_URL}/api/auth/signup`, { ...values }).then(res => {
         if (res.data && res.data.success === true) {
           navigate("/login");
         }

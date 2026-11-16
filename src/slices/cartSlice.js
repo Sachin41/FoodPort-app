@@ -1,7 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const fetchCart = createAsyncThunk('cart/fetchCart', async () => {
+
     const token = localStorage.getItem('token');
-    const res = await fetch('http://localhost:8000/api/cart', {
+    const res = await fetch(`${API_URL}/api/cart`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -11,7 +14,7 @@ export const fetchCart = createAsyncThunk('cart/fetchCart', async () => {
 
 export const addItemToCart = createAsyncThunk('cart/addItemToCart', async (item) => {
     const token = localStorage.getItem('token');
-    const res = await fetch('http://localhost:8000/api/cart/addItem', {
+    const res = await fetch(`${API_URL}/api/cart/addItem`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
@@ -24,7 +27,7 @@ export const addItemToCart = createAsyncThunk('cart/addItemToCart', async (item)
 
 export const removeItemFromCart = createAsyncThunk('cart/removeItemFromCart', async (itemId) => {
     const token = localStorage.getItem('token');
-    const res = await fetch('http://localhost:8000/api/cart/removeItem', {
+    const res = await fetch(`${API_URL}/api/cart/removeItem`, {
         method: 'PATCH',
         headers: {
             "Content-Type": "application/json",
@@ -39,7 +42,7 @@ export const removeItemFromCart = createAsyncThunk('cart/removeItemFromCart', as
 
 export const clearCart = createAsyncThunk('cart/clearCart', async () => {
     const token = localStorage.getItem('token');
-    const res = await fetch('http://localhost:8000/api/cart/clear', {
+    const res = await fetch(`${API_URL}/api/cart/clear`, {
         method: 'DELETE',
         headers: {
             Authorization: `Bearer ${token}`,

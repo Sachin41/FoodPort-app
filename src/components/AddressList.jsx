@@ -5,6 +5,7 @@ import AddressesWithActions from "./withAddressActions";
 
 const AddressList = (props) => {
 
+    const API_URL = import.meta.env.VITE_API_URL;
     const { isCart, addressSelection } = props;
     const [selectedAddress, setSelectedAddress] = useState(null);
     const [data, setData] = useState({});
@@ -15,7 +16,7 @@ const AddressList = (props) => {
     const fetchAddress = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await fetch('http://localhost:8000/api/address', {
+            const res = await fetch(`${API_URL}/api/address`, {
                 method: 'GET',
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -35,7 +36,7 @@ const AddressList = (props) => {
 
     const deleteAddress = async (addressId) => {
         const token = localStorage.getItem("token");
-        const res = await fetch(`http://localhost:8000/api/address/deleteAddress/${addressId}`, {
+        const res = await fetch(`${API_URL}/api/address/deleteAddress/${addressId}`, {
             method: 'DELETE',
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -48,7 +49,7 @@ const AddressList = (props) => {
 
     const addAddress = async (address) => {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:8000/api/address/addAddress", {
+        const res = await fetch(`${API_URL}/api/address/addAddress`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -66,7 +67,7 @@ const AddressList = (props) => {
         try {
             const token = localStorage.getItem("token");
 
-            const res = await fetch(`http://localhost:8000/api/address/updateAddress/${addressId}`, {
+            const res = await fetch(`${API_URL}/api/address/updateAddress/${addressId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

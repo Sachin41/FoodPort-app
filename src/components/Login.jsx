@@ -10,11 +10,13 @@ import { loginUser } from "../slices/authSlice";
 
 
 const Login = () => {
+
+  const API_URL = import.meta.env.VITE_API_URL;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleNavigate = async (values, { setSubmitting, setStatus }) => {
     try {
-      await axios.post('http://localhost:8000/api/auth/login', { ...values }).then(res => {
+      await axios.post(`${API_URL}/api/auth/login`, { ...values }).then(res => {
         if (res.data && res.data.success === true) {
           localStorage.setItem("token", res.data.token);
           dispatch(loginUser(res.data.user));

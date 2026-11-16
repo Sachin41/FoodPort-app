@@ -12,7 +12,7 @@ const OrderSummary = () => {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.auth.user);
   const { orders } = useSelector((store) => store.allOrder);
-  const {cartItems} = useSelector((store) => store.cart);
+  const { cartItems } = useSelector((store) => store.cart);
   // const cartItems = Object.values(cart);
   const token = localStorage.getItem("token");
 
@@ -22,7 +22,9 @@ const OrderSummary = () => {
 
   async function getOrder(orderId) {
     try {
-      const fetchedData = await fetch("http://localhost:8000/api/orders",
+
+      const API_URL = import.meta.env.VITE_API_URL;
+      const fetchedData = await fetch(`${API_URL}/api/orders`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

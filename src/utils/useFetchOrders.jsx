@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 const useFetchOrders = (user) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
@@ -12,7 +13,7 @@ const useFetchOrders = (user) => {
 
     const getOrder = async (token) => {
         try {
-            const fetchedData = await fetch("http://localhost:8000/api/orders",
+            const fetchedData = await fetch(`${API_URL}/api/orders`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
